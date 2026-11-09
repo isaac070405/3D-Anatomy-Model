@@ -86,9 +86,10 @@ export function buildNeck() {
   fitGut();
 }
 
-// The oesophagus, the laryngopharynx and the middle and inferior constrictors were drawn as round tubes whose back wall ran 5 to 7 mm into the C2 to C6 vertebral bodies.
-// Each vertex behind the front of the spine (plus a 4.5 mm prevertebral layer for longus colli and the fascia) is pushed forward onto that plane, so the back wall lies flat
-// on the spine. The effect fades out above C2 (y 1.537 to 1.552) and sideways beyond the width of the vertebral body.
+// The oesophagus, the laryngopharynx, the oropharynx and the pharyngeal constrictors were drawn as round tubes whose back wall ran into the C2 to C6 vertebral bodies and the atlas.
+// Each vertex behind the front of the spine (plus a 4.5 mm prevertebral layer in front of the bodies, 1.5 mm at the atlas) is pushed forward onto that plane, so the back wall lies
+// flat on the spine. At the atlas the push applies across the wall's full width, because the atlas arch is wider than the pharynx; above it the wall slopes back to its old
+// position between y 1.552 and 1.562, where the model has no bone behind the pharynx.
 function fitGut() {
   const bodies = [];
   for (const k of ['C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'T1', 'T2', 'T3', 'T4']) { let best = null;
@@ -97,11 +98,11 @@ function fitGut() {
   if (bodies.length < 3) return; bodies.sort((a, b) => a.y - b.y);
   const zFront = y => { if (y <= bodies[0].y) return bodies[0].z; for (let i = 1; i < bodies.length; i++) if (y <= bodies[i].y) { const a = bodies[i - 1], b = bodies[i], t = (y - a.y) / (b.y - a.y); return a.z + (b.z - a.z) * t; } return bodies[bodies.length - 1].z; };
   const targets = []; model.traverse(o => { if (!o.isMesh) return; const l = o.userData.label || '', sy = o.userData.sys;
-    if ((sy === 'digestive' && /^(Laryngopharynx|Esophag)/.test(l)) || (sy === 'muscular' && /^(Middle|Inferior) pharyngeal constrictor/.test(l))) targets.push(o); });
+    if ((sy === 'digestive' && /^(Oropharynx|Laryngopharynx|Esophag)/.test(l)) || (sy === 'muscular' && /^(Superior|Middle|Inferior) pharyngeal constrictor/.test(l))) targets.push(o); });
   const v = new THREE.Vector3();
   targets.forEach(o => { o.updateWorldMatrix(true, false); const inv = new THREE.Matrix4().copy(o.matrixWorld).invert(), p = o.geometry.attributes.position; let moved = 0;
-    for (let i = 0; i < p.count; i++) { v.fromBufferAttribute(p, i).applyMatrix4(o.matrixWorld); if (v.y < 1.30 || v.y > 1.552) continue;
-      const wx = 1 - ss(0.011, 0.0135, Math.abs(v.x)), wy = 1 - ss(1.537, 1.552, v.y), zmin = zFront(v.y) + 0.0045, d = zmin - v.z; if (d <= 0) continue;
+    for (let i = 0; i < p.count; i++) { v.fromBufferAttribute(p, i).applyMatrix4(o.matrixWorld); if (v.y < 1.30 || v.y > 1.5622) continue;
+      const xl = 0.011 + 0.0075 * ss(1.535, 1.541, v.y), wx = 1 - ss(xl, xl + 0.0025, Math.abs(v.x)), wy = 1 - ss(1.5522, 1.5622, v.y), zmin = zFront(v.y) + 0.0045 - 0.003 * ss(1.53, 1.5469, v.y), d = zmin - v.z; if (d <= 0) continue;
       v.z += d * wx * wy; moved++; v.applyMatrix4(inv); p.setXYZ(i, v.x, v.y, v.z); }
     if (moved) { p.needsUpdate = true; if (o.geometry.index) o.geometry.computeVertexNormals(); o.geometry.computeBoundingBox(); o.geometry.computeBoundingSphere(); } });
 }
