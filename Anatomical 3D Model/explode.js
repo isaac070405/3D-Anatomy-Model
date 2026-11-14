@@ -191,7 +191,7 @@ function init() {
     const group = new Set(), snap = [];
     model.traverse(o => { if (!o.isMesh || !o.userData.sys || o.userData.sys === 'skin' && st.mode === 'explode') return; if (o.userData.label === label) group.add(o); if (vis(o) || o.userData.label === label) snap.push({ o, m: o.material, v: o.visible }); });
     sel = { label, group, snap, alpha: 100, hidden: false };
-    const ZH = window.__zh; $('sbname').textContent = label; ZH && ZH.set($('sbname'), label); $('sbsys').textContent = (({ skeletal: 'Skeletal', muscular: 'Muscular', circulatory: 'Circulatory', nervous: 'Nervous', respiratory: 'Respiratory', digestive: 'Digestive', urinary: 'Urinary', reproductive: 'Reproductive', endocrine: 'Endocrine', senses: 'Special senses' })[obj.userData.sys] || obj.userData.sys) + ' system'; ZH && ZH.set($('sbsys'), ({ skeletal: 'Skeletal', muscular: 'Muscular', circulatory: 'Circulatory', nervous: 'Nervous', respiratory: 'Respiratory', digestive: 'Digestive', urinary: 'Urinary', reproductive: 'Reproductive', endocrine: 'Endocrine', senses: 'Special senses', lymphatic: 'Lymphatic' })[obj.userData.sys] || '');
+    $('sbname').textContent = label; $('sbsys').textContent = (({ skeletal: 'Skeletal', muscular: 'Muscular', circulatory: 'Circulatory', nervous: 'Nervous', respiratory: 'Respiratory', digestive: 'Digestive', urinary: 'Urinary', reproductive: 'Reproductive', endocrine: 'Endocrine', senses: 'Special senses' })[obj.userData.sys] || obj.userData.sys) + ' system';
     sbar.classList.add('open'); applySel();
   }
   window.__select = select; window.__clearSelection = clearSel;
