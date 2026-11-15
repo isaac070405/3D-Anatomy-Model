@@ -353,6 +353,7 @@ Download OBJ + MTL|下載 OBJ + MTL
 Download GLB|下載 GLB
 Body|身體
 Bones|骨骼
+Nerves|神經
 Brain & nerves|腦與神經
 Arteries|動脈
 Veins|靜脈
