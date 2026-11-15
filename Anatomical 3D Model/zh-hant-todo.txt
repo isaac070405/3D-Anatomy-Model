@@ -1,0 +1,294 @@
+# Strings still in English. Write the Traditional Chinese after the | on each line.
+# Part names, groups, systems and layer names are already translated in zh-hant.js.
+# "Parts · 12" counts and the numbers in "Skin tone 2" are built by code, so only the base text is listed.
+
+# ---- Short interface text (251) ----
+1. Brain and spine views|
+2. Head: eye, ear, nose, mouth, skull|
+3. Neck|
+4. Thoracic and abdominal cavity|
+5. Upper limb|
+6. Lower limb|
+Afferent|
+All digestive|
+Anatomical directions|
+Anatomy by system, group and part|
+Anatomy mode|
+Anatomy, exploded|
+Anterior|
+Anterior / Ventral|
+Anterior up · patient's right on the left|
+Anterior view|
+Appendix|
+Artery|
+Assemble anatomy|
+Assembled|
+Atlas|
+Axial brain section|
+Axial level|
+Bladder and pelvis|
+Body layers, skin to bone|
+Body region|
+Bone|
+Brain and cord|
+Brain axial|
+Brain axial series|
+Breast (female)|
+Breast from the side (female)|
+Breast: glandular|
+Breast: supportive|
+Breast: surface|
+Breast: vessels, nerves, lymph|
+Bronchi|
+Bronchus|
+Browse by system|
+Camera views|
+Center selected structure|
+Cervical nodes|
+Chambers and valves|
+Clear|
+Clear pin|
+Click a colour to select it, drag to move, scroll to zoom|
+Click anatomy for names · choose a system below|
+Close|
+Close brain axial series|
+Close cross-section|
+Close tweaks|
+Coronal|
+Coronary arteries and veins|
+Cortex opacity|
+Cross-section|
+Cross-section colour map|
+Cut axis|
+Cut depth|
+Cut position|
+Deep|
+Deep neck muscles|
+Dissect|
+Ear: all|
+Ear: inner|
+Ear: middle|
+Ear: outer|
+Efferent|
+Eight great vessels|
+Enlarge|
+Enlarge cross-section|
+Epidermis, dermis and the fat layer beneath.|
+Explode anatomy|
+Exploded view|
+Exploded view amount|
+Explore|
+Fat|
+Female|
+Female reproductive system|
+Fibrous connective tissue (breast)|
+Find a part|
+Fit|
+Frontal|
+Head & neck|
+Heart cut depth|
+Heart cutaway (open the chambers)|
+Hide selected structure|
+Human anatomy|
+Inferior|
+Inferior / Caudal|
+Inferior view|
+Insula|
+Keys:|
+Kidney|
+Kidney from behind|
+Lateral|
+Left|
+Left lateral view|
+Limbic|
+Liver, gallbladder, bile duct|
+Lower extremity|
+Lung|
+Lung opacity|
+Lungs and diaphragm|
+Lymph nodes|
+Lymphatic system|
+Lymphatic vessels|
+MNI template T1, 1 mm slices|
+MRI|
+Male|
+Medial|
+Menstrual cycle day|
+Menstrual cycle, day|
+Menstruation|
+Menu|
+Minimise|
+Minimise cross-section|
+Muscle|
+Muscles|
+Nasal cavity|
+Nasopharynx|
+Neck muscles|
+Neck: organs, vessels, nerves|
+Nerve|
+Nose and mouth|
+Notes on the model|
+Nothing removed|
+Nothing selected|
+Occipital|
+Oesophagus|
+Oral cavity with teeth|
+Organs|
+Oropharynx|
+Outermost visible: Skin|
+Ovaries and uterus close-up (female)|
+Pancreas and pancreatic duct|
+Panels|
+Parietal|
+Peel body layers from skin to bone|
+Peel layers|
+Peel layers from skin to bone|
+Peyer's patches|
+Plate (atlas)|
+Plate II · Systems of the body|
+Posterior|
+Posterior / Dorsal|
+Posterior view|
+Presentation|
+Put all back|
+Renal|
+Rendering|
+Reproductive organs|
+Reproductive pelvis from the side|
+Reset|
+Right|
+Right lateral view|
+Sagittal|
+Search|
+Search a part|
+Selected|
+Sex of the body|
+Shoulder and arm|
+Show Anterior organs|
+Show Bones and cartilage|
+Show Capsules and ligaments|
+Show Circulatory|
+Show Deep muscles|
+Show Deep nerves and vessels|
+Show Deep organs|
+Show Deepest muscles|
+Show Digestive|
+Show Eye and ear|
+Show Intermediate muscles|
+Show Investing fascia|
+Show Lymphatic|
+Show Muscular|
+Show Nervous|
+Show Reproductive|
+Show Reproductive (female and breast)|
+Show Respiratory|
+Show Second muscle group|
+Show Skeletal|
+Show Skin|
+Show Subcutaneous fat|
+Show Superficial muscles|
+Show Superficial veins|
+Show Thyroid and parathyroid|
+Show Urinary|
+Show Visceral coverings|
+Show all|
+Show all layers|
+Show cutting plane in the model|
+Show direction arrows on the body|
+Show only this system|
+Show selected structure only|
+Single alveolar unit|
+Single tooth|
+Skin opacity|
+Skin tone|
+Skin tone 1, darkest|
+Skin tone 2|
+Skin tone 3|
+Skin tone 4|
+Skin tone 5|
+Skin tone 6, lightest|
+Skull and teeth|
+Small intestine|
+Spine|
+Spread|
+Spread parts apart|
+Superficial|
+Superior|
+Superior / Cranial|
+Superior view|
+Surface roughness|
+Surrounding anatomy|
+Surrounding anatomy, filled to transparent|
+Systems|
+Temporal|
+The airway tubes|
+Tonsils|
+Tonsils and lymphatic system|
+Torso & pelvis|
+Transverse|
+Turntable|
+Turntable hides the panels and slowly rotates the body.|
+Tweaks|
+Undo|
+Upper extremity|
+Vein|
+Vulva (external)|
+White background for snapshots|
+Whole body|
+X-ray|
+Zoom in|
+Zoom out|
+Zoom to a structure when clicked|
+a few positional or displacement errors|
+away from the midline.|
+away from the surface.|
+carried away from it, such as motor nerves.|
+carried toward a centre, such as sensory nerves to the CNS.|
+farther from it.|
+may exist.|
+nearer the limb's attachment.|
+of 28:|
+toward the back.|
+toward the feet.|
+toward the front.|
+toward the head.|
+toward the midline.|
+toward the surface.|
+
+# ---- Descriptions and sentences (36) ----
+This model does not exactly reflect the real body arrangement;|
+Veins in the subcutaneous fat: external jugular, facial, forearm veins.|
+Atlas keeps the plate colours, X-ray shows every system through the others.|
+Estrogen and progesterone are low, so the uterine lining sheds through the vagina.|
+Skull, spine, ribs, limb bones, teeth, costal cartilage and airway cartilage rings.|
+Muscles just under the fascia: trapezius, deltoid, pectoralis major, gluteus maximus.|
+Click any structure to select it. Its tab can hide it, and Undo brings hidden structures back.|
+Deep fascia, aponeuroses, spermatic fasciae, Buck fascia, iliotibial tract, flexor retinaculum.|
+Brachialis, serratus anterior, infraspinatus, teres major, piriformis, vastus intermedius, semimembranosus.|
+Cranial and spinal nerves, spinal cord, plexuses, great arteries, cerebral arteries, sinuses and deep veins.|
+Brain, mouth and pharynx, trachea and lungs, oesophagus, pancreas, spleen, bowel, kidneys, prostate, urethra.|
+Cranial sutures, acromioclavicular joint, intervertebral discs, and skeletal, laryngeal and visceral ligaments.|
+Supraspinatus, subscapularis, gluteus minimus, adductor magnus, tibialis posterior, thenar muscles, puborectalis.|
+Dura mater, pericardium, pleura, omenta and mesenteries, serosae, renal and prostate capsules, testicular tunics.|
+Heart chambers and valves, larynx, liver, gallbladder, stomach, transverse colon, caecum, bladder, testis, penis.|
+The body surface, shown as a translucent shell so the systems beneath stay visible. Adjust it with the opacity slider.|
+Triceps brachii, gluteus medius, vastus lateralis and medialis, adductor longus, soleus, flexor digitorum superficialis.|
+Diaphragm, supinator, pronator quadratus, sphincters, trachealis, detrusor, and the wall muscle of stomach and oesophagus.|
+Left and right are the figure's own. Drag to turn, scroll to zoom. Downloads include the systems currently shown, minus removed parts.|
+Every structure moves away from the midline in proportion to its distance from it, and from front to back as well. Skin and fat stay in place.|
+The reproductive panel supports male and female anatomy. Use the Sex control to switch model variants and view the available reproductive structures.|
+The female body mesh is not loaded, so the generic body surface is shown with the female reproductive and breast structures. Peel the skin layer to see them.|
+Supports the body, protects organs and anchors muscle. Bone is shown in ivory and cartilage (discs, costal cartilage, joint surfaces) in blue-grey. Hover any bone to name it.|
+Space resets the view, H hides the selected part, U undoes, X toggles X-ray, 1 2 3 set the cut to transverse, coronal or sagittal. Double-click a surface to leave a note on it.|
+A simplified model in anatomical position. Search for a part, peel the layers from skin to bone, explode the body into systems, click a structure to isolate it, and cut through the body with the slice view.|
+Skeletal muscle produces movement and holds posture, attaching to bone through tendons (white) and aponeuroses. Superficial muscles are the lighter red, deeper layers darker. The arm, forearm, hand, hip, thigh and leg follow anatomical atlas plates.|
+The hypodermis: fat and loose connective tissue between the dermis and the deep fascia over muscle. Its depth is set by region, from about 1 mm over the front of the shin and the scalp to 3 cm over the abdomen, buttocks and thighs, with more over the hips, thighs and breasts in the female body. The skin above it is about 2.5 mm thick, up to 6 mm on the back.|
+The thyroid gland wraps the front of the trachea below the larynx: two lobes joined by an isthmus over the second to fourth tracheal rings, often with a pyramidal lobe rising toward the hyoid. Four parathyroid glands sit on the back of the lobes. Blood comes from the superior thyroid artery (external carotid) and the inferior thyroid artery (thyrocervical trunk).|
+Senses, integrates and responds. The central nervous system is the brain and spinal cord; cranial and spinal nerves form the peripheral system. The cerebral cortex is coloured by lobe: frontal (green), parietal (yellow), temporal (blue), occipital (pink), limbic (tan) and insula (purple). Use the view buttons for lateral, medial and inferior views of the brain, or the whole spine.|
+The heart pumps blood through a closed circuit. Deoxygenated blood (blue) returns through the venae cavae to the right heart and goes to the lungs through the pulmonary trunk (purple). Oxygenated blood (red) returns through the pulmonary veins to the left heart and leaves through the aorta. Use Heart cutaway to open the four chambers and see the valves, chordae and papillary muscles.|
+Air passes the larynx, the trachea (C-shaped cartilage rings with a muscular back wall) and the bronchial tree to the alveoli, where gas exchange happens across the thin alveolar wall into the capillaries. The right lung has three lobes and the left two, with a cardiac notch. The diaphragm drives breathing, and a magnified alveolar unit can be shown beside the figure (Heart, lungs and diaphragm panel).|
+The eyeball sits in the orbit, moved by four recti and two obliques that arise around the optic canal; the levator palpebrae superioris lifts the upper lid and the lacrimal gland lies above and lateral. The ear runs from the auricle and external acoustic meatus to the tympanic membrane, the three ossicles in the tympanic cavity, and the cochlea and semicircular canals in the petrous temporal bone. The pharyngotympanic tube links the middle ear to the nasopharynx.|
+Female reproductive organs include the ovaries, fallopian tubes, uterus, cervix and vagina, with the vulva externally. Move the menstrual cycle slider (day 1 to 28) to see the lining thicken, a follicle mature, ovulation and the corpus luteum. The breast model has 16 radial lobes, each with a lactiferous duct, a lobule and acini, set in fat and fibrous tissue held by the suspensory ligaments of Cooper, with the nipple-areola complex, axillary tail, lymph nodes, vessels and nerves.|
+Lymph drains the fluid that leaks from capillaries back to the blood. Lymph nodes (lime) filter it along collecting vessels (pale green) that join into trunks: the jugular, subclavian and bronchomediastinal trunks on each side, and the lumbar and intestinal trunks below. The right lymphatic duct drains the right head, neck, arm and chest into the right venous angle. The thoracic duct, which starts at the cisterna chyli, drains everything else into the left venous angle. The tonsils, spleen, thymus, Peyer's patches and appendix are lymphoid tissue held in other systems and shown together in the lymphatic views.|
+The kidneys filter blood and form urine, which drains from the renal papillae into the minor and major calyces and the renal pelvis, then down the ureters to the bladder. The renal cortex is shown translucent so the medullary pyramids and collecting system are visible inside. At the hilum the renal vein lies in front, the artery in the middle and the pelvis behind. Each ureter narrows at the pelviureteric junction, at the pelvic brim and where it passes obliquely through the bladder wall. The trigone, between the two ureteric orifices and the internal urethral orifice, is the smooth area of the otherwise folded bladder lining.|
+Breaks down food, absorbs nutrients and water, and eliminates waste. The mouth holds 32 permanent teeth and a tongue with papillae in front of the V-shaped sulcus terminalis and the lingual tonsil behind it. The lips and cheeks line a vestibule outside the teeth, the hard and soft palate roof the mouth, and a palatine tonsil lies in each tonsillar fossa between the faucial arches, with the pharyngeal, tubal and lingual tonsils completing Waldeyer's ring. The parotid, submandibular and sublingual glands empty into the mouth through their ducts. The oesophagus narrows at four points and changes from striated to smooth muscle down its length. The J-shaped stomach has a fundus above the cardia, an angular incisure on the lesser curvature and a thick-walled pyloric canal; its translucent wall shows three muscle layers over red, folded mucosa. The duodenum curves around the pancreatic head. The jejunum (upper left, wider, redder, tall folds, long vasa recta) gives way to the ileum (lower right, narrower, fatty mesentery, Peyer’s patches). The colon carries haustra, three taeniae and fatty appendices; the rectum follows the sacrum and bends at the puborectalis sling into the anal canal.|
