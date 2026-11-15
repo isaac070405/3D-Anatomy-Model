@@ -4,7 +4,7 @@ All notable changes to this project are listed here, newest first. Dates are in 
 
 ## Unreleased
 
-- Release language pack 1.0.3 and 1.0.2 (same files as 1.0.1) and 1.0.1 (`@isaac070405/anatomy-lang-zh-hant`) with the npm install steps in its README.
+- Release language pack 1.0.4 (translates the remaining interface strings), 1.0.3 and 1.0.2 (same files as 1.0.1) and 1.0.1 (`@isaac070405/anatomy-lang-zh-hant`) with the npm install steps in its README.
 - Add the Traditional Chinese (繁體中文) language pack in `lang/zh-Hant/`, a folder that can be copied in or deleted. It puts names beside every structure, group, system and layer, with Chinese search and an on/off button.
 - Translate the interface (buttons, headings, descriptions) into Traditional Chinese when the Chinese button is on (`lang/zh-Hant/ui.js`).
 - Add a worksheet of interface strings that still need translation (`lang/zh-Hant/worksheet.txt`).
