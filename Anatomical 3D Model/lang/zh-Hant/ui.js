@@ -363,6 +363,17 @@ Project documents|專案文件
 No match. Try a common name, a Latin name or fewer letters.|找不到符合項目。請試用常用名稱、拉丁名稱或較少字母。
 Showing: single alveolar unit (magnified). Press the button again or Reset to leave it.|正在顯示：單一肺泡單位（放大）。再按一次按鈕或按「重設」即可離開。
 close match|相近結果
+Type a note|輸入註記
+Note|註記
+Delete note|刪除註記
+Anatomy, assembled|解剖結構（已組合）
+← All systems|← 所有系統
+Snapshot saved|快照已儲存
+No match|找不到符合項目
+Not available in Explode anatomy mode.|分解解剖模式下無法使用。
+Special senses|特殊感官
+Endocrine|內分泌
+three.js failed to load.|three.js 載入失敗。
 `;
   const map = new Map();
   TEXT.split('\n').forEach(l => { const i = l.indexOf('|'); if (i > 0) map.set(l.slice(0, i).trim(), l.slice(i + 1).trim()); });
@@ -382,6 +393,7 @@ close match|相近結果
     [/^Undone\. (.+)$/, (m) => '已復原。' + tr(m[1])],
     [/^Cross-section axis: (.+)$/, (m) => '橫切面軸向：' + tr(m[1])],
     [/^Show (.+)$/, (m) => '顯示' + name(m[1])],
+    [/^(.+) system$/, (m) => { const z = name(m[1]); return /系統$/.test(z) ? z : z + '系統'; }],
     [/^Skin tone (\d+)$/, (m) => '膚色 ' + m[1]],
     [/^([^·]+) · (.+)$/, (m) => { const a = tr(m[1]), b = tr(m[2]); return (a || b) ? (a || m[1].trim()) + ' · ' + (b || m[2].trim()) : null; }],
   ];
