@@ -1,6 +1,6 @@
 // Traditional Chinese (繁體中文) interface text. With the Chinese button on, this replaces English interface text with Chinese.
 // Structure names stay English with the Chinese name beside them (zh-hant.js). Add or fix a line below: "English|中文".
-// zh-hant-todo.txt is the worksheet these lines came from.
+// worksheet.txt in this folder is the list these lines came from.
 (function () {
   const TEXT = `
 1. Brain and spine views|1. 腦與脊柱視圖
@@ -336,7 +336,7 @@ Make smaller|縮小
 Camera reset to the opening view|鏡頭已重設至起始視角
 Nothing selected to hide|沒有可隱藏的已選結構
 Nothing to undo|沒有可復原的操作
-Search a part, e.g. femur or 股骨|搜尋部位，例如 femur 或 股骨
+Search a part, e.g. femur|搜尋部位，例如 femur 或 股骨
 Parts|部位
 All layers hidden|所有層次已隱藏
 Accessibility|無障礙

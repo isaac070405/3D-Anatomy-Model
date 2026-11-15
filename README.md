@@ -49,8 +49,7 @@ Open http://localhost:8000.
 | `Anatomical 3D Model/index.html` | Page, import map and interface |
 | `Anatomical 3D Model/anatomy-*.js` | Procedural geometry for each body region |
 | `Anatomical 3D Model/three-d-stage.js` | Scene, camera, selection and cross-section |
-| `Anatomical 3D Model/zh-hant-ui.js` | Traditional Chinese interface text, applied when the Chinese button is on |
-| `Anatomical 3D Model/zh-hant.js` | Traditional Chinese term list and the code that builds names not on the list |
+| `Anatomical 3D Model/lang/` | Optional language packs. `lang/zh-Hant/` is the Traditional Chinese pack (names, interface text, search) |
 | `Anatomical 3D Model/layers.js`, `explode.js`, `search.js`, `tree.js` | Peel layers, explode mode, search, anatomical tree |
 | `Anatomical 3D Model/assets/` | `eye.glb`, `mni_brain.glb` and brain volume data |
 | `scripts/` | Python converters for the eye, brain and TotalSegmentator output |

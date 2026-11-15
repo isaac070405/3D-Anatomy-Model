@@ -4,9 +4,9 @@ All notable changes to this project are listed here, newest first. Dates are in 
 
 ## Unreleased
 
-- Add Traditional Chinese (繁體中文) names beside every structure, group, system and layer, with Chinese search and an on/off button.
-- Translate the interface (buttons, headings, descriptions) into Traditional Chinese when the Chinese button is on (`zh-hant-ui.js`).
-- Add a worksheet of interface strings that still need translation (`Anatomical 3D Model/zh-hant-todo.txt`).
+- Add the Traditional Chinese (繁體中文) language pack in `lang/zh-Hant/`, a folder that can be copied in or deleted. It puts names beside every structure, group, system and layer, with Chinese search and an on/off button.
+- Translate the interface (buttons, headings, descriptions) into Traditional Chinese when the Chinese button is on (`lang/zh-Hant/ui.js`).
+- Add a worksheet of interface strings that still need translation (`lang/zh-Hant/worksheet.txt`).
 - Add project documents: ACCESSIBILITY, CHANGELOG, CITATION, CODE_OF_CONDUCT, CONTRIBUTING, SECURITY, SUPPORT and THIRD_PARTY_NOTICES.
 
 ## 2026-11
