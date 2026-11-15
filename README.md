@@ -13,6 +13,7 @@ An interactive three.js model of the human body that runs in the browser with no
 
 - 971 named parts across 13 systems (skeletal, muscular, circulatory, nervous, digestive, respiratory, urinary, reproductive, eye and ear, endocrine, skin, fat).
 - Fuzzy search with aliases, plus an anatomical tree with breadcrumb.
+- Traditional Chinese (繁體中文) names beside every structure, group, system and layer. Search accepts Chinese (for example 股骨), and a button in the sidebar turns the Chinese labels and interface text off.
 - Layer peeling: a depth slider removes 14 layers from skin to bone.
 - Live cross-sections on the transverse, coronal and sagittal planes.
 - Explode mode, X-ray and atlas colour modes, and region dissection with undo.
@@ -48,6 +49,7 @@ Open http://localhost:8000.
 | `Anatomical 3D Model/index.html` | Page, import map and interface |
 | `Anatomical 3D Model/anatomy-*.js` | Procedural geometry for each body region |
 | `Anatomical 3D Model/three-d-stage.js` | Scene, camera, selection and cross-section |
+| `Anatomical 3D Model/lang/` | Optional language packs. `lang/zh-Hant/` is the Traditional Chinese pack (names, interface text, search) |
 | `Anatomical 3D Model/layers.js`, `explode.js`, `search.js`, `tree.js` | Peel layers, explode mode, search, anatomical tree |
 | `Anatomical 3D Model/assets/` | `eye.glb`, `mni_brain.glb` and brain volume data |
 | `scripts/` | Python converters for the eye, brain and TotalSegmentator output |
