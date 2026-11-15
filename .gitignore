@@ -3,3 +3,6 @@
 
 # Built language pack zips (scripts/build_lang_pack.sh)
 dist/
+
+# macOS folder metadata
+.DS_Store
