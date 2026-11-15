@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "3D Anatomy Model"
+type: software
+authors:
+  - alias: "isaac070405"
+repository-code: "https://github.com/isaac070405/3D-Anatomy-Model"
+url: "https://isaac070405.github.io/3D-Anatomy-Model/"
+license: MIT
+abstract: >-
+  An interactive three.js model of the human body that runs in the browser
+  with no build step and no backend. It is a simplified teaching model and
+  is not for clinical use.
+keywords:
+  - anatomy
+  - three.js
+  - education
+  - 3D model
