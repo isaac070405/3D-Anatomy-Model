@@ -3,138 +3,138 @@
 # "Parts · 12" counts and the numbers in "Skin tone 2" are built by code, so only the base text is listed.
 
 # ---- Short interface text (251) ----
-1. Brain and spine views|
-2. Head: eye, ear, nose, mouth, skull|
-3. Neck|
-4. Thoracic and abdominal cavity|
-5. Upper limb|
-6. Lower limb|
-Afferent|
-All digestive|
-Anatomical directions|
-Anatomy by system, group and part|
-Anatomy mode|
-Anatomy, exploded|
-Anterior|
-Anterior / Ventral|
-Anterior up · patient's right on the left|
-Anterior view|
-Appendix|
-Artery|
-Assemble anatomy|
-Assembled|
-Atlas|
-Axial brain section|
-Axial level|
-Bladder and pelvis|
-Body layers, skin to bone|
-Body region|
-Bone|
-Brain and cord|
-Brain axial|
-Brain axial series|
+1. Brain and spine views|腦和脊髓
+2. Head: eye, ear, nose, mouth, skull|頭部: 眼、耳、鼻、口、頭顱
+3. Neck|頸
+4. Thoracic and abdominal cavity|胸腔和腹腔
+5. Upper limb|上肢
+6. Lower limb|下肢
+Afferent|傳入的/向心的
+All digestive|消化部份
+Anatomical directions|解剖學方位
+Anatomy by system, group and part|系統、組別和部位的解剖學劃分
+Anatomy mode|解剖模型
+Anatomy, exploded|解剖結構拆解圖
+Anterior|前方
+Anterior / Ventral|前方/腹側（靠近身體前面或腹面）
+Anterior up · patient's right on the left|前側朝上 · 患者右側位於畫面左側
+Anterior view|前視圖/正面觀
+Appendix|闌尾
+Artery|動脈
+Assemble anatomy|解剖構造
+Assembled|組合的
+Atlas|寰椎
+Axial brain section|腦部橫切面
+Axial level|橫斷面層級
+Bladder and pelvis|膀胱與骨盆
+Body layers, skin to bone|解剖層次由皮膚至骨頭
+Body region|身體區域
+Bone|骨
+Brain and cord|腦和髓
+Brain axial|腦部軸狀面
+Brain axial series|腦部軸狀切面序列
 Breast (female)|
 Breast from the side (female)|
 Breast: glandular|
 Breast: supportive|
 Breast: surface|
 Breast: vessels, nerves, lymph|
-Bronchi|
-Bronchus|
+Bronchi|支氣管(單數)
+Bronchus|支氣管(複數)
 Browse by system|
 Camera views|
 Center selected structure|
-Cervical nodes|
-Chambers and valves|
-Clear|
+Cervical nodes|頸部淋巴結
+Chambers and valves|心腔與瓣膜
+Clear|清除
 Clear pin|
 Click a colour to select it, drag to move, scroll to zoom|
 Click anatomy for names · choose a system below|
-Close|
-Close brain axial series|
-Close cross-section|
-Close tweaks|
-Coronal|
-Coronary arteries and veins|
-Cortex opacity|
-Cross-section|
+Close|清除
+Close brain axial series|關閉腦部軸狀切面序列
+Close cross-section|關閉
+Close tweaks|關閉
+Coronal|冠狀面
+Coronary arteries and veins|冠狀動脈與靜脈
+Cortex opacity|皮質不透明
+Cross-section|關閉剖面
 Cross-section colour map|
 Cut axis|
 Cut depth|
 Cut position|
-Deep|
-Deep neck muscles|
-Dissect|
+Deep|深層
+Deep neck muscles|深層頸部肌肉
+Dissect|解剖
 Ear: all|
-Ear: inner|
-Ear: middle|
-Ear: outer|
-Efferent|
-Eight great vessels|
-Enlarge|
+Ear: inner|內耳
+Ear: middle|中耳
+Ear: outer|外耳
+Efferent|傳出的/輸出的
+Eight great vessels|八大動靜脈
+Enlarge|擴張
 Enlarge cross-section|
 Epidermis, dermis and the fat layer beneath.|
 Explode anatomy|
 Exploded view|
 Exploded view amount|
 Explore|
-Fat|
-Female|
-Female reproductive system|
+Fat|脂肪
+Female|女性
+Female reproductive system|女性生殖系統
 Fibrous connective tissue (breast)|
 Find a part|
 Fit|
-Frontal|
-Head & neck|
+Frontal|額狀
+Head & neck|頭部與頸
 Heart cut depth|
 Heart cutaway (open the chambers)|
 Hide selected structure|
 Human anatomy|
-Inferior|
+Inferior|相對於另一個結構更低的位置
 Inferior / Caudal|
 Inferior view|
-Insula|
+Insula|腦島
 Keys:|
-Kidney|
+Kidney|腎臟
 Kidney from behind|
-Lateral|
-Left|
-Left lateral view|
-Limbic|
-Liver, gallbladder, bile duct|
+Lateral|外側
+Left|左方
+Left lateral view|左側視覺
+Limbic|邊緣的
+Liver, gallbladder, bile duct|肝臟、膽囊、膽管
 Lower extremity|
-Lung|
+Lung|肺
 Lung opacity|
-Lungs and diaphragm|
-Lymph nodes|
-Lymphatic system|
-Lymphatic vessels|
-MNI template T1, 1 mm slices|
-MRI|
-Male|
-Medial|
-Menstrual cycle day|
-Menstrual cycle, day|
-Menstruation|
+Lungs and diaphragm|肺與橫隔膜
+Lymph nodes|淋巴結
+Lymphatic system|淋巴系統
+Lymphatic vessels|淋巴管
+MNI template T1, 1 mm slices|蒙特利爾神經學研究所標準腦模板（T1 加權像，1 毫米等向性切片）
+MRI|磁振造影
+Male|男性
+Medial|內側·靠近身體正中矢狀面（中線）的一側
+Menstrual cycle day|月經周期
+Menstrual cycle, day|月經周期
+Menstruation|月經
 Menu|
 Minimise|
 Minimise cross-section|
-Muscle|
-Muscles|
-Nasal cavity|
-Nasopharynx|
+Muscle|肌肉
+Muscles|肌肉(複數)
+Nasal cavity|鼻腔
+Nasopharynx|鼻咽
 Neck muscles|
 Neck: organs, vessels, nerves|
-Nerve|
+Nerve|神經
 Nose and mouth|
 Notes on the model|
 Nothing removed|
 Nothing selected|
 Occipital|
-Oesophagus|
-Oral cavity with teeth|
-Organs|
-Oropharynx|
+Oesophagus|食道
+Oral cavity with teeth|口腔包含牙齒
+Organs|器官
+Oropharynx|口咽/中咽部
 Outermost visible: Skin|
 Ovaries and uterus close-up (female)|
 Pancreas and pancreatic duct|
@@ -146,8 +146,8 @@ Peel layers from skin to bone|
 Peyer's patches|
 Plate (atlas)|
 Plate II · Systems of the body|
-Posterior|
-Posterior / Dorsal|
+Posterior|後側的
+Posterior / Dorsal|背側
 Posterior view|
 Presentation|
 Put all back|
