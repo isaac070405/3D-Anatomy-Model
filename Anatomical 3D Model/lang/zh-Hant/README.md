@@ -18,6 +18,10 @@ Adds 繁體中文 to the 3D Anatomy Model. The page runs in English without this
 - Interface text is replaced by Chinese. The button under the introduction turns both off, and the choice is kept in the browser.
 - Chinese text typed in the search box (for example 股骨) finds matching structures.
 
+## Get the zip
+
+Run `scripts/build_lang_pack.sh zh-Hant` in the repository. It writes `dist/zh-Hant-language-pack-<version>.zip`.
+
 ## Install
 
 1. Copy this folder to `Anatomical 3D Model/lang/zh-Hant/`.

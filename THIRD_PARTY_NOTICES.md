@@ -6,9 +6,9 @@ The project code is MIT licensed (`LICENSE`). The items below keep their own lic
 |---|---|---|
 | three.js 0.184.0 (https://threejs.org) | 3D rendering, loaders and exporters, loaded from unpkg | MIT, copyright three.js authors |
 | feelpp/mesh.eye v1.1 (Zenodo 10.5281/zenodo.15630998) | Eyeball meshes in `Anatomical 3D Model/assets/eye.glb` | GPL-3.0-only |
-| MNI T1 brain template (`tpl-mni_T1w`) | `assets/mni_brain.glb`, `mni_brain_t1.bin`, `mni_brain_t1.json` | Check the template's own terms before redistributing |
+| Skull-stripped T1 MNI brain template (`tpl-mni_T1w`) | `assets/mni_brain.glb`, `mni_brain_t1.bin`, `mni_brain_t1.json` | Not recorded in this repository. Add the exact template name, source and terms here |
 | TotalSegmentator dataset (Wasserthal et al., Radiology: AI 2023, doi:10.1148/ryai.230024) | Optional input for `scripts/totalsegmentator_to_glb.py` | CC BY 4.0 |
-| Design system styles in `Anatomical 3D Model/_ds/` | Page styling | See the files in that folder |
+| Design system styles in `Anatomical 3D Model/_ds/` (classical and industry) | Page styling | Imported from Claude Design on 2026-10-08. The folder has no licence file |
 
 ## Eye meshes under GPL-3.0
 
