@@ -52,7 +52,7 @@ Open http://localhost:8000.
 | `Anatomical 3D Model/lang/` | Optional language packs. `lang/zh-Hant/` is the Traditional Chinese pack (names, interface text, search) |
 | `Anatomical 3D Model/layers.js`, `explode.js`, `search.js`, `tree.js` | Peel layers, explode mode, search, anatomical tree |
 | `Anatomical 3D Model/assets/` | `eye.glb`, `mni_brain.glb` and brain volume data |
-| `scripts/` | Python converters for the eye, brain and TotalSegmentator output |
+| `scripts/` | Python converters for the eye, brain and TotalSegmentator output, and `build_lang_pack.sh` to zip a language pack |
 | `wiki/` | System pages, interface guide and modelling notes |
 | `.github/workflows/pages.yml` | Deploys `Anatomical 3D Model/` to GitHub Pages on each push to `main` |
 

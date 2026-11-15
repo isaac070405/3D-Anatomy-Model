@@ -1,0 +1,13 @@
+{
+  "name": "@isaac070405/anatomy-lang-zh-hant",
+  "version": "1.0.0",
+  "description": "Traditional Chinese (繁體中文) language pack for the 3D Anatomy Model",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isaac070405/3D-Anatomy-Model.git",
+    "directory": "Anatomical 3D Model/lang/zh-Hant"
+  },
+  "files": ["index.js", "names.js", "ui.js", "pack.json", "README.md", "worksheet.txt"],
+  "publishConfig": { "registry": "https://npm.pkg.github.com" }
+}

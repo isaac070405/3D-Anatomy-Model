@@ -352,6 +352,17 @@ Drag to orbit · scroll to zoom · right-drag to pan|拖曳以旋轉 · 捲動�
 Download OBJ + MTL|下載 OBJ + MTL
 Download GLB|下載 GLB
 Body|身體
+Bones|骨骼
+Nerves|神經
+Brain & nerves|腦與神經
+Arteries|動脈
+Veins|靜脈
+Organs & airway|器官與氣道
+Lymphatics|淋巴系統
+Project documents|專案文件
+No match. Try a common name, a Latin name or fewer letters.|找不到符合項目。請試用常用名稱、拉丁名稱或較少字母。
+Showing: single alveolar unit (magnified). Press the button again or Reset to leave it.|正在顯示：單一肺泡單位（放大）。再按一次按鈕或按「重設」即可離開。
+close match|相近結果
 `;
   const map = new Map();
   TEXT.split('\n').forEach(l => { const i = l.indexOf('|'); if (i > 0) map.set(l.slice(0, i).trim(), l.slice(i + 1).trim()); });
@@ -359,6 +370,9 @@ Body|身體
   const name = s => { const z = Z() && Z().zh(s); return z || map.get(s) || s; };
   // text built by code, with numbers or names inside
   const RULES = [
+    [/^Showing (.+)$/, (m) => '正在顯示：' + name(m[1])],
+    [/^([+−-]\d+) mm from mid-brain · level ([\d.]+) m$/, (m) => '距腦中部 ' + m[1] + ' 毫米 · 高度 ' + m[2] + ' 米'],
+    [/^(.+) ↗$/, (m) => name(m[1]) + ' ↗'],
     [/^Parts · (\d+)$/, (m) => '部位 · ' + m[1]],
     [/^(\d+) removed · last: (.+)$/, (m) => '已移除 ' + m[1] + ' 項 · 最後：' + name(m[2])],
     [/^Outermost visible: (.+)$/, (m) => '最外層可見：' + name(m[1])],
@@ -369,6 +383,7 @@ Body|身體
     [/^Cross-section axis: (.+)$/, (m) => '橫切面軸向：' + tr(m[1])],
     [/^Show (.+)$/, (m) => '顯示' + name(m[1])],
     [/^Skin tone (\d+)$/, (m) => '膚色 ' + m[1]],
+    [/^([^·]+) · (.+)$/, (m) => { const a = tr(m[1]), b = tr(m[2]); return (a || b) ? (a || m[1].trim()) + ' · ' + (b || m[2].trim()) : null; }],
   ];
   function tr(s) {
     const t = s.trim(); if (!t) return null;

@@ -6,6 +6,7 @@ Adds 繁體中文 to the 3D Anatomy Model. The page runs in English without this
 
 | File | Role |
 |---|---|
+| `package.json` | npm name `@isaac070405/anatomy-lang-zh-hant`, published to GitHub Packages |
 | `pack.json` | Pack id, version and file list |
 | `index.js` | Loads `names.js`, then `ui.js` |
 | `names.js` | `English name\|中文名` list for structures, groups, systems and layers, and the rules for left, right, numbers and "Base, qualifier" names. Defines `window.__zh` |
@@ -17,6 +18,10 @@ Adds 繁體中文 to the 3D Anatomy Model. The page runs in English without this
 - Structure names show in English with the Chinese name beside them.
 - Interface text is replaced by Chinese. The button under the introduction turns both off, and the choice is kept in the browser.
 - Chinese text typed in the search box (for example 股骨) finds matching structures.
+
+## Get the zip
+
+Run `scripts/build_lang_pack.sh zh-Hant` in the repository. It writes `dist/zh-Hant-language-pack-<version>.zip`.
 
 ## Install
 
