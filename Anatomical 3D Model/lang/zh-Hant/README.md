@@ -23,7 +23,16 @@ Adds 繁體中文 to the 3D Anatomy Model. The page runs in English without this
 
 Run `scripts/build_lang_pack.sh zh-Hant` in the repository. It writes `dist/zh-Hant-language-pack-<version>.zip`.
 
-## Install
+## Install from npm
+
+```bash
+echo "@isaac070405:registry=https://npm.pkg.github.com" >> .npmrc
+npm install @isaac070405/anatomy-lang-zh-hant
+```
+
+Log in first with `npm login --scope=@isaac070405 --auth-type=legacy --registry=https://npm.pkg.github.com`, using a classic token with `read:packages`. Then copy `node_modules/@isaac070405/anatomy-lang-zh-hant` to `Anatomical 3D Model/lang/zh-Hant/`.
+
+## Install from a folder or zip
 
 1. Copy this folder to `Anatomical 3D Model/lang/zh-Hant/`.
 2. Keep `'zh-Hant'` in `PACKS` in `lang/loader.js`.

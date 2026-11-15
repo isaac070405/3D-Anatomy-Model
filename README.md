@@ -42,6 +42,28 @@ python3 -m http.server 8000
 
 Open http://localhost:8000.
 
+## Traditional Chinese language pack
+
+The page runs in English by default. The Traditional Chinese (繁體中文) pack lives in `Anatomical 3D Model/lang/zh-Hant/` and is already included in this repository, so a clone needs no extra step. A button under the introduction turns the Chinese names and interface text on and off.
+
+To add the pack to another copy of the page, install it from GitHub Packages:
+
+```bash
+echo "@isaac070405:registry=https://npm.pkg.github.com" >> .npmrc
+npm login --scope=@isaac070405 --auth-type=legacy --registry=https://npm.pkg.github.com
+npm install @isaac070405/anatomy-lang-zh-hant
+```
+
+GitHub Packages asks for a classic personal access token with `read:packages`, even for public packages. Enter it as the password at `npm login`.
+
+The page has no build step, so copy the installed files into its `lang` folder and keep `'zh-Hant'` in `PACKS` in `lang/loader.js`:
+
+```bash
+cp -r node_modules/@isaac070405/anatomy-lang-zh-hant "Anatomical 3D Model/lang/zh-Hant"
+```
+
+You can also build a zip with `scripts/build_lang_pack.sh zh-Hant`. See `Anatomical 3D Model/lang/zh-Hant/README.md` for removal and editing.
+
 ## Project layout
 
 | Path | Contents |
