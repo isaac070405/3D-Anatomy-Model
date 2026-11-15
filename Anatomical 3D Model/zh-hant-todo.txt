@@ -52,13 +52,13 @@ Click a colour to select it, drag to move, scroll to zoom|點擊顏色以選取�
 Click anatomy for names · choose a system below|點擊結構查看名稱 · 在下方選擇系統
 Close|關閉
 Close brain axial series|關閉腦部橫切面系列
-Close cross-section|關閉橫切面
+Close cross-section|關閉剖面
 Close tweaks|關閉調整面板
 Coronal|冠狀面
 Coronary arteries and veins|冠狀動脈與靜脈
 Cortex opacity|皮質不透明度
-Cross-section|橫切面
-Cross-section colour map|橫切面顏色圖
+Cross-section|剖面
+Cross-section colour map|剖面顏色圖
 Cut axis|切割軸向
 Cut depth|切割深度
 Cut position|切割位置
@@ -72,7 +72,7 @@ Ear: outer|耳：外耳
 Efferent|傳出（離心）
 Eight great vessels|八條大血管
 Enlarge|放大
-Enlarge cross-section|放大橫切面
+Enlarge cross-section|放大剖面
 Epidermis, dermis and the fat layer beneath.|表皮、真皮及其下的脂肪層。
 Explode anatomy|分解解剖結構
 Exploded view|分解圖
@@ -118,7 +118,7 @@ Menstrual cycle, day|月經週期，第
 Menstruation|月經期
 Menu|選單
 Minimise|最小化
-Minimise cross-section|最小化橫切面
+Minimise cross-section|最小化剖面
 Muscle|肌肉
 Muscles|肌肉
 Nasal cavity|鼻腔
