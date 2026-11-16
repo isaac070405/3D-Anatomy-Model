@@ -10,6 +10,8 @@ The project code is MIT licensed (`LICENSE`). The items below keep their own lic
 | TotalSegmentator dataset (Wasserthal et al., Radiology: AI 2023, doi:10.1148/ryai.230024) | Optional input for `scripts/totalsegmentator_to_glb.py` | CC BY 4.0 |
 | Design system styles in `Anatomical 3D Model/_ds/` (classical and industry) | Page styling | Imported from Claude Design on 2026-10-08. The folder has no licence file, so it is treated as MIT with the rest of the repository |
 | Barlow and Barlow Condensed fonts (https://github.com/jpt/barlow, Jeremy Tribby), loaded from Google Fonts by `Anatomical 3D Model/_ds/industry-*/styles.css` and the wireframes page | Page typography | SIL Open Font License 1.1. The repository stores no copy of the fonts |
+| Cormorant Garamond and Lora fonts (https://fonts.google.com/specimen/Cormorant+Garamond, https://fonts.google.com/specimen/Lora), loaded from Google Fonts by `Anatomical 3D Model/_ds/classical-*/styles.css`, which `index.html` links | Page typography | SIL Open Font License 1.1. The repository stores no copy of the fonts |
+| Caveat font (https://fonts.google.com/specimen/Caveat), loaded from Google Fonts by `Anatomical 3D Model/Anatomy Explorer Wireframes.dc.html` | Wireframe page handwriting | SIL Open Font License 1.1. The repository stores no copy of the font |
 
 ## MNI brain template
 
