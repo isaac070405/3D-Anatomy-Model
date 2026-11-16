@@ -1240,9 +1240,38 @@ let femaleOK = false;
         if (sd <= -MG || sd > 0.08) continue; const k = sd + MG; w3.x -= nx * k; w3.y -= ny * k; w3.z -= nz * k; w3.applyMatrix4(inv); p.setXYZ(i, w3.x, w3.y, w3.z); ch = true; }
       if (ch) { p.needsUpdate = true; o.geometry.computeVertexNormals(); o.geometry.computeBoundingSphere(); o.geometry.computeBoundingBox(); moved++; } });
     return moved; };
-  const fitBody = async (url, label) => {
+  // The Realistic base meshes have no skeleton. Joints measured on each mesh (metres, left side; x is mirrored for the right) define capsule bones,
+  // and each vertex takes soft weights from its distance to every capsule surface, so the same retarget and fit as a rigged mesh can run.
+  const RIGS = {
+    male: { neckA: [0, 1.405, 0], neckB: [0, 1.48, 0.03], crown: [0, 1.684, 0.03], trunkA: [0, 0.93, 0], trunkB: [0, 1.36, 0], rt: 0.15, clav: [0.03, 1.4, 0.03], sh: [0.17, 1.34, 0], el: [0.295, 1.07, 0.01], wr: [0.385, 0.84, 0.07], hd: [0.43, 0.7, 0.115],
+      hip: [0.095, 0.87, 0], kn: [0.145, 0.43, -0.01], an: [0.165, 0.085, -0.04], toe: [0.18, 0.015, 0.12], r: { clav: 0.05, ua: 0.055, fa: 0.045, hand: 0.045, th: 0.085, sh: 0.055, ft: 0.05, neck: 0.07, head: 0.07 } },
+    female: { neckA: [0, 1.39, 0], neckB: [0, 1.46, 0.04], crown: [0, 1.641, 0.03], trunkA: [0, 0.92, 0], trunkB: [0, 1.34, 0], rt: 0.125, clav: [0.03, 1.38, 0.03], sh: [0.15, 1.31, 0], el: [0.235, 1.03, -0.02], wr: [0.335, 0.8, 0.035], hd: [0.41, 0.68, 0.07],
+      hip: [0.085, 0.85, 0], kn: [0.115, 0.42, -0.025], an: [0.12, 0.075, -0.03], toe: [0.13, 0.015, 0.13], r: { clav: 0.045, ua: 0.045, fa: 0.038, hand: 0.04, th: 0.085, sh: 0.05, ft: 0.045, neck: 0.07, head: 0.07 } } };
+  const makeRig = (root, J) => {
+    let body = null; root.traverse(o => { if (o.isMesh && (!body || o.geometry.attributes.position.count > body.geometry.attributes.position.count)) body = o; });
+    if (!body) throw new Error('no body mesh');
+    root.traverse(o => { if (o.isMesh && o !== body) o.visible = false; });
+    const r = J.r, mir = (p, s) => [p[0] * s, p[1], p[2]], D = []; // [name, parent, head, tail, capsule radius]
+    D.push(['root', null, J.trunkA, J.trunkA, 0], ['spine_01', 'root', J.trunkA, J.trunkB, J.rt], ['neck', 'spine_01', J.neckA, J.neckB, r.neck], ['head', 'neck', J.neckB, J.crown, r.head]);
+    for (const s of [1, -1]) { const x = s > 0 ? '.L' : '.R', m = p => mir(p, s);
+      D.push(['clavicle' + x, 'spine_01', m(J.clav), m(J.sh), r.clav], ['upper_arm' + x, 'clavicle' + x, m(J.sh), m(J.el), r.ua], ['forearm' + x, 'upper_arm' + x, m(J.el), m(J.wr), r.fa], ['hand' + x, 'forearm' + x, m(J.wr), m(J.hd), r.hand], ['middle_01' + x, 'hand' + x, m(J.hd), m(J.hd), 0],
+        ['thigh' + x, 'root', m(J.hip), m(J.kn), r.th], ['shin' + x, 'thigh' + x, m(J.kn), m(J.an), r.sh], ['foot' + x, 'shin' + x, m(J.an), m(J.toe), r.ft], ['toe' + x, 'foot' + x, m(J.toe), m(J.toe), 0]); }
+    const bones = [], byName = {};
+    for (const [nm, par, h] of D) { const b = new THREE.Bone(); b.name = nm; const ph = par ? D.find(d => d[0] === par)[2] : [0, 0, 0]; b.position.set(h[0] - ph[0], h[1] - ph[1], h[2] - ph[2]); (par ? byName[par] : root).add(b); byName[nm] = b; bones.push(b); }
+    const caps = D.map((d, i) => ({ i, a: V(...d[2]), ab: V(...d[3]).sub(V(...d[2])), r: d[4] })).filter(c => c.r > 0);
+    const src = body.geometry, pa = src.attributes.position, N = pa.count, SI = new Uint16Array(N * 4), SW = new Float32Array(N * 4), q = V(0, 0, 0), t = V(0, 0, 0), dd = new Float32Array(caps.length), TAU = 0.012;
+    for (let i = 0; i < N; i++) { q.fromBufferAttribute(pa, i); let mn = 1e9;
+      caps.forEach((c, k) => { const u = Math.min(1, Math.max(0, t.copy(q).sub(c.a).dot(c.ab) / c.ab.lengthSq())); dd[k] = t.copy(c.a).addScaledVector(c.ab, u).distanceTo(q) - c.r; if (dd[k] < mn) mn = dd[k]; });
+      const w = caps.map((c, k) => [c.i, Math.exp(-(dd[k] - mn) / TAU)]).sort((u, v) => v[1] - u[1]).slice(0, 4), sum = w.reduce((u, v) => u + v[1], 0);
+      w.forEach((e, k) => { SI[i * 4 + k] = e[0]; SW[i * 4 + k] = e[1] / sum; }); }
+    const g = new THREE.BufferGeometry(); g.setAttribute('position', pa); g.setIndex(src.index); g.setAttribute('skinIndex', new THREE.BufferAttribute(SI, 4)); g.setAttribute('skinWeight', new THREE.BufferAttribute(SW, 4));
+    if (src.attributes.uv) g.setAttribute('uv', src.attributes.uv);
+    return { skeleton: { bones }, geometry: g, matrixWorld: root.matrixWorld, getVertexPosition: (i, out) => out.fromBufferAttribute(pa, i) };
+  };
+  const fitBody = async (url, label, J) => {
     if (!loader) { const { GLTFLoader } = await import('three/addons/loaders/GLTFLoader.js'); loader = new GLTFLoader(); }
     const root = (await loader.loadAsync(url)).scene; let sk = null; root.traverse(o => { if (o.isSkinnedMesh && !sk) sk = o; });
+    if (!sk && J) sk = makeRig(root, J);
     root.updateMatrixWorld(true);
     const fb = new THREE.Box3().setFromObject(root), k = (mb.max.y - mb.min.y) / (fb.max.y - fb.min.y);
     root.scale.setScalar(k); root.position.set(0, mb.min.y - fb.min.y * k, 0); root.updateMatrixWorld(true);
@@ -1373,10 +1402,10 @@ let femaleOK = false;
         const ps = g.attributes.position, ns = g.attributes.normal; for (let i = 0; i < ps.count; i++) ps.setXYZ(i, ps.getX(i) + ns.getX(i) * 0.0012, ps.getY(i) + ns.getY(i) * 0.0012, ps.getZ(i) + ns.getZ(i) * 0.0012); g.computeVertexNormals();
         const m = reg('skin', tag + '_auricle_skin_' + sd, new THREE.Mesh(g, mat.skin), { label: 'Head' }); punch(m, c => (c.y - ey) ** 2 + (c.z - ez) ** 2 < 0.0038 ** 2); grp.add(m); });
       const xi = Math.min(HX - 0.006, 0.07); lining(tag + '_meatus_' + sd, 'External acoustic meatus (opening)', [[s * 0.096, ey, ez], [s * (0.096 + xi) / 2, ey + 0.001, ez - 0.0005], [s * xi, ey + 0.002, ez - 0.001]], 0.0036, grp); } };
-  try { const ms = await fitBody('uploads/Male_Muscular_BaseMesh/Male/Male_Muscular_BaseMesh.glb', 'male_body');
+  try { const ms = await fitBody('assets/Male_Realistic_BaseMesh.glb', 'male_body', RIGS.male);
     SEXG.male.children.slice().forEach(o => { if (!GEN.has(o.name)) SEXG.male.remove(o); }); ms.skin.forEach(m => SEXG.male.add(m)); coverMuscles(ms.skin); coverMuscles(ms.skin); ms.fat.forEach(m => FATG.male.add(m)); openings(ms.skin, SEXG.male, 'male');
   } catch (e) { console.warn('Male body could not be loaded; keeping the built skin', e); }
-  try { const fs = await fitBody('uploads/Female_Muscular_BaseMesh/Female/Female_Muscular_BaseMesh.glb', 'female_body'); fs.skin.forEach(m => SEXG.female.add(m)); fs.fat.forEach(m => FATG.female.add(m)); openings(fs.skin, SEXG.female, 'female'); femaleOK = true;
+  try { const fs = await fitBody('assets/Female_Realistic_BaseMesh.glb', 'female_body', RIGS.female); fs.skin.forEach(m => SEXG.female.add(m)); fs.fat.forEach(m => FATG.female.add(m)); openings(fs.skin, SEXG.female, 'female'); femaleOK = true;
   } catch (e) { console.warn('Female body could not be loaded', e); }
 }
 buildHead();
