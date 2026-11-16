@@ -1403,8 +1403,10 @@ Bones and cartilage|骨骼及軟骨
   const zh = en => { if (!en) return null; if (!cache.has(en)) cache.set(en, tr(en)); return cache.get(en); };
   const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
-  const KEY = 'anatomy-zh-hant';
-  let on = true; try { on = localStorage.getItem(KEY) !== 'off'; } catch (e) { }
+  // PACK is this pack's id. KEY holds the chosen language: 'zh-Hant', 'zh-Hans' or 'en'. Chinese labels are on only when the choice is this pack.
+  const PACK = 'zh-Hant', KEY = 'anatomy-lang';
+  let on = true;
+  try { const s = localStorage.getItem(KEY); on = s ? s === PACK : localStorage.getItem('anatomy-zh-hant') !== 'off'; } catch (e) { }
 
   const style = document.createElement('style');
   style.textContent = `
@@ -1428,9 +1430,10 @@ Bones and cartilage|骨骼及軟骨
   document.body.classList.toggle('zh-on', on);
 
   window.__zh = {
+    pack: PACK,
     zh,
     // html to place after a name that is built with innerHTML; empty when there is no Chinese name
-    tag: en => { const z = zh(en); return z ? ' <span class="zh" lang="zh-Hant">' + esc(z) + '</span>' : ''; },
+    tag: en => { const z = zh(en); return z ? ' <span class="zh" lang="' + PACK + '">' + esc(z) + '</span>' : ''; },
     // for an element whose text is set with textContent: the Chinese name is drawn by CSS and never enters textContent
     set: (el, en) => { const z = zh(en); if (z) { el.dataset.zh = z; el.lang = 'en'; } else delete el.dataset.zh; },
     get on() { return document.body.classList.contains('zh-on'); },
@@ -1438,25 +1441,29 @@ Bones and cartilage|骨骼及軟骨
 
   const lede = document.querySelector('.panel .lede');
   if (lede) {
-    // language switch: only English and Traditional Chinese work now; the rest are listed as planned
+    // language switch. Choosing the other Chinese pack saves the choice and reloads, because the loader picks one pack per page.
+    // LANGS-BEGIN
     const LANGS = [
       { id: 'zh-Hant', label: 'Traditional Chinese', native: '繁體中文' },
       { id: 'en', label: 'English' },
-      { id: 'zh-Hans', label: 'Simplified Chinese', planning: true },
+      { id: 'zh-Hans', label: 'Simplified Chinese', native: '简体中文' },
       { id: 'es', label: 'Spanish', planning: true },
       { id: 'la', label: 'Latin', planning: true },
     ];
+    // LANGS-END
     const box = document.createElement('div'); box.id = 'langsw';
     box.innerHTML = '<div class="lh" id="langsw-h">Language</div><div role="radiogroup" aria-labelledby="langsw-h">' +
       LANGS.map(l => '<button type="button" role="radio" class="lo" data-l="' + l.id + '" aria-checked="false"' + (l.planning ? ' disabled' : '') + '>' +
         '<span class="ln">' + l.label + '</span>' +
-        (l.native ? '<span class="lz" lang="zh-Hant">' + l.native + '</span>' : '') +
+        (l.native ? '<span class="lz" lang="' + l.id + '">' + l.native + '</span>' : '') +
         (l.planning ? '<span class="lp">Planning</span>' : '') + '</button>').join('') + '</div>';
-    const paint = () => { const cur = document.body.classList.contains('zh-on') ? 'zh-Hant' : 'en'; box.querySelectorAll('.lo').forEach(o => { const v = o.dataset.l === cur; o.classList.toggle('on', v); o.setAttribute('aria-checked', v); }); };
+    const paint = () => { const cur = document.body.classList.contains('zh-on') ? PACK : 'en'; box.querySelectorAll('.lo').forEach(o => { const v = o.dataset.l === cur; o.classList.toggle('on', v); o.setAttribute('aria-checked', v); }); };
     box.addEventListener('click', e => {
       const o = e.target.closest('.lo'); if (!o || o.disabled) return;
-      const v = o.dataset.l === 'zh-Hant'; document.body.classList.toggle('zh-on', v);
-      try { localStorage.setItem(KEY, v ? 'on' : 'off'); } catch (err) { } paint();
+      const id = o.dataset.l;
+      try { localStorage.setItem(KEY, id); } catch (err) { }
+      if (id !== 'en' && id !== PACK) { location.reload(); return; }
+      document.body.classList.toggle('zh-on', id === PACK); paint();
     });
     paint(); lede.insertAdjacentElement('afterend', box);
   }

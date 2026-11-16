@@ -10,13 +10,13 @@ Adds 繁體中文 to the 3D Anatomy Model. The page runs in English without this
 | `pack.json` | Pack id, version and file list |
 | `index.js` | Loads `names.js`, then `ui.js` |
 | `names.js` | `English name\|中文名` list for structures, groups, systems and layers, and the rules for left, right, numbers and "Base, qualifier" names. Defines `window.__zh` |
-| `ui.js` | `English\|中文` list for interface text, and the code that swaps it in when the Chinese button is on |
+| `ui.js` | `English\|中文` list for interface text, and the code that swaps it in when Traditional Chinese is selected |
 | `worksheet.txt` | Translation worksheet the interface lines came from |
 
 ## Behaviour
 
 - Structure names show in English with the Chinese name beside them.
-- Interface text is replaced by Chinese. The button under the introduction turns both off, and the choice is kept in the browser.
+- Interface text is replaced by Chinese. The Language list under the introduction switches between Traditional Chinese, English and Simplified Chinese, and the choice is kept in the browser under `anatomy-lang`. Choosing the other Chinese pack reloads the page.
 - Chinese text typed in the search box (for example 股骨) finds matching structures.
 
 ## Get the zip
@@ -47,4 +47,6 @@ Change the matching line in `names.js` or `ui.js`. Names with no entry are built
 
 ## Make another language
 
-Copy this folder, rename it (for example `ja`), replace the lines in `names.js` and `ui.js`, add its id to `PACKS`, and set a different localStorage key in both files.
+Copy this folder, rename it (for example `ja`), replace the lines in `names.js` and `ui.js`, add its id to `PACKS`, give it its own `PACK` id in `names.js`, and add its entry to the `LANGS` list in every pack. All packs share the `anatomy-lang` key.
+
+The Simplified Chinese pack (`../zh-Hans/`) is generated from this folder. After editing a term here, run `python3 scripts/build_zh_hans.py`.
