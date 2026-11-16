@@ -1412,7 +1412,18 @@ Bones and cartilage|骨骼及軟骨
   body.zh-on .zh{display:inline}
   body.zh-on [data-zh]::after{content:" " attr(data-zh);font-family:"Noto Sans HK","PingFang HK","Microsoft JhengHei","Noto Sans TC",sans-serif;font-weight:400;font-size:.94em;letter-spacing:.02em;opacity:.85}
   #tip[data-zh]::after{display:block;margin-top:2px}
-  #zhbtn{margin:0 0 8px}`;
+  #langsw{margin:0 0 10px}
+  #langsw .lh{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-neutral-700,#6b6458);margin-bottom:4px}
+  #langsw [role=radiogroup]{display:flex;flex-direction:column;border:1px solid var(--color-accent-500);border-radius:var(--radius-md,4px);overflow:hidden}
+  #langsw .lo{display:flex;align-items:baseline;gap:8px;width:100%;text-align:left;font:inherit;font-size:13px;color:var(--color-accent-700);background:transparent;border:0;padding:6px 10px 6px 26px;cursor:pointer;position:relative}
+  #langsw .lo+.lo{border-top:1px solid var(--color-accent-200)}
+  #langsw .lo::before{content:"";position:absolute;left:9px;top:50%;width:9px;height:9px;margin-top:-5px;border:1px solid var(--color-accent-500);border-radius:50%;box-sizing:border-box}
+  #langsw .lo:hover:not(:disabled){background:var(--color-accent-100)}
+  #langsw .lo.on{background:var(--color-accent-200);font-weight:600}
+  #langsw .lo.on::before{background:var(--color-accent-700);border-color:var(--color-accent-700)}
+  #langsw .lo:disabled{cursor:not-allowed;color:var(--color-neutral-700,#6b6458);opacity:.6}
+  #langsw .lz{font-family:"Noto Sans HK","PingFang HK","Microsoft JhengHei","Noto Sans TC",sans-serif;font-size:.94em}
+  #langsw .lp{margin-left:auto;font-size:10px;letter-spacing:.08em;text-transform:uppercase}`;
   document.head.appendChild(style);
   document.body.classList.toggle('zh-on', on);
 
@@ -1427,9 +1438,26 @@ Bones and cartilage|骨骼及軟骨
 
   const lede = document.querySelector('.panel .lede');
   if (lede) {
-    const b = document.createElement('button'); b.className = 'b'; b.id = 'zhbtn'; b.type = 'button';
-    const paint = () => { const v = document.body.classList.contains('zh-on'); b.textContent = v ? '繁體中文標籤：開 · Chinese labels on' : '繁體中文標籤：關 · Chinese labels off'; b.setAttribute('aria-pressed', v); };
-    b.onclick = () => { const v = !document.body.classList.contains('zh-on'); document.body.classList.toggle('zh-on', v); try { localStorage.setItem(KEY, v ? 'on' : 'off'); } catch (e) { } paint(); };
-    paint(); lede.insertAdjacentElement('afterend', b);
+    // language switch: only English and Traditional Chinese work now; the rest are listed as planned
+    const LANGS = [
+      { id: 'zh-Hant', label: 'Traditional Chinese', native: '繁體中文' },
+      { id: 'en', label: 'English' },
+      { id: 'zh-Hans', label: 'Simplified Chinese', planning: true },
+      { id: 'es', label: 'Spanish', planning: true },
+      { id: 'la', label: 'Latin', planning: true },
+    ];
+    const box = document.createElement('div'); box.id = 'langsw';
+    box.innerHTML = '<div class="lh" id="langsw-h">Language</div><div role="radiogroup" aria-labelledby="langsw-h">' +
+      LANGS.map(l => '<button type="button" role="radio" class="lo" data-l="' + l.id + '" aria-checked="false"' + (l.planning ? ' disabled' : '') + '>' +
+        '<span class="ln">' + l.label + '</span>' +
+        (l.native ? '<span class="lz" lang="zh-Hant">' + l.native + '</span>' : '') +
+        (l.planning ? '<span class="lp">Planning</span>' : '') + '</button>').join('') + '</div>';
+    const paint = () => { const cur = document.body.classList.contains('zh-on') ? 'zh-Hant' : 'en'; box.querySelectorAll('.lo').forEach(o => { const v = o.dataset.l === cur; o.classList.toggle('on', v); o.setAttribute('aria-checked', v); }); };
+    box.addEventListener('click', e => {
+      const o = e.target.closest('.lo'); if (!o || o.disabled) return;
+      const v = o.dataset.l === 'zh-Hant'; document.body.classList.toggle('zh-on', v);
+      try { localStorage.setItem(KEY, v ? 'on' : 'off'); } catch (err) { } paint();
+    });
+    paint(); lede.insertAdjacentElement('afterend', box);
   }
 })();
