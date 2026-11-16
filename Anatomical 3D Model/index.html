@@ -35,7 +35,7 @@
   h1{font-family:var(--font-heading);font-weight:400;font-size:32px;line-height:1.05;margin:6px 0 8px}
   .lede{font-size:13px;line-height:1.5;margin:0 0 14px;text-align:justify;hyphens:auto}
   h2{font-family:var(--font-heading);font-weight:600;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-neutral-700);margin:0 0 6px}
-  .disc{font-size:11px;line-height:1.4;color:var(--color-neutral-700);margin:-4px 0 10px}
+  .disc{font-size:11px;line-height:1.4;color:var(--color-neutral-700);margin:12px 0 0;padding-top:10px;border-top:1px solid var(--color-neutral-200,#ddd)}
   .disc a{color:var(--color-accent-600);text-decoration:underline}
   .sec{border-top:1px solid var(--color-divider);padding:12px 0}
   #layerssec.hl{outline:2px solid var(--color-accent-200);outline-offset:4px;border-radius:6px}
@@ -171,16 +171,6 @@
   <h1>Human anatomy</h1>
   <p class="lede">A simplified model in anatomical position. Search for a part, peel the layers from skin to bone, explode the body into systems, click a structure to isolate it, and cut through the body with the slice view.</p>
 
-  <p class="disc">This model does not exactly reflect the real body arrangement; <a href="known-limitations.html" target="_blank" rel="noopener">a few positional or displacement errors</a> may exist.</p>
-
-  <div class="sec">
-    <h2>Body</h2>
-    <div class="sx" id="p-sex" role="group" aria-label="Sex of the body"><button class="b on" data-v="male" aria-pressed="true">Male</button><button class="b" data-v="female" aria-pressed="false">Female</button></div>
-    <p id="sexnote" style="display:none"></p>
-    <h2 style="margin-top:12px">Skin tone</h2>
-    <div class="tones" id="p-tone" role="group" aria-label="Skin tone"><button class="t on" data-v="plate" title="Plate (atlas)" aria-label="Plate (atlas)" style="background:#e7ddd2"></button><button class="t" data-v="3b2219" title="#3B2219" aria-label="Skin tone 1, darkest" style="background:#3b2219"></button><button class="t" data-v="8d5524" title="#8D5524" aria-label="Skin tone 2" style="background:#8d5524"></button><button class="t" data-v="c68642" title="#C68642" aria-label="Skin tone 3" style="background:#c68642"></button><button class="t" data-v="e0ac69" title="#E0AC69" aria-label="Skin tone 4" style="background:#e0ac69"></button><button class="t" data-v="f1c27d" title="#F1C27D" aria-label="Skin tone 5" style="background:#f1c27d"></button><button class="t" data-v="ffdbac" title="#FFDBAC" aria-label="Skin tone 6, lightest" style="background:#ffdbac"></button></div>
-  </div>
-
   <div class="sec">
     <h2>Anatomical directions</h2>
     <label class="chk" style="display:flex;gap:8px;align-items:center;font-size:13px;cursor:pointer"><input type="checkbox" id="dirshow"> Show direction arrows on the body</label>
@@ -192,6 +182,14 @@
       <li><b>Superficial</b> <span>toward the surface.</span> <b>Deep</b> <span>away from the surface.</span></li>
       <li><b>Afferent</b> <span>carried toward a centre, such as sensory nerves to the CNS.</span> <b>Efferent</b> <span>carried away from it, such as motor nerves.</span></li>
     </ul>
+  </div>
+
+  <div class="sec">
+    <h2>Body</h2>
+    <div class="sx" id="p-sex" role="group" aria-label="Sex of the body"><button class="b on" data-v="male" aria-pressed="true">Male</button><button class="b" data-v="female" aria-pressed="false">Female</button></div>
+    <p id="sexnote" style="display:none"></p>
+    <h2 style="margin-top:12px">Skin tone</h2>
+    <div class="tones" id="p-tone" role="group" aria-label="Skin tone"><button class="t on" data-v="plate" title="Plate (atlas)" aria-label="Plate (atlas)" style="background:#e7ddd2"></button><button class="t" data-v="3b2219" title="#3B2219" aria-label="Skin tone 1, darkest" style="background:#3b2219"></button><button class="t" data-v="8d5524" title="#8D5524" aria-label="Skin tone 2" style="background:#8d5524"></button><button class="t" data-v="c68642" title="#C68642" aria-label="Skin tone 3" style="background:#c68642"></button><button class="t" data-v="e0ac69" title="#E0AC69" aria-label="Skin tone 4" style="background:#e0ac69"></button><button class="t" data-v="f1c27d" title="#F1C27D" aria-label="Skin tone 5" style="background:#f1c27d"></button><button class="t" data-v="ffdbac" title="#FFDBAC" aria-label="Skin tone 6, lightest" style="background:#ffdbac"></button></div>
   </div>
 
   <div class="sec">
@@ -325,6 +323,7 @@
   <div class="foot">Left and right are the figure's own. Drag to turn, scroll to zoom. Downloads include the systems currently shown, minus removed parts.</div>
   <div class="foot" style="border-top:0;padding-top:4px"><b>Keys:</b> Space resets the view, H hides the selected part, U undoes, X toggles X-ray, 1 2 3 set the cut to transverse, coronal or sagittal. Double-click a surface to leave a note on it.</div>
   <nav class="foot" style="border-top:0;padding-top:4px" aria-label="Project documents"><a href="https://github.com/isaac070405/3D-Anatomy-Model/blob/main/ACCESSIBILITY.md" target="_blank" rel="noopener">Accessibility</a> · <a href="https://github.com/isaac070405/3D-Anatomy-Model/blob/main/CHANGELOG.md" target="_blank" rel="noopener">Changelog</a> · <a href="https://github.com/isaac070405/3D-Anatomy-Model/blob/main/CITATION.cff" target="_blank" rel="noopener">Cite</a> · <a href="https://github.com/isaac070405/3D-Anatomy-Model/blob/main/CODE_OF_CONDUCT.md" target="_blank" rel="noopener">Code of conduct</a> · <a href="https://github.com/isaac070405/3D-Anatomy-Model/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Contributing</a> · <a href="https://github.com/isaac070405/3D-Anatomy-Model/blob/main/LICENSE" target="_blank" rel="noopener">Licence</a> · <a href="https://github.com/isaac070405/3D-Anatomy-Model/blob/main/SECURITY.md" target="_blank" rel="noopener">Security</a> · <a href="https://github.com/isaac070405/3D-Anatomy-Model/blob/main/SUPPORT.md" target="_blank" rel="noopener">Support</a> · <a href="https://github.com/isaac070405/3D-Anatomy-Model/blob/main/THIRD_PARTY_NOTICES.md" target="_blank" rel="noopener">Third-party notices</a></nav>
+  <p class="disc" id="disc">This model does not exactly reflect the real body arrangement; <a href="known-limitations.html" target="_blank" rel="noopener">a few positional or displacement errors</a> may exist.</p>
 </aside>
 
 <div id="slicebox">

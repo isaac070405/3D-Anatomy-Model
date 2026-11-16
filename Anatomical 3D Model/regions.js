@@ -19,6 +19,10 @@ const PHARYNX = /^(Pharynx|Nasopharynx|Oropharynx|Laryngopharynx)|Pharyngeal ton
 const LYMPH = /lymph|Thoracic duct|Cisterna chyli|Peyer|tonsil|appendix|^Spleen|^Thymus|lacteal|Right lymphatic duct|Lymphatic/i;
 const LYMPH_NOT = /Sinoatrial|Atrioventricular|Omental appendices|Taenia|Thymus gland/;
 
+// lymphatic vessels and ducts belong only to the lymph, neck and tonsil views; organ and airway views would otherwise pick up a few by position
+const LYMPH_VESSEL = it => /lymphatic (vessel|trunk|duct)|lymph vessel|Thoracic duct|Cisterna chyli|(jugular|subclavian|lumbar|intestinal|bronchomediastinal) trunk/i.test(it.label) || (it.sys === 'lymphatic' && /vessel|trunk|duct/i.test(it.label));
+const LYMPH_VIEWS = new Set(['lymphatic', 'cervnodes', 'cisterna', 'nodes', 'lymphvessels', 'neck', 'tonsils']);
+
 const VIEWS = {
   // ───── head ─────
   eye: { name: 'Eye (right)', dir: [-0.55, 0.12, 1], test: any(and(S('senses', /Sclera|Choroid|Retina|Vitreous|Cornea|Iris|Lens|Suspensory ligament of lens|Pupil|Lacrimal gland|Common tendinous ring|Trochlea/), rightSide), and(S('muscular', /rectus|oblique|Levator palpebrae/i), rightSide, Y(1.62, 1.68)), and(S('nervous', /Optic nerve|\(CN II\)|Oculomotor|Trochlear|Abducens/), rightSide, Y(1.6, 1.69))) },
@@ -118,7 +122,7 @@ function init() {
     if (grp) grp.visible = true;
     items.forEach(it => {
       if (it.sys === 'skin') return;
-      const want = !!v.test(it);
+      const want = !!v.test(it) && (LYMPH_VIEWS.has(key) || !LYMPH_VESSEL(it));
       if (it.o.visible !== want) { saved.mesh.set(it.o, it.o.visible); it.o.visible = want; }
       if (want) on.add(it.sys);
     });
@@ -150,7 +154,7 @@ function init() {
       const k = b.dataset.r;
       if (k === 'reset') { reset(true); $('oldreset').click(); return; }
       if (k === 'alveolus') { const cb = $('alvshow'), on = !cb.checked; if (on) { if (saved) restore(); document.querySelectorAll('[data-r]').forEach(x => x.classList.remove('on')); $('oldreset').click(); }
-        cb.checked = on; cb.onchange({ target: cb }); plane(on); if (on && window.__alvG) { const bx = new THREE.Box3().setFromObject(window.__alvG); frame(bx, { dir: [0.04, 0.16, 1], pad: 0.95 }); } b.setAttribute('aria-pressed', on); b.classList.toggle('on', on); note.style.display = on ? 'block' : 'none'; note.textContent = 'Showing: single alveolar unit (magnified). Press the button again or Reset to leave it.'; return; }
+        cb.checked = on; cb.onchange({ target: cb }); plane(on); if (on && window.__alvG) { const bx = new THREE.Box3(), tb = new THREE.Box3(); window.__alvG.updateWorldMatrix(true, true); window.__alvG.traverse(m => { if (m.isMesh && m.visible && isVis(m) && m.geometry) { if (!m.geometry.boundingBox) m.geometry.computeBoundingBox(); bx.union(tb.copy(m.geometry.boundingBox).applyMatrix4(m.matrixWorld)); } }); if (bx.isEmpty()) bx.setFromObject(window.__alvG); frame(bx, { dir: [0.04, 0.16, 1], pad: 0.6 }); } b.setAttribute('aria-pressed', on); b.classList.toggle('on', on); note.style.display = on ? 'block' : 'none'; note.textContent = 'Showing: single alveolar unit (magnified). Press the button again or Reset to leave it.'; return; }
       if (current === k) { reset(true); return; }   // pressing the active view again leaves it
       show(k); return;
     }
