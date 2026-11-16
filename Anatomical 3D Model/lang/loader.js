@@ -4,7 +4,7 @@
 // One pack loads per page: the saved language ('anatomy-lang' in localStorage) if it names a pack, else the first one in PACKS.
 // The language switch in the pack saves a new choice and reloads when the choice is a different pack.
 (function () {
-  const PACKS = ['zh-Hant', 'zh-Hans'];
+  const PACKS = ['zh-Hant', 'zh-Hans', 'es'];
   let pick = PACKS[0];
   try { const s = localStorage.getItem('anatomy-lang'); if (PACKS.includes(s)) pick = s; } catch (e) { }
   const base = document.currentScript.src.replace(/loader\.js(\?.*)?$/, '');
