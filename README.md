@@ -6,6 +6,8 @@ An interactive three.js model of the human body that runs in the browser with no
 
 [Known gaps](https://isaac070405.github.io/3D-Anatomy-Model/known-limitations.html) · [Wiki](wiki/Home.md) · [Layers view](https://isaac070405.github.io/3D-Anatomy-Model/layers.html)
 
+[![Sponsor isaac070405](https://img.shields.io/badge/Sponsor-isaac070405-ea4aaa?logo=githubsponsors)](https://github.com/sponsors/isaac070405)
+
 > [!NOTE]
 > The model is a simplified teaching model. Shapes, sizes and positions are approximate, and organs run about 60 to 80% of textbook size. It is not for clinical use.
 
