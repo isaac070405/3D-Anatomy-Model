@@ -7,6 +7,7 @@ The project code is MIT licensed (`LICENSE`). The items below keep their own lic
 | three.js 0.184.0 (https://threejs.org) | 3D rendering, loaders and exporters, loaded from unpkg | MIT, copyright three.js authors |
 | feelpp/mesh.eye v1.1 (Zenodo 10.5281/zenodo.15630998) | Eyeball meshes in `Anatomical 3D Model/assets/eye.glb` | GPL-3.0-only |
 | Skull-stripped T1 MNI brain template (`tpl-mni_T1w.nii.gz`, ICBM 152 MNI152NLin2009cAsym), from the track4edu v1.1 package | `assets/mni_brain.glb`, `mni_brain_t1.bin`, `mni_brain_t1.json` | ICBM 152 permissive licence, quoted below |
+| Blender Studio Human Base Meshes bundle v1.4.1 (https://www.blender.org/download/demo/asset-bundles/human-base-meshes/) | Male and female body surface meshes (`Anatomical 3D Model/assets/Male_Realistic_BaseMesh.glb`, `Anatomical 3D Model/assets/Female_Realistic_BaseMesh.glb`) | CC0, no rights reserved; attribution included for transparency |
 | TotalSegmentator dataset (Wasserthal et al., Radiology: AI 2023, doi:10.1148/ryai.230024) | Optional input for `scripts/totalsegmentator_to_glb.py` | CC BY 4.0 |
 | Design system styles in `Anatomical 3D Model/_ds/` (classical and industry) | Page styling | Imported from Claude Design on 2026-10-08. The folder has no licence file |
 
