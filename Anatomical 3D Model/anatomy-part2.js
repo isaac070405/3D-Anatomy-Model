@@ -1208,9 +1208,9 @@ let femaleOK = false;
       for (let u = 0; u <= K; u++) for (let v = 0; v <= K - u; v++) { const p = u / K, q = v / K, r = 1 - p - q; mark(W[A] * r + W[B] * p + W[C] * q, W[A + 1] * r + W[B + 1] * p + W[C + 1] * q, W[A + 2] * r + W[B + 2] * p + W[C + 2] * q); }
     }
   });
-  // joint targets on the skeleton (left side; mirrored for the right)
+  // joint targets on the skeleton (left side; mirrored for the right); the hand ends at the middle fingertip and the foot at the longest toe, matching the skeleton's extents
   const TG = { clavicle: [[0.025, 1.4, 0.03], [0.188, 1.388, 0]], upper_arm: [[0.188, 1.388, 0], [0.232, 1.075, 0]], forearm: [[0.232, 1.075, 0], [0.262, 0.847, 0.008]],
-    hand: [[0.262, 0.847, 0.008], [0.272, 0.752, 0.012]], thigh: [[0.083, 0.862, 0], [0.098, 0.46, 0]], shin: [[0.098, 0.46, 0], [0.1, 0.06, -0.004]], foot: [[0.1, 0.06, -0.004], [0.1, 0.013, 0.122]] };
+    hand: [[0.262, 0.847, 0.008], [0.272, 0.668, 0.018]], thigh: [[0.083, 0.862, 0], [0.098, 0.46, 0]], shin: [[0.098, 0.46, 0], [0.1, 0.06, -0.004]], foot: [[0.1, 0.06, -0.004], [0.1, 0.009, 0.181]] };
   const clean = s => s.replace(/[.\s]/g, '');
   let loader = null;
   const fatMat = M('subcutaneous_fat', 0xe8c96a, 0.7, { transparent: true, opacity: 0.35, depthWrite: false, side: THREE.DoubleSide });
