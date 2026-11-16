@@ -9,6 +9,7 @@ The project code is MIT licensed (`LICENSE`). The items below keep their own lic
 | Blender Studio Human Base Meshes bundle v1.4.1 (https://www.blender.org/download/demo/asset-bundles/human-base-meshes/) | Male and female body surface meshes (`Anatomical 3D Model/assets/Male_Realistic_BaseMesh.glb`, `Anatomical 3D Model/assets/Female_Realistic_BaseMesh.glb`) | CC0, no rights reserved; attribution included for transparency |
 | TotalSegmentator dataset (Wasserthal et al., Radiology: AI 2023, doi:10.1148/ryai.230024) | Optional input for `scripts/totalsegmentator_to_glb.py` | CC BY 4.0 |
 | Design system styles in `Anatomical 3D Model/_ds/` (classical and industry) | Page styling | Imported from Claude Design on 2026-10-08. The folder has no licence file, so it is treated as MIT with the rest of the repository |
+| Barlow and Barlow Condensed fonts (https://github.com/jpt/barlow, Jeremy Tribby), loaded from Google Fonts by `Anatomical 3D Model/_ds/industry-*/styles.css` and the wireframes page | Page typography | SIL Open Font License 1.1. The repository stores no copy of the fonts |
 
 ## MNI brain template
 

@@ -91,3 +91,4 @@ The code and documents written for this project are under the MIT licence (`LICE
 - `Anatomical 3D Model/assets/Male_Realistic_BaseMesh.glb` and `Female_Realistic_BaseMesh.glb`, from the Blender Studio Human Base Meshes bundle v1.4.1 (CC0).
 - TotalSegmentator dataset (CC BY 4.0), an optional input for `scripts/totalsegmentator_to_glb.py`.
 - `Anatomical 3D Model/_ds/` page styles, imported from Claude Design and treated as MIT with the rest of the repository.
+- Barlow and Barlow Condensed fonts (SIL OFL 1.1), loaded from Google Fonts by the `industry` styles.
