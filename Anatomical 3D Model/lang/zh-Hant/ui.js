@@ -403,7 +403,6 @@ three.js failed to load.|three.js 載入失敗。
     for (const [re, f] of RULES) { const m = t.match(re); if (m) return f(m); }
     return (Z() && Z().zh(t)) || null;
   }
-  const KEY = 'anatomy-zh-hant';
   const orig = new WeakMap();      // node or element+attribute -> original English
   const ATTRS = ['placeholder', 'title', 'aria-label'];
   const on = () => document.body.classList.contains('zh-on');
@@ -454,7 +453,7 @@ three.js failed to load.|three.js 載入失敗。
     finally { busy = false; mo.takeRecords(); }
   });
   function apply() {
-    const v = on(); document.documentElement.lang = v ? 'zh-Hant' : 'en';
+    const v = on(); document.documentElement.lang = v ? ((Z() && Z().pack) || 'zh-Hant') : 'en';
     busy = true; try { for (const r of roots()) { if (v) walk(r); else restore(r); } } finally { busy = false; mo.takeRecords(); }
   }
   const watched = new Set();

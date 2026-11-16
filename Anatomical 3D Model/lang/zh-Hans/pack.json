@@ -1,0 +1,20 @@
+{
+  "id": "zh-Hans",
+  "name": "Simplified Chinese",
+  "nativeName": "简体中文",
+  "version": "1.0.3",
+  "entry": "index.js",
+  "files": [
+    "index.js",
+    "names.js",
+    "ui.js",
+    "worksheet.txt"
+  ],
+  "provides": {
+    "names": "1,100+ terms covering all 2,348 structure labels, plus left, right, number and qualifier rules",
+    "interface": "buttons, headings, descriptions and notes, applied when the Chinese button is on",
+    "search": "Simplified Chinese queries such as 股骨 (needs the search hooks in search.js)"
+  },
+  "requires": "3D Anatomy Model page with lang/loader.js",
+  "license": "MIT"
+}
