@@ -4,6 +4,13 @@ All notable changes to this project are listed here, newest first. Dates are in 
 
 ## Unreleased
 
+## Milestone: panel layout and view fixes
+
+- Move Anatomical directions under the intro text and the Language switch below Body and Skin tone, and place the model disclaimer at the bottom of the side panel.
+- Hide lymphatic vessels, trunks and ducts in organ and airway views. They still show in the lymph, neck and tonsil views.
+- Zoom closer to the single alveolar unit by framing only its visible meshes.
+- Document that the nasal cavity, oral cavity and pharynx views are cut along the midline on purpose (`known-limitations.html`).
+
 - Replace the GPL-3.0 eye meshes (feelpp/mesh.eye, `eye.glb`) with an eye built in code, remove the eye conversion scripts and the `cadquery-ocp` requirement, and make the whole repository MIT apart from the third-party data in `THIRD_PARTY_NOTICES.md`.
 - Use the Blender Studio Realistic base meshes as the male and female skin. They have no skeleton, so capsule bones measured on each mesh feed the existing limb retarget and layered fit.
 - Release language pack 1.0.3 and 1.0.2 (same files as 1.0.1) and 1.0.1 (`@isaac070405/anatomy-lang-zh-hant`) with the npm install steps in its README.
