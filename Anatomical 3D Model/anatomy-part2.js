@@ -1285,13 +1285,16 @@ let femaleOK = false;
       const ch = b.children.find(c => c.isBone && /forearm|hand|middle_01|upper_arm|shin|foot|toe/.test(c.name) && !/thumb/.test(c.name)) || b.children.find(c => c.isBone); if (!ch) return;
       const H = BW[i], T = BW[bones.indexOf(ch)], H2 = V(s * tg[0][0], tg[0][1], tg[0][2]), T2 = V(s * tg[1][0], tg[1][1], tg[1][2]);
       const u = T.clone().sub(H), L = u.length(); u.normalize(); const u2 = T2.clone().sub(H2), L2 = u2.length(); u2.normalize();
-      XF[i] = { H, u, H2, sc: L2 / L, q: new THREE.Quaternion().setFromUnitVectors(u, u2) }; });
+      // the sculpted hand rests with the palm facing the thigh (thumb forward); the skeleton is in anatomical position (thumb out to the side). The forearm ramps a twist about its axis that the hand then keeps.
+      let tw = 0; if (nm === 'forearm' || nm === 'hand') { const ta = V(0, 0, 1).addScaledVector(u, -u.z), tb = V(s, 0, 0).addScaledVector(u, -u.x * s); tw = Math.atan2(u.dot(ta.clone().cross(tb)), ta.dot(tb)); }
+      XF[i] = { H, u, H2, sc: L2 / L, q: new THREE.Quaternion().setFromUnitVectors(u, u2), tw, L, ramp: nm === 'forearm' }; });
     const hi = bones.findIndex(b => base(b.name) === 'head');
     if (hi >= 0) { const hb = new THREE.Box3(); for (let i = 0; i < N; i++) if (dom[i] === hi) hb.expandByPoint(t3.fromArray(P, i * 3));
       const c = hb.getCenter(V(0, 0, 0)); XF[hi] = { tr: V(0, 1.642, 0.004).sub(c) }; }
     const isTrunk = b => /^(root|pelvis|spine_0\d|chest|neck)$/.test(base(b.name));
     bones.forEach((b, i) => { if (XF[i] || isTrunk(b)) return; for (let p = b.parent; p && p.isBone; p = p.parent) { const j = bones.indexOf(p); if (XF[j]) { XF[i] = XF[j]; return; } if (isTrunk(p)) return; } });
     const app = (X, p, out) => { if (!X) return out.copy(p); if (X.tr) return out.copy(p).add(X.tr); const d = p.clone().sub(X.H), al = d.dot(X.u), pe = d.addScaledVector(X.u, -al);
+      if (X.tw) { const f = X.ramp ? Math.min(1, Math.max(0, al / X.L)) : 1; pe.applyAxisAngle(X.u, X.tw * f * f * (3 - 2 * f)); }
       return out.copy(X.u).multiplyScalar(al * X.sc).add(pe).applyQuaternion(X.q).add(X.H2); };
     const Q = new Float32Array(N * 3), acc = V(0, 0, 0), tmp = V(0, 0, 0);
     for (let i = 0; i < N; i++) { t3.fromArray(P, i * 3); acc.set(0, 0, 0); let ws = 0;
@@ -1349,9 +1352,13 @@ let femaleOK = false;
       const S = gauss(raw, W); for (let w = 0; w < U; w++) { const s = Math.max(0, Math.min(S[w], 0.03 - TOT[w])); TOT[w] += s; for (let c = 0; c < 3; c++) X[w * 3 + c] += NR[w * 3 + c] * s; } }
     // apply the push as one broad, low-frequency field (head, neck and hands keep the sculpted shape) so no cuffs, collars or creases form at its edges
     // the shared internals are male-proportioned, so the female surface keeps its sculpted shape (no push) and the internals show through the translucent skin where they exceed it
-    { if (FEM) TOT.fill(0); for (let w = 0; w < U; w++) if (HAND[w] || DB[w] === 'head' || DB[w] === 'neck') TOT[w] = 0;
+    { if (FEM) for (let w = 0; w < U; w++) TOT[w] = DB[w] === 'shin' || DB[w] === 'forearm' ? Math.min(TOT[w], 0.012) : 0; // limbs only, capped, so the male-proportioned vessels do not break the slimmer female surface
+      for (let w = 0; w < U; w++) if (HAND[w] || DB[w] === 'head' || DB[w] === 'neck') TOT[w] = 0;
       let T2 = TOT; for (let k = 0; k < 3; k++) { const Wn = Float32Array.from(T2, () => 1); T2 = gauss(T2, Wn); } T2 = lap1(T2, 120, 0.6);
       for (let w = 0; w < U; w++) { if (HAND[w]) T2[w] = 0; for (let c = 0; c < 3; c++) X[w * 3 + c] = PU[w * 3 + c] + NR[w * 3 + c] * T2[w]; } }
+    // the calcaneus reaches 6 mm (male) and 11 mm (female) behind the sculpted heel: ease the heel back by that plus the dermis
+    { const hb = FEM ? 0.016 : 0.011; for (let w = 0; w < U; w++) { const x = X[w * 3], y = X[w * 3 + 1], z = X[w * 3 + 2]; if (Math.abs(x) < 0.04 || y > 0.1) continue;
+        const bz = Math.min(1, Math.max(0, (-0.03 - z) / 0.03)), by = Math.min(1, Math.max(0, (0.1 - y) / 0.05)); X[w * 3 + 2] -= hb * bz * bz * (3 - 2 * bz) * by * by * (3 - 2 * by); } }
     let DER = new Float32Array(U); for (let w = 0; w < U; w++) DER[w] = band(w)[0]; DER = lap1(DER, 12, 0.6);
     // Taubin smoothing (shrink-free) to take out any remaining ripples
     for (let it = 0; it < 20; it++) for (const f of [0.5, -0.53]) { const Y = new Float32Array(X); for (let w = 0; w < U; w++) { const Lw = nb[w]; if (!Lw.length) continue; let ax = 0, ay = 0, az = 0; for (const q of Lw) { ax += X[q * 3]; ay += X[q * 3 + 1]; az += X[q * 3 + 2]; } const n = Lw.length;
