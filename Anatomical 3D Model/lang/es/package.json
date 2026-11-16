@@ -1,0 +1,21 @@
+{
+  "name": "@isaac070405/anatomy-lang-es",
+  "version": "0.1.0",
+  "description": "Spanish (Español) language pack for the 3D Anatomy Model",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isaac070405/3D-Anatomy-Model.git",
+    "directory": "Anatomical 3D Model/lang/es"
+  },
+  "files": [
+    "index.js",
+    "names.js",
+    "ui.js",
+    "pack.json",
+    "README.md"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
+}

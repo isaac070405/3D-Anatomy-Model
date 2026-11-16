@@ -1,0 +1,19 @@
+{
+  "id": "es",
+  "name": "Spanish",
+  "nativeName": "Español",
+  "version": "0.1.0",
+  "entry": "index.js",
+  "files": [
+    "index.js",
+    "names.js",
+    "ui.js"
+  ],
+  "provides": {
+    "names": "1,300+ terms covering all 2,348 structure labels (Terminología Anatómica style), plus side (izq., der.), number and qualifier rules",
+    "interface": "buttons, headings, descriptions and notes, applied when Spanish is selected",
+    "search": "not yet: search takes English names only"
+  },
+  "requires": "3D Anatomy Model page with lang/loader.js",
+  "license": "MIT"
+}
