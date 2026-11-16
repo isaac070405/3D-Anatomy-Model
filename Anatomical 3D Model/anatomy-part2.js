@@ -1183,9 +1183,9 @@ let femaleOK = false;
   model.updateMatrixWorld(true);
   const mb = new THREE.Box3().setFromObject(SEXG.male), GEN = new Set(['scrotum_skin', 'penis_shaft_skin', 'penis_glans_skin']);
   // occupancy grid of every structure under the skin (5 mm voxels), tagged by body region
-  const VX = 0.005, X0 = -0.8, Y0 = -0.05, Z0 = -0.35, NX = 320, NY = 400, NZ = 140, OCC = new Uint8Array(NX * NY * NZ);
+  const VX = 0.005, X0 = -0.8, Y0 = -0.05, Z0 = -0.35, NX = 320, NY = 400, NZ = 140, OCC = new Uint8Array(NX * NY * NZ), OCC2 = new Uint8Array(NX * NY * NZ); let VES = false; // OCC2: vessels, nerves and lymphatics only, for the female surface check
   const regOf = (x, y) => { const ax = Math.abs(x), bd = y > 1.36 ? 0.2 : y < 1.0 ? 0.21 : 0.19; if (ax > bd && y > 0.6) return x > 0 ? 2 : 3; if (y < 0.8) return x > 0 ? 4 : 5; return 1; };
-  const mark = (x, y, z) => { const i = Math.floor((x - X0) / VX), j = Math.floor((y - Y0) / VX), k = Math.floor((z - Z0) / VX); if (i < 0 || j < 0 || k < 0 || i >= NX || j >= NY || k >= NZ) return; OCC[(j * NZ + k) * NX + i] = regOf(x, y); };
+  const mark = (x, y, z) => { const i = Math.floor((x - X0) / VX), j = Math.floor((y - Y0) / VX), k = Math.floor((z - Z0) / VX); if (i < 0 || j < 0 || k < 0 || i >= NX || j >= NY || k >= NZ) return; OCC[(j * NZ + k) * NX + i] = regOf(x, y); if (VES) OCC2[(j * NZ + k) * NX + i] = 1; };
   const occ = (x, y, z) => { const i = Math.floor((x - X0) / VX), j = Math.floor((y - Y0) / VX), k = Math.floor((z - Z0) / VX); return (i < 0 || j < 0 || k < 0 || i >= NX || j >= NY || k >= NZ) ? 0 : OCC[(j * NZ + k) * NX + i]; };
   const skipP = new Set(Object.values(planes)), t3 = V(0, 0, 0);
   model.traverse(o => {
@@ -1193,6 +1193,7 @@ let femaleOK = false;
     for (let p = o; p; p = p.parent) if (p === G.skin || p === G.reproductive || p === window.__alvG) return;
     if (/^Magnified/.test(o.userData.label || '')) return;
     const pos = o.geometry.attributes.position; if (!pos) return;
+    VES = false; for (let p = o; p; p = p.parent) if (p === G.circulatory || p === G.nervous || p === G.lymphatic) VES = true;
     const n = pos.count, W = new Float32Array(n * 3);
     for (let i = 0; i < n; i++) { t3.fromBufferAttribute(pos, i).applyMatrix4(o.matrixWorld); W[i * 3] = t3.x; W[i * 3 + 1] = t3.y; W[i * 3 + 2] = t3.z; mark(t3.x, t3.y, t3.z); }
     const ix = o.geometry.index, tc = ix ? ix.count / 3 : Math.floor(n / 3);
@@ -1203,9 +1204,9 @@ let femaleOK = false;
       for (let u = 0; u <= K; u++) for (let v = 0; v <= K - u; v++) { const p = u / K, q = v / K, r = 1 - p - q; mark(W[A] * r + W[B] * p + W[C] * q, W[A + 1] * r + W[B + 1] * p + W[C + 1] * q, W[A + 2] * r + W[B + 2] * p + W[C + 2] * q); }
     }
   });
-  // joint targets on the skeleton (left side; mirrored for the right)
+  // joint targets on the skeleton (left side; mirrored for the right); the hand ends at the middle fingertip and the foot at the longest toe, matching the skeleton's extents
   const TG = { clavicle: [[0.025, 1.4, 0.03], [0.188, 1.388, 0]], upper_arm: [[0.188, 1.388, 0], [0.232, 1.075, 0]], forearm: [[0.232, 1.075, 0], [0.262, 0.847, 0.008]],
-    hand: [[0.262, 0.847, 0.008], [0.272, 0.752, 0.012]], thigh: [[0.083, 0.862, 0], [0.098, 0.46, 0]], shin: [[0.098, 0.46, 0], [0.1, 0.06, -0.004]], foot: [[0.1, 0.06, -0.004], [0.1, 0.013, 0.122]] };
+    hand: [[0.262, 0.847, 0.008], [0.272, 0.668, 0.018]], thigh: [[0.083, 0.862, 0], [0.098, 0.46, 0]], shin: [[0.098, 0.46, 0], [0.1, 0.06, -0.004]], foot: [[0.1, 0.06, -0.004], [0.1, 0.009, 0.181]] };
   const clean = s => s.replace(/[.\s]/g, '');
   let loader = null;
   const fatMat = M('subcutaneous_fat', 0xe8c96a, 0.7, { transparent: true, opacity: 0.35, depthWrite: false, side: THREE.DoubleSide });
@@ -1280,13 +1281,16 @@ let femaleOK = false;
       const ch = b.children.find(c => c.isBone && /forearm|hand|middle_01|upper_arm|shin|foot|toe/.test(c.name) && !/thumb/.test(c.name)) || b.children.find(c => c.isBone); if (!ch) return;
       const H = BW[i], T = BW[bones.indexOf(ch)], H2 = V(s * tg[0][0], tg[0][1], tg[0][2]), T2 = V(s * tg[1][0], tg[1][1], tg[1][2]);
       const u = T.clone().sub(H), L = u.length(); u.normalize(); const u2 = T2.clone().sub(H2), L2 = u2.length(); u2.normalize();
-      XF[i] = { H, u, H2, sc: L2 / L, q: new THREE.Quaternion().setFromUnitVectors(u, u2) }; });
+      // the sculpted hand rests with the palm facing the thigh (thumb forward); the skeleton is in anatomical position (thumb out to the side). The forearm ramps a twist about its axis that the hand then keeps.
+      let tw = 0; if (nm === 'forearm' || nm === 'hand') { const ta = V(0, 0, 1).addScaledVector(u, -u.z), tb = V(s, 0, 0).addScaledVector(u, -u.x * s); tw = Math.atan2(u.dot(ta.clone().cross(tb)), ta.dot(tb)); }
+      XF[i] = { H, u, H2, sc: L2 / L, q: new THREE.Quaternion().setFromUnitVectors(u, u2), tw, L, ramp: nm === 'forearm' }; });
     const hi = bones.findIndex(b => base(b.name) === 'head');
     if (hi >= 0) { const hb = new THREE.Box3(); for (let i = 0; i < N; i++) if (dom[i] === hi) hb.expandByPoint(t3.fromArray(P, i * 3));
       const c = hb.getCenter(V(0, 0, 0)); XF[hi] = { tr: V(0, 1.642, 0.004).sub(c) }; }
     const isTrunk = b => /^(root|pelvis|spine_0\d|chest|neck)$/.test(base(b.name));
     bones.forEach((b, i) => { if (XF[i] || isTrunk(b)) return; for (let p = b.parent; p && p.isBone; p = p.parent) { const j = bones.indexOf(p); if (XF[j]) { XF[i] = XF[j]; return; } if (isTrunk(p)) return; } });
     const app = (X, p, out) => { if (!X) return out.copy(p); if (X.tr) return out.copy(p).add(X.tr); const d = p.clone().sub(X.H), al = d.dot(X.u), pe = d.addScaledVector(X.u, -al);
+      if (X.tw) { const f = X.ramp ? Math.min(1, Math.max(0, al / X.L)) : 1; pe.applyAxisAngle(X.u, X.tw * f * f * (3 - 2 * f)); }
       return out.copy(X.u).multiplyScalar(al * X.sc).add(pe).applyQuaternion(X.q).add(X.H2); };
     const Q = new Float32Array(N * 3), acc = V(0, 0, 0), tmp = V(0, 0, 0);
     for (let i = 0; i < N; i++) { t3.fromArray(P, i * 3); acc.set(0, 0, 0); let ws = 0;
@@ -1347,6 +1351,21 @@ let femaleOK = false;
     { if (FEM) TOT.fill(0); for (let w = 0; w < U; w++) if (HAND[w] || DB[w] === 'head' || DB[w] === 'neck') TOT[w] = 0;
       let T2 = TOT; for (let k = 0; k < 3; k++) { const Wn = Float32Array.from(T2, () => 1); T2 = gauss(T2, Wn); } T2 = lap1(T2, 120, 0.6);
       for (let w = 0; w < U; w++) { if (HAND[w]) T2[w] = 0; for (let c = 0; c < 3; c++) X[w * 3 + c] = PU[w * 3 + c] + NR[w * 3 + c] * T2[w]; } }
+    // female surface: vessels and nerves are 4 to 8 mm across, too thin for the three-sample depth test above, so any of their voxels at or beyond the surface raises the skin over it (broad muscle bulk is left to show through)
+    if (FEM) { const need = new Float32Array(U), elig = w => { const nm = DB[w]; return nm === 'shin' || nm === 'forearm' || nm === 'upper_arm' || nm === 'foot' || (nm === 'thigh' && PU[w * 3 + 1] < 0.6); };
+      for (let k = 0; k < NZ; k++) for (let j = 0; j < NY; j++) for (let i = 0; i < NX; i++) { if (!OCC2[(j * NZ + k) * NX + i]) continue;
+        const cx = X0 + (i + 0.5) * VX, cy = Y0 + (j + 0.5) * VX, cz = Z0 + (k + 0.5) * VX; if (cy > 1.4 || cy < 0.02 || Math.abs(cx) < 0.03) continue;
+        const gx = Math.floor(cx / R4), gy = Math.floor(cy / R4), gz = Math.floor(cz / R4); let bw = -1, bd = 0.0004;
+        for (let a = -1; a <= 1; a++) for (let b = -1; b <= 1; b++) for (let c = -1; c <= 1; c++) { const arr = hmap.get(ck(gx + a, gy + b, gz + c)); if (!arr) continue;
+          for (const w of arr) { if (!elig(w) || HAND[w]) continue; const dx = X[w * 3] - cx, dy = X[w * 3 + 1] - cy, dz = X[w * 3 + 2] - cz, d2 = dx * dx + dy * dy + dz * dz; if (d2 < bd) { bd = d2; bw = w; } } }
+        if (bw < 0) continue; const sd = (cx - X[bw * 3]) * NR[bw * 3] + (cy - X[bw * 3 + 1]) * NR[bw * 3 + 1] + (cz - X[bw * 3 + 2]) * NR[bw * 3 + 2];
+        if (sd > -0.004) need[bw] = Math.max(need[bw], Math.min(0.03, sd + 0.0045)); }
+      // spread each requirement over its neighbours with a gentle falloff, then blur, so the skin rises as a smooth swell
+      let ND = need; for (let it = 0; it < 6; it++) { const Rn = ND.slice(); for (let w = 0; w < U; w++) { let mx = ND[w]; for (const q of nb[w]) if (elig(q)) mx = Math.max(mx, ND[q] - 0.0015); Rn[w] = mx; } ND = Rn; }
+      ND = lap1(ND, 6, 0.5); for (let w = 0; w < U; w++) { const v = Math.max(ND[w], need[w]); if (v > 0 && elig(w) && !HAND[w]) for (let c = 0; c < 3; c++) X[w * 3 + c] += NR[w * 3 + c] * v; } }
+    // the calcaneus reaches 6 mm (male) and 11 mm (female) behind the sculpted heel: ease the heel back by that plus the dermis
+    { const hb = FEM ? 0.016 : 0.011; for (let w = 0; w < U; w++) { const x = X[w * 3], y = X[w * 3 + 1], z = X[w * 3 + 2]; if (Math.abs(x) < 0.04 || y > 0.1) continue;
+        const bz = Math.min(1, Math.max(0, (-0.03 - z) / 0.03)), by = Math.min(1, Math.max(0, (0.1 - y) / 0.05)); X[w * 3 + 2] -= hb * bz * bz * (3 - 2 * bz) * by * by * (3 - 2 * by); } }
     let DER = new Float32Array(U); for (let w = 0; w < U; w++) DER[w] = band(w)[0]; DER = lap1(DER, 12, 0.6);
     // Taubin smoothing (shrink-free) to take out any remaining ripples
     for (let it = 0; it < 20; it++) for (const f of [0.5, -0.53]) { const Y = new Float32Array(X); for (let w = 0; w < U; w++) { const Lw = nb[w]; if (!Lw.length) continue; let ax = 0, ay = 0, az = 0; for (const q of Lw) { ax += X[q * 3]; ay += X[q * 3 + 1]; az += X[q * 3 + 2]; } const n = Lw.length;
