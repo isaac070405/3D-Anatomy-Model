@@ -1382,6 +1382,8 @@ let femaleOK = false;
     const p = head.geometry.attributes.position, ix = head.geometry.index.array, used = new Uint8Array(p.count); for (const i of ix) used[i] = 1;
     const front = (x0, x1, y0, y1) => { let best = null; for (let i = 0; i < p.count; i++) { if (!used[i]) continue; const x = p.getX(i), y = p.getY(i), z = p.getZ(i); if (x < x0 || x > x1 || y < y0 || y > y1) continue; if (!best || z > best.z) best = V(x, y, z); } return best; };
     const T = front(-0.012, 0.012, 1.585, 1.64), Mo = front(-0.008, 0.008, 1.548, 1.564);
+    // the frontmost point in that band is the lower-lip peak, so the opening is raised onto the lip crease (about 3 mm on the male mesh, 4.5 mm on the female)
+    if (Mo) Mo.y += tag === 'female' ? 0.0045 : 0.003;
     if (Mo) { punch(head, (c, n) => (c.x / 0.019) ** 2 + ((c.y - Mo.y) / 0.0032) ** 2 < 1 && c.z > Mo.z - 0.014 && n.z > 0.2);
       const L = Math.max(0.01, Mo.z + 0.002 - 0.075), og = new THREE.CylinderGeometry(1, 1, L, 24, 1, true); og.rotateX(Math.PI / 2); og.scale(0.0175, 0.0034, 1); og.translate(0, Mo.y, Mo.z + 0.002 - L / 2);
       grp.add(reg('skin', tag + '_oral_vestibule', new THREE.Mesh(og, liningMat), { label: 'Oral fissure and vestibule (opening)' })); }
