@@ -73,8 +73,8 @@ You can also build a zip with `scripts/build_lang_pack.sh zh-Hant`. See `Anatomi
 | `Anatomical 3D Model/three-d-stage.js` | Scene, camera, selection and cross-section |
 | `Anatomical 3D Model/lang/` | Optional language packs. `lang/zh-Hant/` is the Traditional Chinese pack (names, interface text, search) |
 | `Anatomical 3D Model/layers.js`, `explode.js`, `search.js`, `tree.js` | Peel layers, explode mode, search, anatomical tree |
-| `Anatomical 3D Model/assets/` | `eye.glb`, `mni_brain.glb`, brain volume data, and the male and female skin meshes (`Male_Realistic_BaseMesh.glb`, `Female_Realistic_BaseMesh.glb`) |
-| `scripts/` | Python converters for the eye, brain and TotalSegmentator output, and `build_lang_pack.sh` to zip a language pack |
+| `Anatomical 3D Model/assets/` | `mni_brain.glb`, brain volume data, and the male and female skin meshes (`Male_Realistic_BaseMesh.glb`, `Female_Realistic_BaseMesh.glb`) |
+| `scripts/` | Python converters for the brain and TotalSegmentator output, and `build_lang_pack.sh` to zip a language pack |
 | `wiki/` | System pages, interface guide and modelling notes |
 | `.github/workflows/pages.yml` | Deploys `Anatomical 3D Model/` to GitHub Pages on each push to `main` |
 
@@ -84,7 +84,10 @@ Enable Pages once under Settings, Pages, Source: GitHub Actions. Each push to `m
 
 ## Licence
 
-The code and documents written for this project are under the MIT licence (`LICENSE`). Third-party data keeps its own terms:
+The code and documents written for this project are under the MIT licence (`LICENSE`). Third-party items keep their own terms, listed in full in `THIRD_PARTY_NOTICES.md`:
 
-- `Anatomical 3D Model/assets/eye.glb` is derived from feelpp/mesh.eye v1.1 (Zenodo 10.5281/zenodo.15630998), GPL-3.0-only.
-- `Anatomical 3D Model/assets/mni_brain*` is derived from an ICBM 152 (MNI) T1 template, under the licence quoted in `THIRD_PARTY_NOTICES.md`.
+- three.js 0.184.0 (MIT), loaded from unpkg.
+- `Anatomical 3D Model/assets/mni_brain*`, derived from an ICBM 152 (MNI) T1 template, under the licence quoted in `THIRD_PARTY_NOTICES.md`.
+- `Anatomical 3D Model/assets/Male_Realistic_BaseMesh.glb` and `Female_Realistic_BaseMesh.glb`, from the Blender Studio Human Base Meshes bundle v1.4.1 (CC0).
+- TotalSegmentator dataset (CC BY 4.0), an optional input for `scripts/totalsegmentator_to_glb.py`.
+- `Anatomical 3D Model/_ds/` page styles, imported from Claude Design and treated as MIT with the rest of the repository.

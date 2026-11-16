@@ -4,6 +4,7 @@ All notable changes to this project are listed here, newest first. Dates are in 
 
 ## Unreleased
 
+- Replace the GPL-3.0 eye meshes (feelpp/mesh.eye, `eye.glb`) with an eye built in code, remove the eye conversion scripts and the `cadquery-ocp` requirement, and make the whole repository MIT apart from the third-party data in `THIRD_PARTY_NOTICES.md`.
 - Use the Blender Studio Realistic base meshes as the male and female skin. They have no skeleton, so capsule bones measured on each mesh feed the existing limb retarget and layered fit.
 - Release language pack 1.0.3 and 1.0.2 (same files as 1.0.1) and 1.0.1 (`@isaac070405/anatomy-lang-zh-hant`) with the npm install steps in its README.
 - Add the Traditional Chinese (繁體中文) language pack in `lang/zh-Hant/`, a folder that can be copied in or deleted. It puts names beside every structure, group, system and layer, with Chinese search and an on/off button.
@@ -21,7 +22,7 @@ All notable changes to this project are listed here, newest first. Dates are in 
 
 ## 2026-11-01 to 2026-11-02
 
-- Add the TotalSegmentator and mesh.eye conversion scripts, and the eye and MNI brain meshes.
+- Add the TotalSegmentator conversion scripts, and the eye and MNI brain meshes.
 
 ## 2026-10-31
 

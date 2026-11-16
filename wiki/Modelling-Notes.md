@@ -12,9 +12,9 @@
 ---
 [← Anatomy review additions](Anatomy-Review-Additions) · [Home](Home)
 
-## Eye meshes
+## Eye geometry
 
-The eyeball (sclera, choroid, retina, vitreous body, cornea, iris and ciliary body, lens, suspensory ligament) uses meshes from feelpp/mesh.eye v1.1 (Zenodo 10.5281/zenodo.15630998, GPL-3.0-only; Chabannes, Prud'homme, Saigre, Sala, Szopos, Trophime). They load from `assets/eye.glb`, scaled to the sclera radius of the model, and the left eye is mirrored for the right. Solid names were matched from geometry (`scripts/eye_names.json`). The two retinal vessels in the source are not shown.
+The eyeball (sclera, choroid, retina, vitreous body, cornea, iris, pupil, lens, suspensory ligament) is built in code from spheres, open spherical shells and rings in `anatomy-part2.js`, scaled to the sclera radius of the model, with the left eye mirrored for the right. It uses no external mesh. The retinal vessels and ciliary body are not shown.
 
 ## Brain from the MNI template
 
