@@ -1360,11 +1360,11 @@ let femaleOK = false;
     { const need = new Float32Array(U), elig = w => { const nm = DB[w]; return nm === 'shin' || nm === 'forearm' || nm === 'upper_arm' || nm === 'foot' || nm === 'hand' || (nm === 'thigh' && PU[w * 3 + 1] < 0.6); };
       for (let k = 0; k < NZ; k++) for (let j = 0; j < NY; j++) for (let i = 0; i < NX; i++) { if (!OCC2[(j * NZ + k) * NX + i]) continue;
         const cx = X0 + (i + 0.5) * VX, cy = Y0 + (j + 0.5) * VX, cz = Z0 + (k + 0.5) * VX; if (cy > 1.4 || cy < 0.02 || Math.abs(cx) < 0.03) continue;
-        const gx = Math.floor(cx / R4), gy = Math.floor(cy / R4), gz = Math.floor(cz / R4); let bw = -1, bd = 0.0004;
+        const gx = Math.floor(cx / R4), gy = Math.floor(cy / R4), gz = Math.floor(cz / R4); let bw = -1, bd = 0.0016;
         for (let a = -1; a <= 1; a++) for (let b = -1; b <= 1; b++) for (let c = -1; c <= 1; c++) { const arr = hmap.get(ck(gx + a, gy + b, gz + c)); if (!arr) continue;
           for (const w of arr) { if (!elig(w)) continue; const dx = X[w * 3] - cx, dy = X[w * 3 + 1] - cy, dz = X[w * 3 + 2] - cz, d2 = dx * dx + dy * dy + dz * dz; if (d2 < bd) { bd = d2; bw = w; } } }
         if (bw < 0) continue; const sd = (cx - X[bw * 3]) * NR[bw * 3] + (cy - X[bw * 3 + 1]) * NR[bw * 3 + 1] + (cz - X[bw * 3 + 2]) * NR[bw * 3 + 2];
-        if (sd > -0.004) need[bw] = Math.max(need[bw], Math.min(0.03, sd + 0.0045)); }
+        if (sd > -0.004) need[bw] = Math.max(need[bw], Math.min(DB[bw] === 'foot' ? 0.04 : 0.03, sd + 0.0045)); }
       // spread each requirement over its neighbours with a gentle falloff, then blur, so the skin rises as a smooth swell
       let ND = need; for (let it = 0; it < 6; it++) { const Rn = ND.slice(); for (let w = 0; w < U; w++) { let mx = ND[w]; for (const q of nb[w]) if (elig(q)) mx = Math.max(mx, ND[q] - 0.0015); Rn[w] = mx; } ND = Rn; }
       ND = lap1(ND, 6, 0.5); for (let w = 0; w < U; w++) { const v = Math.max(ND[w], need[w]); if (v > 0 && elig(w)) for (let c = 0; c < 3; c++) X[w * 3 + c] += NR[w * 3 + c] * v; } }
