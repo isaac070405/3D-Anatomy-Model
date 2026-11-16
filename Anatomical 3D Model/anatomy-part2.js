@@ -1245,9 +1245,9 @@ let femaleOK = false;
   // and each vertex takes soft weights from its distance to every capsule surface, so the same retarget and fit as a rigged mesh can run.
   const RIGS = {
     male: { neckA: [0, 1.405, 0], neckB: [0, 1.48, 0.03], crown: [0, 1.684, 0.03], trunkA: [0, 0.93, 0], trunkB: [0, 1.36, 0], rt: 0.15, clav: [0.03, 1.4, 0.03], sh: [0.17, 1.34, 0], el: [0.295, 1.07, 0.01], wr: [0.385, 0.84, 0.07], hd: [0.43, 0.7, 0.115],
-      hip: [0.095, 0.87, 0], kn: [0.145, 0.43, -0.01], an: [0.165, 0.085, -0.04], toe: [0.18, 0.015, 0.12], hoff: [-0.015, 0, 0.012], r: { clav: 0.05, ua: 0.055, fa: 0.045, hand: 0.045, th: 0.085, sh: 0.055, ft: 0.05, neck: 0.07, head: 0.07 } },
+      hip: [0.095, 0.87, 0], kn: [0.145, 0.43, -0.01], an: [0.165, 0.085, -0.04], toe: [0.18, 0.015, 0.12], hoff: [0.007, 0, 0.02], r: { clav: 0.05, ua: 0.055, fa: 0.045, hand: 0.045, th: 0.085, sh: 0.055, ft: 0.05, neck: 0.07, head: 0.07 } },
     female: { neckA: [0, 1.39, 0], neckB: [0, 1.46, 0.04], crown: [0, 1.641, 0.03], trunkA: [0, 0.92, 0], trunkB: [0, 1.34, 0], rt: 0.125, clav: [0.03, 1.38, 0.03], sh: [0.15, 1.31, 0], el: [0.235, 1.03, -0.02], wr: [0.335, 0.8, 0.035], hd: [0.41, 0.68, 0.07],
-      hip: [0.085, 0.85, 0], kn: [0.115, 0.42, -0.025], an: [0.12, 0.075, -0.03], toe: [0.13, 0.015, 0.13], hoff: [-0.016, 0, 0.03], r: { clav: 0.045, ua: 0.045, fa: 0.038, hand: 0.04, th: 0.085, sh: 0.05, ft: 0.045, neck: 0.07, head: 0.07 } } };
+      hip: [0.085, 0.85, 0], kn: [0.115, 0.42, -0.025], an: [0.12, 0.075, -0.03], toe: [0.13, 0.015, 0.13], hoff: [0, 0, 0.035], r: { clav: 0.045, ua: 0.045, fa: 0.038, hand: 0.04, th: 0.085, sh: 0.05, ft: 0.045, neck: 0.07, head: 0.07 } } };
   const makeRig = (root, J) => {
     let body = null; root.traverse(o => { if (o.isMesh && (!body || o.geometry.attributes.position.count > body.geometry.attributes.position.count)) body = o; });
     if (!body) throw new Error('no body mesh');
