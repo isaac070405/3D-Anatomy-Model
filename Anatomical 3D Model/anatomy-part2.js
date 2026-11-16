@@ -1352,9 +1352,9 @@ let femaleOK = false;
       const S = gauss(raw, W); for (let w = 0; w < U; w++) { const s = Math.max(0, Math.min(S[w], 0.03 - TOT[w])); TOT[w] += s; for (let c = 0; c < 3; c++) X[w * 3 + c] += NR[w * 3 + c] * s; } }
     // apply the push as one broad, low-frequency field (head, neck and hands keep the sculpted shape) so no cuffs, collars or creases form at its edges
     // the shared internals are male-proportioned, so the female surface keeps its sculpted shape (no push) and the internals show through the translucent skin where they exceed it
-    { if (FEM) for (let w = 0; w < U; w++) TOT[w] = DB[w] === 'shin' || DB[w] === 'forearm' || (DB[w] === 'thigh' && PU[w * 3 + 1] < 0.55) ? Math.min(TOT[w], 0.012) : 0; // shin, forearm and lower thigh only, capped, so the male-proportioned vessels do not break the slimmer female surface
+    { if (FEM) for (let w = 0; w < U; w++) TOT[w] = DB[w] === 'shin' || DB[w] === 'forearm' || (DB[w] === 'thigh' && PU[w * 3 + 1] < 0.55) ? Math.min(TOT[w], 0.03) : 0; // shin, forearm and lower thigh only, capped, so the male-proportioned vessels do not break the slimmer female surface
       for (let w = 0; w < U; w++) if (HAND[w] || DB[w] === 'head' || DB[w] === 'neck') TOT[w] = 0;
-      let T2 = TOT; for (let k = 0; k < 3; k++) { const Wn = Float32Array.from(T2, () => 1); T2 = gauss(T2, Wn); } T2 = lap1(T2, 120, 0.6);
+      let T2 = TOT; for (let k = 0; k < 3; k++) { const Wn = Float32Array.from(T2, () => 1); T2 = gauss(T2, Wn); } T2 = lap1(T2, FEM ? 25 : 120, 0.6);
       for (let w = 0; w < U; w++) { if (HAND[w]) T2[w] = 0; for (let c = 0; c < 3; c++) X[w * 3 + c] = PU[w * 3 + c] + NR[w * 3 + c] * T2[w]; } }
     // the calcaneus reaches 6 mm (male) and 11 mm (female) behind the sculpted heel: ease the heel back by that plus the dermis
     { const hb = FEM ? 0.016 : 0.011; for (let w = 0; w < U; w++) { const x = X[w * 3], y = X[w * 3 + 1], z = X[w * 3 + 2]; if (Math.abs(x) < 0.04 || y > 0.1) continue;
