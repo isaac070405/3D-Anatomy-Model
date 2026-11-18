@@ -10,34 +10,42 @@
   let A = null, hide = false, tagged = [], covers = {}, sex = 'male', loop = 0;
   const label = o => (o.name || '') + ' ' + ((o.userData && o.userData.label) || '');
 
-  // swimwear: copy the skin triangles inside a region and push them 3 mm outward along the normal
-  const inBrief = (x, y) => y > 0.66 && y < 0.84 && Math.abs(x) < 0.23;
-  const inTop = (x, y, z) => Math.abs(x) < 0.17 && y > 1.225 && y < 1.335 && z > -0.2;
-  const makeCover = (grp, test, color, name) => {
-    const THREE = A.THREE, pos = [], inv = A.G.skin.matrixWorld.clone().invert(), v = new THREE.Vector3(), cen = new THREE.Vector3();
+  // swimwear: cut the skin triangles exactly along flat boundaries (so the hems are straight), weld the cut pieces,
+  // smooth the normals, then push the shell 3.5 mm outward along them
+  const BRIEF = [[1, 1, 0.66], [1, -1, 0.84], [0, 1, -0.23], [0, -1, 0.23]];   // [axis, sign, value]: keep sign*(p[axis]-value) >= 0
+  const TOP = [[1, 1, 1.205], [1, -1, 1.345], [0, 1, -0.165], [0, -1, 0.165]];
+  const clip = (poly, pl) => { const [ax, sg, val] = pl, out = [];
+    for (let i = 0; i < poly.length; i++) { const A = poly[i], B = poly[(i + 1) % poly.length], da = sg * (A[ax] - val), db = sg * (B[ax] - val);
+      if (da >= 0) out.push(A);
+      if ((da >= 0) !== (db >= 0)) { const t = da / (da - db); out.push([A[0] + (B[0] - A[0]) * t, A[1] + (B[1] - A[1]) * t, A[2] + (B[2] - A[2]) * t]); } }
+    return out; };
+  const makeCover = (grp, regions, color, name) => {
+    const THREE = A.THREE, inv = A.G.skin.matrixWorld.clone().invert(), v = new THREE.Vector3(), tris = [];
     grp.updateMatrixWorld(true);
     grp.traverse(m => {
       if (!m.isMesh || /^(scrotum|penis)/.test(m.name) || (m.userData && m.userData.cover)) return;
-      const g = m.geometry, p = g.attributes.position, n = g.attributes.normal, ix = g.index, tc = ix ? ix.count / 3 : Math.floor(p.count / 3);
-      const mx = new THREE.Matrix4().multiplyMatrices(inv, m.matrixWorld), nm = new THREE.Matrix3().getNormalMatrix(mx), nv = new THREE.Vector3();
+      const g = m.geometry, p = g.attributes.position, ix = g.index, tc = ix ? ix.count / 3 : Math.floor(p.count / 3), mx = new THREE.Matrix4().multiplyMatrices(inv, m.matrixWorld);
       const W = i => { v.fromBufferAttribute(p, i).applyMatrix4(mx); return [v.x, v.y, v.z]; };
       for (let t = 0; t < tc; t++) {
-        const ids = ix ? [ix.getX(t * 3), ix.getX(t * 3 + 1), ix.getX(t * 3 + 2)] : [t * 3, t * 3 + 1, t * 3 + 2];
-        const P = ids.map(W); cen.set((P[0][0] + P[1][0] + P[2][0]) / 3, (P[0][1] + P[1][1] + P[2][1]) / 3, (P[0][2] + P[1][2] + P[2][2]) / 3);
-        if (!test(cen.x, cen.y, cen.z)) continue;
-        ids.forEach((id, k) => { if (n) { nv.fromBufferAttribute(n, id).applyMatrix3(nm).normalize(); } else nv.set(0, 0, 0);
-          pos.push(P[k][0] + nv.x * 0.003, P[k][1] + nv.y * 0.003, P[k][2] + nv.z * 0.003); });
+        const P = (ix ? [ix.getX(t * 3), ix.getX(t * 3 + 1), ix.getX(t * 3 + 2)] : [t * 3, t * 3 + 1, t * 3 + 2]).map(W);
+        for (const reg of regions) { let poly = P; for (const pl of reg) { poly = clip(poly, pl); if (poly.length < 3) break; }
+          for (let k = 1; poly.length >= 3 && k < poly.length - 1; k++) tris.push(poly[0], poly[k], poly[k + 1]); }
       }
     });
-    if (!pos.length) return null;
-    const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.computeVertexNormals();
-    const mesh = new THREE.Mesh(g, new THREE.MeshStandardMaterial({ name: 'swimwear', color, roughness: 0.75, metalness: 0, side: THREE.DoubleSide }));
+    if (!tris.length) return null;
+    const idx = new Map(), P = [], I = [], key = q => Math.round(q[0] * 1e5) + ',' + Math.round(q[1] * 1e5) + ',' + Math.round(q[2] * 1e5);
+    tris.forEach(q => { const k = key(q); let i = idx.get(k); if (i === undefined) { i = P.length; idx.set(k, i); P.push(q); } I.push(i); });
+    const N = P.map(() => [0, 0, 0]), a = new THREE.Vector3(), b = new THREE.Vector3(), c = new THREE.Vector3();
+    for (let t = 0; t < I.length; t += 3) { a.set(...P[I[t]]); b.set(...P[I[t + 1]]); c.set(...P[I[t + 2]]); const f = b.sub(a).cross(c.sub(a));
+      for (let j = 0; j < 3; j++) { const n = N[I[t + j]]; n[0] += f.x; n[1] += f.y; n[2] += f.z; } }
+    const pos = []; P.forEach((q, i) => { const n = new THREE.Vector3(...N[i]).normalize(); pos.push(q[0] + n.x * 0.0035, q[1] + n.y * 0.0035, q[2] + n.z * 0.0035); });
+    const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.setIndex(I); g.computeVertexNormals();
+    const mesh = new THREE.Mesh(g, new THREE.MeshStandardMaterial({ name: 'swimwear', color, roughness: 0.7, metalness: 0, side: THREE.DoubleSide }));
     mesh.name = name; mesh.userData.cover = true; mesh.visible = false; grp.add(mesh); return mesh;
   };
   const build = () => {
-    const male = A.SEXG.male, female = A.SEXG.female;
-    covers.male = [makeCover(male, inBrief, 0x4a5a70, 'swimwear_male')].filter(Boolean);
-    covers.female = [makeCover(female, (x, y, z) => inBrief(x, y) || inTop(x, y, z), 0x4a5a70, 'swimwear_female')].filter(Boolean);
+    covers.male = [makeCover(A.SEXG.male, [BRIEF], 0x4a5a70, 'swimwear_male')].filter(Boolean);
+    covers.female = [makeCover(A.SEXG.female, [BRIEF, TOP], 0x4a5a70, 'swimwear_female')].filter(Boolean);
   };
 
   const collect = () => {
