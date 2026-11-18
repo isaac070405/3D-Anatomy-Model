@@ -1,5 +1,5 @@
 // Latin and Greek word-origin add-on. It sits on top of whichever language pack is loaded and adds a "Word origin" card to the selection sidebar.
-// It reads data/*.json (roots, prefixes, suffixes, grammar, origins). Edit those files to fix or add an entry; no build step.
+// It reads data/*.json (roots, prefixes, suffixes, grammar, origins) and data/names.txt (Latin structure names, one "English|Latin" per line). Edit those files to fix or add an entry; no build step.
 // The card shows English glosses, or Traditional Chinese when the zh-Hant pack is on. With no pack, or if the data fails to load, nothing is added.
 (function () {
   const base = document.currentScript.src.replace(/index\.js(\?.*)?$/, '');
@@ -11,6 +11,25 @@
   const LANGNAME = { grc: 'Greek', lat: 'Latin' };
   const LANGNAME_ZH = { grc: '希臘語', lat: '拉丁語' };
   let D = null, els = [];
+  const NAMES = new Map(), NAMES_LOW = new Map();
+  const SIDE = { left: 'sin.', right: 'dext.' };
+  const getN = x => NAMES.get(x) || NAMES_LOW.get(x.toLowerCase());
+  // Latin name for an English structure label. Mirrors the pack's rules for sides, numbers and qualifiers; sides use sin. / dext. so no gender agreement is needed.
+  function latinName(s) {
+    s = (s || '').trim(); if (!s) return null;
+    let z = getN(s); if (z) return z; let m;
+    m = s.match(/^Magnified(?: tooth)?:\s+(.+)$/); if (m) { const b = latinName(m[1]); if (b) return 'Auctum: ' + b; }
+    m = s.match(/^([CTLS]\d+)\s+root$/); if (m) return 'Radix ' + m[1];
+    m = s.match(/^(.+?)\s+\((left|right),\s*#(\d+)\)$/i); if (m) { const b = latinName(m[1]); if (b) return b + ' ' + SIDE[m[2].toLowerCase()] + ' #' + m[3]; }
+    m = s.match(/^(.+?)\s+\((.+?),\s*(left|right)\)$/i); if (m) { const b = latinName(m[1] + ' (' + m[2] + ')') || latinName(m[1]); if (b) return b + ' ' + SIDE[m[3].toLowerCase()]; }
+    m = s.match(/^(.*?)\s+((?:[CTLS]\d+(?:\/[CTLS]\d+)?)|\d+(?:[–-]\d+)?)$/); if (m) { const b = latinName(m[1]); if (b) return b + ' ' + m[2]; }
+    m = s.match(/^(Left|Right)\s+(.+)$/i); if (m) { const b = latinName(m[2]); if (b) return b + ' ' + SIDE[m[1].toLowerCase()]; }
+    m = s.match(/^(.+?),?\s+\((left|right)\)$/i) || s.match(/^(.+?),\s+(left|right)$/i); if (m) { const b = latinName(m[1]); if (b) return b + ' ' + SIDE[m[2].toLowerCase()]; }
+    m = s.match(/^(.+?)\s+\((.+)\)$/); if (m) { const b = latinName(m[1]), q = latinName(m[2]); if (b && q) return b + ' (' + q + ')'; if (b) return b; }
+    const i = s.indexOf(', ');
+    if (i > 0) { const b = latinName(s.slice(0, i)), q = latinName(s.slice(i + 2)); if (b && q) return b + ', ' + q; }
+    return null;
+  }
 
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const zhOn = () => !!(window.__zh && window.__zh.on && window.__zh.pack === 'zh-Hant');
@@ -63,6 +82,12 @@
   };
 
   function build(name) {
+    const ln = latinName(name);
+    const head = ln ? '<div class="ot">' + (lang() === 'zh-Hant' ? '拉丁名' : 'Latin name') + '</div><div class="ol" lang="la">' + esc(ln) + '</div>' : '';
+    return head + buildOrigin(name);
+  }
+
+  function buildOrigin(name) {
     const words = name.replace(/\([^)]*\)/g, ' ').split(',')[0].match(/[A-Za-z]+/g) || [], out = [], seen = new Set();
     for (const w of words) {
       const lw = w.toLowerCase(); if (lw.length < 4 || seen.has(lw)) continue; seen.add(lw);
@@ -85,7 +110,7 @@
       '#sborigin summary{cursor:pointer;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--color-accent-700,#6b5a3a);font-weight:600}' +
       '#sborigin .ot{margin:8px 0 2px;font-weight:600}#sborigin .ow{font-style:italic}#sborigin .oa{opacity:.6}' +
       '#sborigin ul{list-style:none;margin:0;padding:0}#sborigin li{display:flex;flex-wrap:wrap;gap:2px 8px;padding:2px 0}' +
-      '#sborigin .om{flex:1 1 auto}#sborigin .oo{opacity:.65;font-size:11.5px}' +
+      '#sborigin .ol{font-style:italic;font-size:13.5px}#sborigin .om{flex:1 1 auto}#sborigin .oo{opacity:.65;font-size:11.5px}' +
       '#sborigin:lang(zh-Hant),#sborigin[lang="zh-Hant"]{font-family:"Noto Sans HK","PingFang HK","Microsoft JhengHei","Noto Sans TC",sans-serif}';
     document.head.appendChild(s);
   }
@@ -114,10 +139,14 @@
     render(); return true;
   }
 
-  Promise.all(FILES.map(f => fetch(base + 'data/' + f + '.json').then(r => r.json()))).then(([roots, prefixes, suffixes, origins]) => {
+  const namesP = fetch(base + 'data/names.txt').then(r => r.text()).then(t => t.split('\n').forEach(l => {
+    if (l[0] === '#') return; const i = l.indexOf('|'); if (i < 1) return;
+    const e = l.slice(0, i).trim(), v = l.slice(i + 1).trim(); if (!NAMES.has(e)) { NAMES.set(e, v); NAMES_LOW.set(e.toLowerCase(), v); }
+  })).catch(() => { });
+  Promise.all([namesP].concat(FILES.map(f => fetch(base + 'data/' + f + '.json').then(r => r.json())))).then(([, roots, prefixes, suffixes, origins]) => {
     D = { roots: roots.roots, origins };
     els = [].concat(prefixes.prefixes.map(e => ['prefix', e]), roots.roots.map(e => ['root', e]), suffixes.suffixes.map(e => ['suffix', e]));
-    window.__latin = { decompose, rootsFor, build };
+    window.__latin = { decompose, rootsFor, build, latinName };
     let tries = 0; const go = () => { if (!mount() && ++tries < 40) setTimeout(go, 500); };
     if (document.readyState === 'complete') go(); else window.addEventListener('load', go);
   }).catch(() => { });

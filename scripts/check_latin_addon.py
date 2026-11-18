@@ -34,5 +34,20 @@ for t in data["origins"]["terms"]:
     for p in t["parts"]:
         if p["id"] not in ids[p["type"]]:
             errors.append(f"origins: {t['term']} uses unknown {p['type']} {p['id']}")
-print("\n".join(errors) if errors else "latin add-on data OK")
+# names.txt: every line is "English|Latin" and every English term in the zh-Hant pack has a Latin name
+names = {}
+for n, l in enumerate((root / "names.txt").read_text(encoding="utf-8").splitlines(), 1):
+    if not l or l.startswith("#"):
+        continue
+    e, _, v = l.partition("|")
+    if not e.strip() or not v.strip():
+        errors.append(f"names.txt line {n}: needs English|Latin")
+    elif e.strip() in names:
+        errors.append(f"names.txt line {n}: duplicate {e.strip()}")
+    names[e.strip()] = v.strip()
+zh = (root.parent.parent / "zh-Hant" / "names.js").read_text(encoding="utf-8")
+block = zh.split("const TERMS = `", 1)[1].split("`", 1)[0]
+missing = sorted({l.split("|", 1)[0].strip() for l in block.splitlines() if "|" in l} - set(names))
+errors += [f"names.txt: no Latin name for '{m}'" for m in missing]
+print("\n".join(errors) if errors else f"latin add-on data OK ({len(names)} names)")
 sys.exit(1 if errors else 0)
