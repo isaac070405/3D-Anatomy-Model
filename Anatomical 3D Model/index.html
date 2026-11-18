@@ -399,14 +399,18 @@
 (function(){var b=document.getElementById('loadbar'),f=document.getElementById('loadfl'),m=document.getElementById('loadmsg'),n=document.getElementById('loadpct'),cur=0,fin=false;
 function set(p,t){if(fin)return;p=Math.max(cur,Math.min(99,Math.round(p)));cur=p;f.style.width=p+'%';n.textContent=p+'%';b.setAttribute('aria-valuenow',p);if(t)m.textContent=t}
 function done(){if(fin)return;fin=true;f.style.width='100%';n.textContent='100%';m.textContent='Ready';b.setAttribute('aria-valuenow',100);setTimeout(function(){b.classList.add('done')},400);setTimeout(function(){b.remove()},1200)}
-window.__load={set:set,done:done};
+function fail(t){if(fin)return;fin=true;f.style.background='#b3261e';m.textContent=t}
+window.__load={set:set,done:done,fail:fail};
 // bytes-to-percent helper: lo..hi is this file's share of the bar
 window.__load.span=function(lo,hi,t){return function(e){if(e&&e.lengthComputable&&e.total)set(lo+(hi-lo)*e.loaded/e.total,t)}};
-var mods=['anatomy-part1.js','anatomy-part2.js','layers.js','explode.js','camera-tools.js','explode-slider.js','shortcuts.js','perf.js','search.js','tree.js','regions.js','dock.js','snapshot.js','pins.js','privacy.js'],left=mods.length;
+// Start after parsing: an earlier import() would evaluate the page modules before three-d-stage.js defines the element.
+function watch(){var mods=['anatomy-part1.js','anatomy-part2.js','layers.js','explode.js','camera-tools.js','explode-slider.js','shortcuts.js','perf.js','search.js','tree.js','regions.js','dock.js','snapshot.js','pins.js','privacy.js'],left=mods.length;
 // Re-importing a module already on the page returns its own evaluation promise, so this resolves once each script (top-level await included) has finished.
-mods.forEach(function(u){import('./'+u).catch(function(){}).then(function(){left--;set(95+4*(mods.length-left)/mods.length,left?'Starting tools':'Finishing')})});
+mods.forEach(function(u){import('./'+u).catch(function(){}).then(function(){left--;if(window.__anat&&window.__anat.ready)set(95+4*(mods.length-left)/mods.length,left?'Starting tools':'Finishing')})});
 var pl=new Promise(function(r){if(document.readyState==='complete')r();else addEventListener('load',r)});
-Promise.all([Promise.all(mods.map(function(u){return import('./'+u).catch(function(){})})),pl,document.fonts?document.fonts.ready:0]).then(done);
+var bad=0;Promise.all([Promise.all(mods.map(function(u){return import('./'+u).catch(function(){bad++})})),pl,document.fonts?document.fonts.ready:0]).then(function(){bad?fail('Load failed: '+bad+' of '+mods.length+' scripts did not start. Check your connection and reload.'):done()});
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',watch);else watch();
 setTimeout(done,60000);})();
 </script>
 <script src="three-d-stage.js"></script>
