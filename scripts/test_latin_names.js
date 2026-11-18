@@ -17,7 +17,7 @@ const cases = {
   // numbers: Roman numerals, vertebrae keep the clinical code in brackets
   'Rib 5 (left)': 'Costa V sinistra', 'Rib 12': 'Costa XII', 'Rib 9 (right)': 'Costa IX dextra',
   'Vertebra L5': 'Vertebra lumbalis V (L5)', 'Vertebra C7': 'Vertebra cervicalis VII (C7)', 'Vertebra T12': 'Vertebra thoracica XII (T12)',
-  'Vertebra Co1': 'Vertebra coccygea I (Co1)', 'Intervertebral disc L5/S1': 'Discus intervertebralis L5/S1', 'C6 root': 'Radix C6',
+  'Vertebra C1': 'Atlas [Vertebra cervicalis I] (C1)', 'Vertebra C2': 'Axis [Vertebra cervicalis II] (C2)', 'Vertebra C3': 'Vertebra cervicalis III (C3)', 'Vertebra Co1': 'Vertebra coccygea I (Co1)', 'Intervertebral disc L5/S1': 'Discus intervertebralis L5/S1', 'C6 root': 'Radix C6',
   // sides and qualifiers
   'Canine, maxillary (right, #13)': 'Dens caninus maxillaris dexter #13',
   'Biceps brachii, long head (left)': 'Musculus biceps brachii sinister, caput longum',

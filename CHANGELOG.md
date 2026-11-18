@@ -5,6 +5,7 @@ All notable changes to this project are listed here, newest first. Dates are in 
 ## Unreleased
 
 - Build Latin names from a direction list (`directions.txt`) and a structure list with gender (`structures.txt`), so a label such as Left kidney or Right superior lobe gets a name even when it is not listed. Sides use full Latin with gender agreement (Ren sinister, Costa V sinistra), and ribs and vertebrae use Roman numerals (Vertebra lumbalis V (L5)). Add `scripts/test_latin_names.js`.
+- Name the first two cervical vertebrae Atlas and Axis (`Vertebra C1`, `Vertebra C2`) with their numbered Latin names in brackets.
 - Add Latin names for the 1,357 structure labels, shown at the top of the sidebar card.
 - Add the Latin and Greek word-origin add-on in `lang/latin/`. It loads after any language pack (`ADDONS` in `lang/loader.js`) and adds a Word origin card to the selection sidebar, for example hepatic = liver related, with 35 roots, 17 prefixes and 23 suffixes. Glosses are English, or Traditional Chinese when that pack is on.
 

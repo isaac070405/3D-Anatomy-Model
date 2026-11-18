@@ -403,3 +403,6 @@ Deep organs|Organa profunda|x
 Deep nerves and vessels|Nervi et vasa profunda|x
 Capsules and ligaments|Capsulae et ligamenta|x
 Bones and cartilage|Ossa et cartilagines|x
+
+Vertebra C1|Atlas [Vertebra cervicalis I] (C1)|m
+Vertebra C2|Axis [Vertebra cervicalis II] (C2)|m
