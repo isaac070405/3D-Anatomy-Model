@@ -374,6 +374,7 @@ Not available in Explode anatomy mode.|分解解剖模式下無法使用。
 Special senses|特殊感官
 Endocrine|內分泌
 three.js failed to load.|three.js 載入失敗。
+View|視角
 `;
   const map = new Map();
   TEXT.split('\n').forEach(l => { const i = l.indexOf('|'); if (i > 0) map.set(l.slice(0, i).trim(), l.slice(i + 1).trim()); });

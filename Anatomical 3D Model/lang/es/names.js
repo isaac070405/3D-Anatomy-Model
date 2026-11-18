@@ -1415,19 +1415,18 @@ Bones and cartilage|Huesos y cartílago
   body.zh-on .zh{display:inline}
   body.zh-on [data-zh]::after{content:" " attr(data-zh);font-family:inherit;font-weight:400;font-size:.94em;letter-spacing:.02em;opacity:.85}
   #tip[data-zh]::after{display:block;margin-top:2px}
-  #langsw{position:fixed;right:24px;top:24px;z-index:3;width:264px;margin:0;padding:6px;background:color-mix(in oklab,var(--color-bg) 94%,transparent);border:1px solid var(--color-divider);border-radius:var(--radius-md,4px);box-shadow:var(--shadow-sm)}
+  #langsw{position:fixed;right:24px;top:24px;z-index:5;display:flex;flex-direction:column;align-items:flex-end}
   body.present #langsw{display:none}
-  #langsw .lh{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-neutral-700,#6b6458);margin-bottom:4px}
-  #langsw [role=radiogroup]{display:flex;flex-direction:column;border:1px solid var(--color-accent-500);border-radius:var(--radius-md,4px);overflow:hidden}
-  #langsw .lo{display:flex;align-items:baseline;gap:8px;width:100%;text-align:left;font:inherit;font-size:13px;color:var(--color-accent-700);background:transparent;border:0;padding:6px 10px 6px 26px;cursor:pointer;position:relative}
+  #langsw .lbtn{display:flex;align-items:center;gap:8px;font:inherit;font-size:13px;color:var(--color-accent-700);background:color-mix(in oklab,var(--color-bg) 94%,transparent);border:1px solid var(--color-accent-500);border-radius:var(--radius-md,4px);padding:6px 10px;cursor:pointer;box-shadow:var(--shadow-sm)}
+  #langsw .lbtn:hover,#langsw .lbtn[aria-expanded=true]{background:var(--color-accent-100)}
+  #langsw .lbtn::after{content:"";width:6px;height:6px;border:solid currentColor;border-width:0 1.5px 1.5px 0;transform:rotate(45deg) translateY(-2px)}
+  #langsw .lm{margin-top:4px;min-width:100%;background:var(--color-bg);border:1px solid var(--color-divider);border-radius:var(--radius-md,4px);box-shadow:var(--shadow-sm);overflow:hidden}
+  #langsw .lm[hidden]{display:none}
+  #langsw .lo{display:flex;align-items:baseline;gap:8px;width:100%;text-align:left;font:inherit;font-size:13px;white-space:nowrap;color:var(--color-accent-700);background:transparent;border:0;padding:7px 12px;cursor:pointer}
   #langsw .lo+.lo{border-top:1px solid var(--color-accent-200)}
-  #langsw .lo::before{content:"";position:absolute;left:9px;top:50%;width:9px;height:9px;margin-top:-5px;border:1px solid var(--color-accent-500);border-radius:50%;box-sizing:border-box}
-  #langsw .lo:hover:not(:disabled){background:var(--color-accent-100)}
+  #langsw .lo:hover{background:var(--color-accent-100)}
   #langsw .lo.on{background:var(--color-accent-200);font-weight:600}
-  #langsw .lo.on::before{background:var(--color-accent-700);border-color:var(--color-accent-700)}
-  #langsw .lo:disabled{cursor:not-allowed;color:var(--color-neutral-700,#6b6458);opacity:.6}
-  #langsw .lz{font-family:inherit;font-size:.94em}
-  #langsw .lp{margin-left:auto;font-size:10px;letter-spacing:.08em;text-transform:uppercase}`;
+  #langsw .lz{font-family:inherit;font-size:.94em}`;
   document.head.appendChild(style);
   document.body.classList.toggle('zh-on', on);
 
@@ -1454,18 +1453,22 @@ Bones and cartilage|Huesos y cartílago
     ];
     // LANGS-END
     const box = document.createElement('div'); box.id = 'langsw';
-    box.innerHTML = '<div class="lh" id="langsw-h">Language</div><div role="radiogroup" aria-labelledby="langsw-h">' +
+    box.innerHTML = '<button type="button" class="lbtn" id="langbtn" aria-haspopup="true" aria-expanded="false" aria-label="Language"><span id="langcur"></span></button><div class="lm" id="langmenu" role="radiogroup" aria-label="Language" hidden>' +
       LANGS.map(l => '<button type="button" role="radio" class="lo" data-l="' + l.id + '" aria-checked="false"' + (l.planning ? ' disabled' : '') + '>' +
         '<span class="ln">' + l.label + '</span>' +
-        (l.native ? '<span class="lz" lang="' + l.id + '">' + l.native + '</span>' : '') +
-        (l.planning ? '<span class="lp">Planning</span>' : '') + '</button>').join('') + '</div>';
-    const paint = () => { const cur = document.body.classList.contains('zh-on') ? PACK : 'en'; box.querySelectorAll('.lo').forEach(o => { const v = o.dataset.l === cur; o.classList.toggle('on', v); o.setAttribute('aria-checked', v); }); };
+        (l.native ? '<span class="lz" lang="' + l.id + '">' + l.native + '</span>' : '') + '</button>').join('') + '</div>';
+    const btn = box.querySelector('#langbtn'), menu = box.querySelector('#langmenu');
+    const setOpen = v => { menu.hidden = !v; btn.setAttribute('aria-expanded', v); };
+    btn.addEventListener('click', () => setOpen(menu.hidden));
+    document.addEventListener('click', e => { if (!box.contains(e.target)) setOpen(false); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && !menu.hidden) { setOpen(false); btn.focus(); } });
+    const paint = () => { const cur = document.body.classList.contains('zh-on') ? PACK : 'en'; box.querySelectorAll('.lo').forEach(o => { const v = o.dataset.l === cur; o.classList.toggle('on', v); o.setAttribute('aria-checked', v); if (v) box.querySelector('#langcur').textContent = o.querySelector('.ln').textContent; }); };
     box.addEventListener('click', e => {
       const o = e.target.closest('.lo'); if (!o || o.disabled) return;
       const id = o.dataset.l;
       try { localStorage.setItem(KEY, id); } catch (err) { }
       if (id !== 'en' && id !== PACK) { location.reload(); return; }
-      document.body.classList.toggle('zh-on', id === PACK); paint();
+      document.body.classList.toggle('zh-on', id === PACK); paint(); setOpen(false);
     });
     paint(); document.body.appendChild(box);
   }
