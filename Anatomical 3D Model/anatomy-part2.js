@@ -1430,7 +1430,7 @@ buildOral();
 buildNeck();
 window.__anat = { G, SEXG, model, THREE, ready: true };
 stage.setObject(model);
-window.__load && window.__load.done();
+window.__load && window.__load.set(95, 'Starting tools');
 const vis = o => { while (o) { if (!o.visible) return false; o = o.parent; } return true; };
 model.traverse(o => { if (o.isMesh) { o.castShadow = o.userData.sys === 'skin'; o.receiveShadow = false; } });
 for (const k in mat) if (mat[k].transparent) { /* transparent materials draw after opaques */ }
