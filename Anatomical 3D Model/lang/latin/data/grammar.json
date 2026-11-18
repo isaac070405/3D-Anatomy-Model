@@ -1,0 +1,31 @@
+{
+  "_doc": "Latin noun grammar from Appendix E p.137 and the abbreviation list p.xii. Endings are nominative / genitive, singular and plural.",
+  "declensions": [
+    {"n":1,"stem":"a","gender":{"en":"mostly feminine","zh-Hant":"幾乎都是陰性"},"endings":{"nom_sg":"-a","gen_sg":"-ae","nom_pl":"-ae","gen_pl":"-arum"},"pattern_example":"vena, venae, venarum","greek_note":{"en":"Greek plural -ai becomes Latin -ae (raphe, raphae).","zh-Hant":"希臘語複數 -ai 變成拉丁語 -ae（raphe → raphae）。"},"examples":[["trachea","tracheae","氣管","windpipe"],["papilla","papillae","乳頭","papilla"],["medulla","medullae","髓、髓質","marrow"],["raphe","raphae","縫","seam"]]},
+    {"n":2,"stem":"o","gender":{"en":"masculine (-us) and neuter (-um)","zh-Hant":"陽性（-us）與中性（-um）"},"endings":{"masculine":{"nom_sg":"-us","gen_sg":"-i","nom_pl":"-i","gen_pl":"-orum"},"neuter":{"nom_sg":"-um","gen_sg":"-i","nom_pl":"-a","gen_pl":"-orum"}},"pattern_example":"musculus, musculi, musculorum","examples":[["thymus","thymi","胸腺","thymus"],["anus","ani","肛門","anus"],["cecum","ceca","盲腸","caecum"],["scrotum","scrota","陰囊","scrotum"]]},
+    {"n":3,"stem":"i / consonant","gender":{"en":"all genders; the largest group","zh-Hant":"各性皆有，數量最多"},"endings":{"i_stem_mf":{"nom_sg":"-is","gen_sg":"-is","nom_pl":"-es","gen_pl":"-ium"},"i_stem_neuter":{"nom_sg":"-e","gen_sg":"-is","nom_pl":"-ia","gen_pl":"-ium"},"consonant_mf":{"nom_sg":"-or / -ex / -s","gen_sg":"-oris / -ecis / -tis","nom_pl":"-ores / -eces / -tes","gen_pl":"-orum / -ecum / -tium"},"consonant_neuter":{"nom_sg":"-ur / -us","gen_sg":"-oris","nom_pl":"-ora","gen_pl":"-orum"}},"note":{"en":"Drop -um from the genitive plural to find the stem. Many muscle names are masculine third-declension nouns.","zh-Hant":"從複數屬格去掉 -um 即為字根。不少肌肉名稱屬第3變化陽性名詞。"},"examples":[["pelvis","pelves","骨盆","pelvis"],["rete","retia","網","net"],["dens","dentes (gen. dentis)","牙齒","tooth"],["thorax","thoraces","胸廓","chest"],["atlas","atlantes (gen. atlantis)","寰椎","atlas"],["femur","femora (gen. femoris)","大腿、股骨","thigh bone"],["corpus","corpora (gen. corporis)","體","body"]]},
+    {"n":4,"stem":"u","gender":{"en":"mostly masculine","zh-Hant":"大多為陽性"},"endings":{"masculine":{"nom_sg":"-us","gen_sg":"-us","nom_pl":"-us","gen_pl":"-uum"},"neuter":{"nom_sg":"-u","gen_sg":"-us","nom_pl":"-ua","gen_pl":"-uum"}},"examples":[["cornu","cornua (gen. cornus)","角","horn"],["genu","genua (gen. genus)","膝、角","knee"],["plexus","plexus","叢","network"],["sinus","sinus","竇","sinus"],["manus","manus","手","hand"]]},
+    {"n":5,"stem":"e","gender":{"en":"almost all feminine","zh-Hant":"幾乎都是陰性"},"endings":{"nom_sg":"-es","gen_sg":"-ei","nom_pl":"-es","gen_pl":"-erum"},"note":{"en":"Few nouns. Singular of species is species, never specy or specie.","zh-Hant":"屬此變化的名詞很少。species 的單數是 species，並非 specy 或 specie。"},"examples":[["facies","facies","臉、面","face"],["caries","caries","齲齒","decay"],["series","series","系列","series"],["species","species","種、種類","kind"]]}
+  ],
+  "english_plural_note": {"en":"Many Latin plurals are also anglicised with -s: thymuses, scrotums, plexuses, sinuses.","zh-Hant":"不少拉丁語複數亦可英語化加 s：thymuses、scrotums、plexuses、sinuses。"},
+  "abbreviations": [
+    {"abbr_sg":"m.","abbr_pl":"mm.","sg":"musculus","pl":"musculi","meaning":{"en":"muscle","zh-Hant":"肌肉"}},
+    {"abbr_sg":"lig.","abbr_pl":"ligg.","sg":"ligamentum","pl":"ligamenta","meaning":{"en":"ligament","zh-Hant":"韌帶"}},
+    {"abbr_sg":"n.","abbr_pl":"nn.","sg":"nervus","pl":"nervi","meaning":{"en":"nerve","zh-Hant":"神經"}},
+    {"abbr_sg":"a.","abbr_pl":"aa.","sg":"arteria","pl":"arteriae","meaning":{"en":"artery","zh-Hant":"動脈"}},
+    {"abbr_sg":"r.","abbr_pl":"rr.","sg":"ramus","pl":"rami","meaning":{"en":"branch","zh-Hant":"支"}},
+    {"abbr_sg":"v.","abbr_pl":"vv.","sg":"vena","pl":"venae","meaning":{"en":"vein","zh-Hant":"靜脈"}}
+  ],
+  "abbreviation_notes": [
+    {"en":"An m. inside a term is genitive, not nominative: tendo m. gracilis = tendo musculi gracilis (tendon of the gracilis muscle).","zh-Hant":"詞彙中出現 m. 時為屬格而非主格：tendo m. gracilis → tendo musculi gracilis（股薄肌肌腱）。"},
+    {"en":"Many singular genitives look like plural nominatives: musculi is both. Some differ: tendo (nom. sg.), tendinis (gen. sg.), tendines (nom. pl.).","zh-Hant":"許多單數屬格與複數主格拼法相同：musculi 兩者皆是。亦有不同：tendo（單主）、tendinis（單屬）、tendines（複主）。"}
+  ],
+  "diminutives": {
+    "latin": [
+      {"endings":["-ulus","-ulum","-ula"],"examples":[["glomerulus","腎絲球","glomerule"],["vestibulum","前庭","vestibule"],["capsula","囊","capsule"]],"english":"-ule"},
+      {"endings":["-culus","-culum","-cula"],"examples":[["sacculus","球囊","saccule"],["trabecula","小柱","trabecule"]],"english":"-cule"}
+    ],
+    "english_reduced": {"ending":"-cle","examples":[["follicle","卵泡"],["auricle","心耳"],["renal corpuscle","腎小球"]]},
+    "meaning":{"en":"small version of the noun","zh-Hant":"表示「小…」的指小詞"}
+  }
+}

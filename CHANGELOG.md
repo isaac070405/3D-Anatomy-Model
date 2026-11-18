@@ -4,6 +4,8 @@ All notable changes to this project are listed here, newest first. Dates are in 
 
 ## Unreleased
 
+- Add the Latin and Greek word-origin add-on in `lang/latin/`. It loads after any language pack (`ADDONS` in `lang/loader.js`) and adds a Word origin card to the selection sidebar, for example hepatic = liver related, with 35 roots, 17 prefixes and 23 suffixes. Glosses are English, or Traditional Chinese when that pack is on.
+
 ## Milestone: panel layout and view fixes
 
 - Move Anatomical directions under the intro text and the Language switch below Body and Skin tone, and place the model disclaimer at the bottom of the side panel.

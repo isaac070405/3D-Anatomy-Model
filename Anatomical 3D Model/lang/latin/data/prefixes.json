@@ -1,0 +1,22 @@
+{
+  "_doc": "Word beginnings. source: textbook = cardia sidebar (peri-, epi-, endo-), extra = added.",
+  "prefixes": [
+    {"id":"peri","form":"peri","display":"peri-","origin":{"lang":"grc","word":"περί","translit":"peri"},"meaning":{"en":"around","zh-Hant":"在旁邊、在周圍"},"source":"textbook"},
+    {"id":"epi","form":"epi","display":"epi-","origin":{"lang":"grc","word":"ἐπί","translit":"epi"},"meaning":{"en":"upon, on top of","zh-Hant":"在上面"},"source":"textbook"},
+    {"id":"endo","form":"endo","display":"endo-","origin":{"lang":"grc","word":"ἔνδον","translit":"endon"},"meaning":{"en":"inside, within","zh-Hant":"在裡面"},"source":"textbook"},
+    {"id":"hypo","form":"hypo","display":"hypo-","origin":{"lang":"grc","word":"ὑπό","translit":"hypo"},"meaning":{"en":"under, below, low","zh-Hant":"低、下、不足"},"source":"extra"},
+    {"id":"hyper","form":"hyper","display":"hyper-","origin":{"lang":"grc","word":"ὑπέρ","translit":"hyper"},"meaning":{"en":"over, above, excessive","zh-Hant":"高、過多"},"source":"extra"},
+    {"id":"a","form":"a","display":"a-/an-","origin":{"lang":"grc","word":"ἀ-","translit":"a-"},"meaning":{"en":"without, not","zh-Hant":"無、非"},"source":"extra"},
+    {"id":"dys","form":"dys","display":"dys-","origin":{"lang":"grc","word":"δυσ-","translit":"dys-"},"meaning":{"en":"bad, difficult, abnormal","zh-Hant":"異常、困難"},"source":"extra"},
+    {"id":"brady","form":"brady","display":"brady-","origin":{"lang":"grc","word":"βραδύς","translit":"bradys"},"meaning":{"en":"slow","zh-Hant":"慢"},"source":"extra"},
+    {"id":"tachy","form":"tachy","display":"tachy-","origin":{"lang":"grc","word":"ταχύς","translit":"tachys"},"meaning":{"en":"fast","zh-Hant":"快"},"source":"extra"},
+    {"id":"poly","form":"poly","display":"poly-","origin":{"lang":"grc","word":"πολύς","translit":"polys"},"meaning":{"en":"many, much","zh-Hant":"多"},"source":"extra"},
+    {"id":"hemi","form":"hemi","display":"hemi-","origin":{"lang":"grc","word":"ἡμι-","translit":"hemi-"},"meaning":{"en":"half","zh-Hant":"半"},"source":"extra"},
+    {"id":"macro","form":"macro","display":"macro-","origin":{"lang":"grc","word":"μακρός","translit":"makros"},"meaning":{"en":"large","zh-Hant":"大"},"source":"extra"},
+    {"id":"micro","form":"micro","display":"micro-","origin":{"lang":"grc","word":"μικρός","translit":"mikros"},"meaning":{"en":"small","zh-Hant":"微小"},"source":"extra"},
+    {"id":"inter","form":"inter","display":"inter-","origin":{"lang":"lat","word":"inter"},"meaning":{"en":"between","zh-Hant":"之間"},"source":"extra"},
+    {"id":"intra","form":"intra","display":"intra-","origin":{"lang":"lat","word":"intra"},"meaning":{"en":"within","zh-Hant":"內部"},"source":"extra"},
+    {"id":"sub","form":"sub","display":"sub-","origin":{"lang":"lat","word":"sub"},"meaning":{"en":"under","zh-Hant":"下方"},"source":"extra"},
+    {"id":"supra","form":"supra","display":"supra-","origin":{"lang":"lat","word":"supra"},"meaning":{"en":"above","zh-Hant":"上方"},"source":"extra"}
+  ]
+}
