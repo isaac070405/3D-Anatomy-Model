@@ -52,8 +52,8 @@ function init() {
   ];
   const css = document.createElement('style');
   css.textContent = `
-  #camtools{position:fixed;right:24px;top:24px;z-index:3;display:flex;flex-direction:column;align-items:flex-end;gap:6px;max-width:calc(100vw - 420px)}
-  #camtools .row{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:4px;padding:6px;background:color-mix(in oklab,var(--color-bg) 94%,transparent);border:1px solid var(--color-divider);border-radius:var(--radius-md,4px);box-shadow:var(--shadow-sm)}
+  #camtools{display:flex;flex-direction:column;align-items:stretch;gap:6px;margin:12px 0 10px}
+  #camtools .row{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:4px;padding:6px;background:color-mix(in oklab,var(--color-bg) 94%,transparent);border:1px solid var(--color-divider);border-radius:var(--radius-md,4px);box-shadow:var(--shadow-sm)}
   #camtools .row .b{padding:5px 8px;font-size:11px}
   #camtools .row .b.on{background:var(--color-accent-200)}
   #camtools .chk{display:flex;gap:6px;align-items:center;font-size:12px;color:var(--color-neutral-700);cursor:pointer;background:color-mix(in oklab,var(--color-bg) 94%,transparent);padding:3px 8px;border-radius:var(--radius-md,4px)}
@@ -63,7 +63,9 @@ function init() {
   const box = document.createElement('div'); box.id = 'camtools';
   box.innerHTML = `<div class="row" role="group" aria-label="Camera views">${PR.map(p => `<button class="b" data-p="${p.k}" title="${p.title || p.name} view" aria-label="${p.title || p.name} view">${p.name}</button>`).join('')}</div>
     <label class="chk"><input type="checkbox" id="camfocus" checked> Zoom to a structure when clicked</label>`;
-  document.body.appendChild(box);
+  // sits in the left panel, under the skin tone section (where the language switch used to be)
+  const tone = document.getElementById('p-tone'), anchor = tone && tone.closest('.sec');
+  if (anchor) anchor.insertAdjacentElement('afterend', box); else document.body.appendChild(box);
   const markPreset = k => box.querySelectorAll('[data-p]').forEach(b => b.classList.toggle('on', b.dataset.p === k));
   // the opening view, for the Space shortcut
   const home = { p: cam.position.clone(), t: ctl.target.clone() };
