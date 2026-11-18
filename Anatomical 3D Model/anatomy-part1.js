@@ -1,6 +1,8 @@
 
 const stage = document.querySelector('three-d-stage');
+window.__load && window.__load.set(3, 'Loading 3D engine');
 const { THREE } = await stage.ready;
+window.__load && window.__load.set(15, 'Building anatomy');
 const V = (x, y, z) => new THREE.Vector3(x, y, z);
 const model = new THREE.Group(); model.name = 'human_anatomy';
 

@@ -174,6 +174,11 @@
     #brainbox{left:8px;right:8px;max-height:calc(100vh - 80px)}
     #tip{display:none!important}
   }
+  #loadbar{position:fixed;left:0;right:0;bottom:0;z-index:50;padding:8px 24px 10px;box-sizing:border-box;background:color-mix(in oklab,var(--color-bg) 94%,transparent);border-top:1px solid var(--color-divider);font-family:var(--font-heading);font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-neutral-700);transition:opacity .4s}
+  #loadbar.done{opacity:0;pointer-events:none}
+  #loadbar .lt{display:flex;justify-content:space-between;margin-bottom:5px;font-feature-settings:"tnum"}
+  #loadbar .tr{height:4px;background:var(--color-divider);border-radius:2px;overflow:hidden}
+  #loadbar .fl{height:100%;width:0;background:var(--color-accent-700);transition:width .25s}
 </style>
 </head>
 <body>
@@ -389,6 +394,25 @@
   <div class="bxkey"><span><i style="background:#a9d9c0"></i>Frontal</span><span><i style="background:#e8e5b4"></i>Parietal</span><span><i style="background:#a9c4de"></i>Temporal</span><span><i style="background:#e9b3bf"></i>Occipital</span><span><i style="background:#d4b6a2"></i>Limbic</span><span><i style="background:#a07aa4"></i>Insula</span><span style="margin-left:auto">Anterior up · patient's right on the left</span></div>
 </div>
 
+<div id="loadbar" role="progressbar" aria-label="Loading model" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="lt"><span id="loadmsg">Loading…</span><span id="loadpct">0%</span></div><div class="tr"><div class="fl" id="loadfl"></div></div></div>
+<script>
+(function(){var b=document.getElementById('loadbar'),f=document.getElementById('loadfl'),m=document.getElementById('loadmsg'),n=document.getElementById('loadpct'),cur=0,fin=false;
+function set(p,t){if(fin)return;p=Math.max(cur,Math.min(99,Math.round(p)));cur=p;f.style.width=p+'%';n.textContent=p+'%';b.setAttribute('aria-valuenow',p);if(t)m.textContent=t}
+function done(){if(fin)return;fin=true;f.style.width='100%';n.textContent='100%';m.textContent='Ready';b.setAttribute('aria-valuenow',100);setTimeout(function(){b.classList.add('done')},400);setTimeout(function(){b.remove()},1200)}
+function fail(t){if(fin)return;fin=true;f.style.background='#b3261e';m.textContent=t}
+window.__load={set:set,done:done,fail:fail};
+// bytes-to-percent helper: lo..hi is this file's share of the bar
+window.__load.span=function(lo,hi,t){return function(e){if(e&&e.lengthComputable&&e.total)set(lo+(hi-lo)*e.loaded/e.total,t)}};
+// Start after parsing: an earlier import() would evaluate the page modules before three-d-stage.js defines the element.
+function watch(){var mods=['anatomy-part1.js','anatomy-part2.js','layers.js','explode.js','camera-tools.js','explode-slider.js','shortcuts.js','perf.js','search.js','tree.js','regions.js','dock.js','snapshot.js','pins.js','privacy.js'],left=mods.length;
+// Re-importing a module already on the page returns its own evaluation promise, so this resolves once each script (top-level await included) has finished.
+mods.forEach(function(u){import('./'+u).catch(function(){}).then(function(){left--;if(window.__anat&&window.__anat.ready)set(95+4*(mods.length-left)/mods.length,left?'Starting tools':'Finishing')})});
+var pl=new Promise(function(r){if(document.readyState==='complete')r();else addEventListener('load',r)});
+var bad=0;Promise.all([Promise.all(mods.map(function(u){return import('./'+u).catch(function(){bad++})})),pl,document.fonts?document.fonts.ready:0]).then(function(){bad?fail('Load failed: '+bad+' of '+mods.length+' scripts did not start. Check your connection and reload.'):done()});
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',watch);else watch();
+setTimeout(done,60000);})();
+</script>
 <script src="three-d-stage.js"></script>
 <script src="lang/loader.js"></script>
 <script type="module" src="anatomy-part1.js"></script>

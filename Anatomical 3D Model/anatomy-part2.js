@@ -682,7 +682,7 @@ for (const s of [-1, 1]) { const sd = SD(s), sc = SC(s); LL.forEach(([name, labe
 // Source: tpl-mni_T1w (skull-stripped T1 template), surfaces built by scripts/mni_brain_to_glb.py. If the GLB is missing the procedural brain stays.
 {
   let G3 = null;
-  try { const { GLTFLoader } = await import('three/addons/loaders/GLTFLoader.js'); const gl = await new GLTFLoader().loadAsync('assets/mni_brain.glb'); G3 = {}; gl.scene.traverse(o => { if (o.isMesh) { o.geometry.deleteAttribute('color'); if (!o.geometry.attributes.normal) o.geometry.computeVertexNormals(); G3[o.name] = o.geometry; } }); if (!G3.cortex_left || !G3.cerebellum) G3 = null; } catch (er) { G3 = null; }
+  try { const { GLTFLoader } = await import('three/addons/loaders/GLTFLoader.js'); const gl = await new GLTFLoader().loadAsync('assets/mni_brain.glb', window.__load && window.__load.span(15, 35, 'Loading brain')); G3 = {}; gl.scene.traverse(o => { if (o.isMesh) { o.geometry.deleteAttribute('color'); if (!o.geometry.attributes.normal) o.geometry.computeVertexNormals(); G3[o.name] = o.geometry; } }); if (!G3.cortex_left || !G3.cerebellum) G3 = null; } catch (er) { G3 = null; }
   if (G3) {
     const gone = []; G[NS].traverse(o => { if (o.isMesh && /^(cortex_|insula_|central_sulcus_|lateral_sulcus_|cerebellum_)/.test(o.name)) gone.push(o); });
     gone.forEach(o => o.parent.remove(o));
@@ -1267,7 +1267,7 @@ let femaleOK = false;
   };
   const fitBody = async (url, label, J) => {
     if (!loader) { const { GLTFLoader } = await import('three/addons/loaders/GLTFLoader.js'); loader = new GLTFLoader(); }
-    const root = (await loader.loadAsync(url)).scene; let sk = null; root.traverse(o => { if (o.isSkinnedMesh && !sk) sk = o; });
+    const root = (await loader.loadAsync(url, window.__load && window.__load.span(...(label === 'male_body' ? [35, 65] : [65, 95]), 'Loading ' + (label === 'male_body' ? 'male' : 'female') + ' body'))).scene; let sk = null; root.traverse(o => { if (o.isSkinnedMesh && !sk) sk = o; });
     if (!sk && J) sk = makeRig(root, J);
     root.updateMatrixWorld(true);
     const fb = new THREE.Box3().setFromObject(root), k = (mb.max.y - mb.min.y) / (fb.max.y - fb.min.y);
@@ -1430,6 +1430,7 @@ buildOral();
 buildNeck();
 window.__anat = { G, SEXG, model, THREE, ready: true };
 stage.setObject(model);
+window.__load && window.__load.set(95, 'Starting tools');
 const vis = o => { while (o) { if (!o.visible) return false; o = o.parent; } return true; };
 model.traverse(o => { if (o.isMesh) { o.castShadow = o.userData.sys === 'skin'; o.receiveShadow = false; } });
 for (const k in mat) if (mat[k].transparent) { /* transparent materials draw after opaques */ }
