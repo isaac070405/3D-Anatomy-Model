@@ -1,0 +1,307 @@
+{
+ "_doc": "Origin terminology explanations. 'terms' are worked breakdowns, 'stories' are longer etymology notes. parts[] reference ids in roots, prefixes or suffixes.",
+ "terms": [
+  {
+   "term": "hepatic",
+   "parts": [
+    {
+     "type": "root",
+     "id": "hepat"
+    },
+    {
+     "type": "suffix",
+     "id": "ic"
+    }
+   ],
+   "plain": {
+    "en": "liver related",
+    "zh-Hant": "與肝臟有關"
+   }
+  },
+  {
+   "term": "hepatitis",
+   "parts": [
+    {
+     "type": "root",
+     "id": "hepat"
+    },
+    {
+     "type": "suffix",
+     "id": "itis"
+    }
+   ],
+   "plain": {
+    "en": "inflammation of the liver",
+    "zh-Hant": "肝臟發炎"
+   }
+  },
+  {
+   "term": "hepatoma",
+   "parts": [
+    {
+     "type": "root",
+     "id": "hepat"
+    },
+    {
+     "type": "suffix",
+     "id": "oma"
+    }
+   ],
+   "plain": {
+    "en": "tumour of the liver",
+    "zh-Hant": "肝臟腫瘤（肝癌）"
+   }
+  },
+  {
+   "term": "hypoglycemia",
+   "parts": [
+    {
+     "type": "prefix",
+     "id": "hypo"
+    },
+    {
+     "type": "root",
+     "id": "glyc"
+    },
+    {
+     "type": "suffix",
+     "id": "emia"
+    }
+   ],
+   "plain": {
+    "en": "low blood sugar",
+    "zh-Hant": "血糖過低"
+   }
+  },
+  {
+   "term": "hyperglycemia",
+   "parts": [
+    {
+     "type": "prefix",
+     "id": "hyper"
+    },
+    {
+     "type": "root",
+     "id": "glyc"
+    },
+    {
+     "type": "suffix",
+     "id": "emia"
+    }
+   ],
+   "plain": {
+    "en": "high blood sugar",
+    "zh-Hant": "血糖過高"
+   }
+  },
+  {
+   "term": "gastrectomy",
+   "parts": [
+    {
+     "type": "root",
+     "id": "gastr"
+    },
+    {
+     "type": "suffix",
+     "id": "ectomy"
+    }
+   ],
+   "plain": {
+    "en": "surgical removal of the stomach",
+    "zh-Hant": "胃切除術"
+   }
+  },
+  {
+   "term": "nephrology",
+   "parts": [
+    {
+     "type": "root",
+     "id": "nephr"
+    },
+    {
+     "type": "suffix",
+     "id": "logy"
+    }
+   ],
+   "plain": {
+    "en": "study of the kidney",
+    "zh-Hant": "腎臟學"
+   }
+  },
+  {
+   "term": "osteoarthritis",
+   "parts": [
+    {
+     "type": "root",
+     "id": "oste"
+    },
+    {
+     "type": "root",
+     "id": "arthr"
+    },
+    {
+     "type": "suffix",
+     "id": "itis"
+    }
+   ],
+   "plain": {
+    "en": "inflammation of bone and joint",
+    "zh-Hant": "骨關節炎"
+   }
+  },
+  {
+   "term": "pericardium",
+   "parts": [
+    {
+     "type": "prefix",
+     "id": "peri"
+    },
+    {
+     "type": "root",
+     "id": "cardi"
+    }
+   ],
+   "plain": {
+    "en": "the sac around the heart",
+    "zh-Hant": "心包膜"
+   },
+   "note": {
+    "en": "Latin ending -um marks a neuter noun.",
+    "zh-Hant": "拉丁語詞尾 -um 為中性名詞。"
+   }
+  },
+  {
+   "term": "epicardium",
+   "parts": [
+    {
+     "type": "prefix",
+     "id": "epi"
+    },
+    {
+     "type": "root",
+     "id": "cardi"
+    }
+   ],
+   "plain": {
+    "en": "layer on the outside of the heart",
+    "zh-Hant": "心外膜"
+   }
+  },
+  {
+   "term": "endocardium",
+   "parts": [
+    {
+     "type": "prefix",
+     "id": "endo"
+    },
+    {
+     "type": "root",
+     "id": "cardi"
+    }
+   ],
+   "plain": {
+    "en": "layer inside the heart",
+    "zh-Hant": "心內膜"
+   }
+  },
+  {
+   "term": "myocardium",
+   "parts": [
+    {
+     "type": "root",
+     "id": "my"
+    },
+    {
+     "type": "root",
+     "id": "cardi"
+    }
+   ],
+   "plain": {
+    "en": "heart muscle layer",
+    "zh-Hant": "心肌層"
+   }
+  },
+  {
+   "term": "cardiotomy",
+   "parts": [
+    {
+     "type": "root",
+     "id": "cardi"
+    },
+    {
+     "type": "suffix",
+     "id": "tomy"
+    }
+   ],
+   "plain": {
+    "en": "cutting into the heart",
+    "zh-Hant": "心切開術"
+   },
+   "note": {
+    "en": "cardiectomy (removal) and cardioplasty (reshaping) follow the same pattern. In the textbook, cardio- may instead refer to the stomach cardia.",
+    "zh-Hant": "cardiectomy（切除）與 cardioplasty（成形）同一模式。教科書指 cardio- 亦可能指胃賁門。"
+   }
+  },
+  {
+   "term": "cardiac",
+   "parts": [
+    {
+     "type": "root",
+     "id": "cardi"
+    },
+    {
+     "type": "suffix",
+     "id": "ac"
+    }
+   ],
+   "plain": {
+    "en": "heart related",
+    "zh-Hant": "與心臟有關"
+   }
+  }
+ ],
+ "stories": [
+  {
+   "id": "cardia",
+   "title": {
+    "en": "Cardia: heart, record, courage and Concorde",
+    "zh-Hant": "心臟與記錄，勇氣與協和式客機（CARDIA）"
+   },
+   "body": {
+    "en": "Greek καρδία 'heart' (Proto-Indo-European *kerd-) gives cardiac, cardiogram and cardiologist. English 'heart' comes from the same root through sound shifts [k]→[h] and [d]→[t]. Latin cor, Italian cuore, French courage and Spanish corazón keep the root with small changes. Because the heart was seen as the seat of feeling and motive, words for 'heart' also meant 'mind'. That gave record (call back to heart), accord (bring hearts together) and concord (hearts as one). The Anglo-French airliner Concorde took its name from the French form concorde.",
+    "zh-Hant": "希臘語 καρδία「心臟」（原始印歐語 *kerd-）衍生出 cardiac、cardiogram、cardiologist。英語 heart 同出一源，經 [k]→[h]、[d]→[t] 的音韻變化而成。拉丁語 cor、義大利語 cuore、法語 courage、西班牙語 corazón 只作些微變化。心臟自古被視為感情與動機所在，故「心臟」一詞亦有「心靈」之意，衍生出 record（再度在心中回想）、accord（使意願合一）、concord（協調）。英法共同開發的協和號客機 Concorde 取自法語 concorde。"
+   },
+   "related": [
+    "pericardium",
+    "epicardium",
+    "endocardium",
+    "myocardium"
+   ],
+   "source": "textbook, cardia sidebar"
+  },
+  {
+   "id": "combining-vowel",
+   "title": {
+    "en": "The joining vowel -o-",
+    "zh-Hant": "連接母音 -o-"
+   },
+   "body": {
+    "en": "A suffix starting with a consonant needs a vowel between it and the root: angi + o + logy = angiology. A suffix starting with a vowel needs none: angi + itis = angitis. Latin-based compounds insert -i- instead.",
+    "zh-Hant": "字尾以子音開頭時，字根與字尾之間要插入母音 -o-：angi + o + logy = angiology。字尾以母音開頭則不需要：angi + itis = angitis。拉丁語系造詞則插入 -i-。"
+   },
+   "source": "textbook, Appendix E p.134"
+  },
+  {
+   "id": "suffix-pattern",
+   "title": {
+    "en": "Same suffix, same meaning across organs",
+    "zh-Hant": "同一字尾，跨器官同義"
+   },
+   "body": {
+    "en": "Pick an organ root and add a suffix: hepat- + -itis (liver inflammation), hepat- + -oma (liver tumour), gastr- + -ectomy (stomach removal), nephr- + -ology (kidney study). Not every pairing exists, for example cardioma is rare and cardiac tumor is used instead.",
+    "zh-Hant": "選一個器官字根再加字尾：hepat- + -itis（肝炎）、hepat- + -oma（肝腫瘤）、gastr- + -ectomy（胃切除）、nephr- + -ology（腎臟學）。並非所有組合都存在，例如 cardioma 少用，通常說 cardiac tumor。"
+   },
+   "source": "textbook, Appendix E p.134-135"
+  }
+ ]
+}

@@ -66,6 +66,10 @@ cp -r node_modules/@isaac070405/anatomy-lang-zh-hant "Anatomical 3D Model/lang/z
 
 You can also build a zip with `scripts/build_lang_pack.sh zh-Hant`. See `Anatomical 3D Model/lang/zh-Hant/README.md` for removal and editing.
 
+## Latin names and word-origin add-on
+
+`Anatomical 3D Model/lang/latin/` is an optional add-on that works with any language pack. Selecting a structure shows its Latin name (Terminologia Anatomica style, for example Musculus biceps brachii) and a Word origin card in the sidebar with the Greek or Latin source of each root, prefix and suffix, and a plain meaning (hepatic = liver related, hypo- = low). The card uses Traditional Chinese glosses when that pack is on, and English otherwise. To remove it, delete the folder and the `'latin'` entry in `ADDONS` in `lang/loader.js`. Edit entries in `lang/latin/data/*.json` and check them with `python3 scripts/check_latin_addon.py`.
+
 ## Project layout
 
 | Path | Contents |
@@ -73,7 +77,7 @@ You can also build a zip with `scripts/build_lang_pack.sh zh-Hant`. See `Anatomi
 | `Anatomical 3D Model/index.html` | Page, import map and interface |
 | `Anatomical 3D Model/anatomy-*.js` | Procedural geometry for each body region |
 | `Anatomical 3D Model/three-d-stage.js` | Scene, camera, selection and cross-section |
-| `Anatomical 3D Model/lang/` | Optional language packs. `lang/zh-Hant/` is the Traditional Chinese pack (names, interface text, search) |
+| `Anatomical 3D Model/lang/` | Optional language packs. `lang/zh-Hant/` is the Traditional Chinese pack (names, interface text, search). `lang/latin/` is the Latin name and word-origin add-on |
 | `Anatomical 3D Model/layers.js`, `explode.js`, `search.js`, `tree.js` | Peel layers, explode mode, search, anatomical tree |
 | `Anatomical 3D Model/assets/` | `mni_brain.glb`, brain volume data, and the male and female skin meshes (`Male_Realistic_BaseMesh.glb`, `Female_Realistic_BaseMesh.glb`) |
 | `scripts/` | Python converters for the brain and TotalSegmentator output, and `build_lang_pack.sh` to zip a language pack |

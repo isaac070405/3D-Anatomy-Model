@@ -18,6 +18,7 @@ Open http://localhost:8000. There is no build step. three.js 0.184.0 loads from 
 | Fix a shape or position | `Anatomical 3D Model/anatomy-*.js` |
 | Fix a Chinese name | the matching `English|中文` line in `Anatomical 3D Model/lang/zh-Hant/names.js` |
 | Add interface Chinese | `Anatomical 3D Model/lang/zh-Hant/ui.js` |
+| Fix or add a word root, prefix or suffix | `Anatomical 3D Model/lang/latin/data/*.json`, then run `python3 scripts/check_latin_addon.py` |
 | Fix a wiki page | `wiki/` |
 | Convert new mesh data | `scripts/` (see `scripts/requirements.txt`) |
 
