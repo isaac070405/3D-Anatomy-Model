@@ -1486,7 +1486,7 @@ fourth|quartus|quarta|quartum
   body.zh-on .zh{display:inline}
   body.zh-on [data-zh]::after{content:" " attr(data-zh);font-style:italic;font-family:inherit;font-weight:400;font-size:.94em;letter-spacing:.02em;opacity:.85}
   #tip[data-zh]::after{display:block;margin-top:2px}
-  #langsw{position:fixed;right:24px;top:24px;z-index:3;width:220px;margin:0;padding:6px;background:color-mix(in oklab,var(--color-bg) 94%,transparent);border:1px solid var(--color-divider);border-radius:var(--radius-md,4px);box-shadow:var(--shadow-sm)}
+  #langsw{position:fixed;right:24px;top:24px;z-index:3;width:264px;margin:0;padding:6px;background:color-mix(in oklab,var(--color-bg) 94%,transparent);border:1px solid var(--color-divider);border-radius:var(--radius-md,4px);box-shadow:var(--shadow-sm)}
   body.present #langsw{display:none}
   #langsw .lh{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-neutral-700,#6b6458);margin-bottom:4px}
   #langsw [role=radiogroup]{display:flex;flex-direction:column;border:1px solid var(--color-accent-500);border-radius:var(--radius-md,4px);overflow:hidden}
