@@ -663,7 +663,7 @@ const CS = 'circulatory', RS = 'respiratory', sstep = (a, b, x) => { const t = M
 const rnd = i => { const x = Math.sin(i * 12.9898 + 4.1) * 43758.5453; return x - Math.floor(x); };
 const HM = { clip: new THREE.Plane(new THREE.Vector3(0, 0, -1), 0.05), mats: [] }; window.__heart = HM;
 const hm = (name, color, o = {}) => { const m = M(name, color, 0.6, { side: THREE.DoubleSide, ...o }); HM.mats.push(m); return m; };
-const art = mat.artery, vein = mat.vein, pArt = M('pulmonary_artery', 0x8a63c9, 0.5), pVein = M('pulmonary_vein', 0xd8554f, 0.5);
+const art = mat.artery, vein = mat.vein, pArt = M('pulmonary_artery', 0x8a63c9, 0.5), pVein = M('pulmonary_vein', 0xa583d6, 0.5);
 function vt(sys, name, pts, rf, mt, label, R = 14) {
   const c = new THREE.CatmullRomCurve3(pts.map(p => V(...p))), S = Math.max(10, pts.length * 12), g = new THREE.TubeGeometry(c, S, 1, R, false), pos = g.attributes.position;
   for (let i = 0; i <= S; i++) { const ct = c.getPointAt(i / S), r = typeof rf === 'function' ? rf(i / S) : rf; for (let j = 0; j <= R; j++) { const k = i * (R + 1) + j; pos.setXYZ(k, ct.x + (pos.getX(k) - ct.x) * r, ct.y + (pos.getY(k) - ct.y) * r, ct.z + (pos.getZ(k) - ct.z) * r); } }

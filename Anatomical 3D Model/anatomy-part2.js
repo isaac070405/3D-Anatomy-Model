@@ -2023,37 +2023,52 @@ cv.addEventListener('pointerleave', () => { tip.style.display = 'none'; });
 }
 
 // ───────── anatomical directions overlay ─────────
+// Each colour is one family: blue = transverse plane (up/down), green = coronal plane (front/back), orange = sagittal plane (left/right),
+// purple = limb axis, teal = depth, pink = nerve signal. The panel legend, the arrows, the labels and the plane sheets share these colours.
 {
   const DG = new THREE.Group(); DG.name = 'direction_arrows'; DG.visible = false; stage._scene.add(DG);
-  const AC = 0x3f6489;
-  const label = (txt, pos) => { const c = document.createElement('canvas'), x = c.getContext('2d'), f = '600 44px "Barlow Condensed", sans-serif'; x.font = f;
-    const w = Math.ceil(x.measureText(txt).width) + 28, hh = 64; c.width = w; c.height = hh; x.font = f;
-    x.fillStyle = 'rgba(242,242,243,0.94)'; x.fillRect(0, 0, w, hh); x.strokeStyle = '#5980a6'; x.lineWidth = 2; x.strokeRect(1, 1, w - 2, hh - 2);
-    x.fillStyle = '#1d1f20'; x.textBaseline = 'middle'; x.fillText(txt, 14, hh / 2 + 2);
-    const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace;
-    const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: t, depthTest: false, transparent: true })); s.scale.set(0.034 * w / hh, 0.034, 1); s.position.copy(pos); s.renderOrder = 1001; DG.add(s); };
-  const AM = new THREE.MeshBasicMaterial({ color: AC, depthTest: false, transparent: true });
-  const arrow = (o, d, len, txt, lo = 0.03) => { const D = V(...d).normalize(), O = V(...o), a = new THREE.Group(), hl = 0.035, q = new THREE.Quaternion().setFromUnitVectors(V(0, 1, 0), D);
+  const COL = { transverse: 0x2f6fb5, coronal: 0x2e9d5f, sagittal: 0xd9822b, limb: 0x8a5cc2, depth: 0x1f9ba8, neural: 0xc8457a };
+  const GR = {}; for (const k in COL) { GR[k] = new THREE.Group(); GR[k].name = 'dir_' + k; DG.add(GR[k]); }
+  const hex = c => '#' + c.toString(16).padStart(6, '0');
+  const label = (g, c, txt, pos) => { const cv = document.createElement('canvas'), x = cv.getContext('2d'), f = '600 44px "Barlow Condensed", sans-serif'; x.font = f;
+    const w = Math.ceil(x.measureText(txt).width) + 46, hh = 64; cv.width = w; cv.height = hh; x.font = f;
+    x.fillStyle = 'rgba(250,250,251,0.96)'; x.fillRect(0, 0, w, hh); x.fillStyle = hex(c); x.fillRect(0, 0, 18, hh);
+    x.strokeStyle = hex(c); x.lineWidth = 3; x.strokeRect(1.5, 1.5, w - 3, hh - 3);
+    x.fillStyle = '#1d1f20'; x.textBaseline = 'middle'; x.fillText(txt, 30, hh / 2 + 2);
+    const t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace;
+    const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: t, depthTest: false, transparent: true })); s.scale.set(0.034 * w / hh, 0.034, 1); s.position.copy(pos); s.renderOrder = 1001; g.add(s); };
+  const arrow = (k, o, d, len, txt, lo = 0.03) => { const g = GR[k], c = COL[k], D = V(...d).normalize(), O = V(...o), a = new THREE.Group(), hl = 0.035, q = new THREE.Quaternion().setFromUnitVectors(V(0, 1, 0), D);
+    const AM = new THREE.MeshBasicMaterial({ color: c, depthTest: false, transparent: true });
     const sh = new THREE.Mesh(new THREE.CylinderGeometry(0.0045, 0.0045, len - hl, 12), AM); sh.position.copy(O).addScaledVector(D, (len - hl) / 2); sh.quaternion.copy(q);
     const hd = new THREE.Mesh(new THREE.ConeGeometry(0.014, hl, 16), AM); hd.position.copy(O).addScaledVector(D, len - hl / 2); hd.quaternion.copy(q);
-    [sh, hd].forEach(m => { m.renderOrder = 1000; a.add(m); }); DG.add(a);
-    label(txt, O.clone().addScaledVector(D, len + lo)); };
-  const pair = (mid, d, len, plus, minus, lo) => { arrow(mid, d, len, plus, lo); arrow(mid, d.map(c => -c), len, minus, lo); };
+    [sh, hd].forEach(m => { m.renderOrder = 1000; a.add(m); }); g.add(a);
+    label(g, c, txt, O.clone().addScaledVector(D, len + lo)); };
+  const pair = (k, mid, d, len, plus, minus, lo) => { arrow(k, mid, d, len, plus, lo); arrow(k, mid, d.map(c => -c), len, minus, lo); };
+  // a translucent sheet with an outline, so the plane that splits the body in two can be seen
+  const sheet = (k, w, h, pos, rot, txt, tp) => { const c = COL[k], g = new THREE.PlaneGeometry(w, h);
+    const m = new THREE.Mesh(g, new THREE.MeshBasicMaterial({ color: c, transparent: true, opacity: 0.16, side: THREE.DoubleSide, depthTest: false, depthWrite: false })); m.renderOrder = 990;
+    const ln = new THREE.LineSegments(new THREE.EdgesGeometry(g), new THREE.LineBasicMaterial({ color: c, depthTest: false, transparent: true, opacity: 0.95 })); ln.renderOrder = 991;
+    const gp = new THREE.Group(); gp.add(m, ln); gp.position.copy(pos); gp.rotation.set(...rot); GR[k].add(gp); label(GR[k], c, txt, tp); };
   const build = () => {
-    pair([-0.62, 0.95, 0], [0, 1, 0], 0.72, 'Superior · Cranial', 'Inferior · Caudal', 0.04);
-    pair([0, 1.2, 0], [0, 0, 1], 0.42, 'Anterior · Ventral', 'Posterior · Dorsal', 0.05);
-    pair([0.28, 0.55, 0.12], [1, 0, 0], 0.15, 'Lateral', 'Medial', 0.05);
-    pair([0.31, 1.08, 0.05], [0.09, -0.996, 0], 0.22, 'Distal', 'Proximal', 0.025);
-    { const ml = new THREE.Mesh(new THREE.CylinderGeometry(0.0022, 0.0022, 1.85, 8), new THREE.MeshBasicMaterial({ color: 0x1d1f20, depthTest: false, transparent: true, opacity: 0.85 }));
-      model.updateMatrixWorld(true); const mo = new THREE.Vector3().setFromMatrixPosition(model.matrixWorld); ml.position.set(mo.x, 0.93 + mo.y, mo.z); ml.renderOrder = 999; DG.add(ml); label('Midline (median axis)', V(mo.x, 1.9 + mo.y, mo.z)); }
-    pair([-0.13, 0.95, 0.2], [0, 0, 1], 0.12, 'Superficial', 'Deep', 0.04);
-    arrow([-0.37, 0.86, 0.06], [-0.12, 0.99, 0], 0.42, 'Afferent (toward CNS)', 0.03);
-    arrow([-0.44, 1.28, 0.06], [-0.12, -0.99, 0], 0.42, 'Efferent (away from CNS)', 0.03);
+    model.updateMatrixWorld(true); const mo = new THREE.Vector3().setFromMatrixPosition(model.matrixWorld);
+    sheet('transverse', 0.62, 0.46, V(mo.x, 1.2 + mo.y, mo.z), [-Math.PI / 2, 0, 0], 'Transverse plane', V(mo.x - 0.31, 1.2 + mo.y, mo.z + 0.28));
+    sheet('coronal', 0.62, 1.85, V(mo.x, 0.93 + mo.y, mo.z), [0, 0, 0], 'Coronal plane', V(mo.x + 0.31, 1.86 + mo.y, mo.z));
+    sheet('sagittal', 0.46, 1.85, V(mo.x, 0.93 + mo.y, mo.z), [0, Math.PI / 2, 0], 'Median (sagittal) plane', V(mo.x, 1.9 + mo.y, mo.z - 0.23));
+    pair('transverse', [-0.62, 0.95, 0], [0, 1, 0], 0.72, 'Superior · Cranial', 'Inferior · Caudal', 0.04);
+    pair('coronal', [0.5, 1.2, 0], [0, 0, 1], 0.42, 'Anterior · Ventral', 'Posterior · Dorsal', 0.05);
+    pair('sagittal', [0.28, 0.55, 0.12], [1, 0, 0], 0.15, 'Lateral', 'Medial', 0.05);
+    pair('limb', [0.31, 1.08, 0.05], [0.09, -0.996, 0], 0.22, 'Distal', 'Proximal', 0.025);
+    pair('depth', [-0.13, 0.95, 0.2], [0, 0, 1], 0.12, 'Superficial', 'Deep', 0.04);
+    arrow('neural', [-0.37, 0.86, 0.06], [-0.12, 0.99, 0], 0.42, 'Afferent (toward CNS)', 0.03);
+    arrow('neural', [-0.44, 1.28, 0.06], [-0.12, -0.99, 0], 0.42, 'Efferent (away from CNS)', 0.03);
   };
   let built = false, saved = null;
+  const rows = () => [...document.querySelectorAll('#dirlist [data-g]')];
+  const applyGroups = () => rows().forEach(cb => { const g = GR[cb.dataset.g]; if (g) g.visible = cb.checked; cb.closest('li').classList.toggle('off', !cb.checked); });
+  rows().forEach(cb => cb.addEventListener('change', applyGroups));
   $('dirshow').addEventListener('change', async e => { const on = e.target.checked, cam = stage._camera, ctl = stage._controls;
     if (on && !built) { try { await document.fonts.load('600 44px "Barlow Condensed"'); } catch (er) { } build(); built = true; }
-    DG.visible = on; $('dirlist').style.display = on ? 'block' : 'none';
+    DG.visible = on; $('dirlist').style.display = on ? 'block' : 'none'; applyGroups();
     if (on) { saved = { p: cam.position.clone(), t: ctl.target.clone() }; cam.position.set(1.35, 1.25, 2.1); ctl.target.set(0, 0.92, 0); ctl.update(); }
     else if (saved) { cam.position.copy(saved.p); ctl.target.copy(saved.t); ctl.update(); saved = null; }
   });
