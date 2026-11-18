@@ -135,6 +135,24 @@
   #viewsec .vb{margin-bottom:8px} #viewsec .vb .b{flex:1}
   .sx{display:flex;gap:6px} .sx .b{flex:1} .sx .b.on{background:var(--color-accent-200)}
   .tones{display:flex;gap:6px;flex-wrap:wrap} .tones .t{width:30px;height:30px;padding:0;border:1px solid var(--color-neutral-700);border-radius:2px;cursor:pointer} .tones .t:hover{border-color:var(--color-accent-600)} .tones .t.on{outline:2px solid var(--color-accent);outline-offset:2px}
+  .dlist{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
+  .dlist li{border-left:5px solid var(--gc);background:color-mix(in oklab,var(--gc) 9%,transparent);border-radius:2px;padding:6px 8px;font-size:12px;line-height:1.4}
+  .dlist li.off{opacity:.45}
+  .dlist .dh{display:flex;gap:8px;align-items:center;cursor:pointer;margin-bottom:3px}
+  .dlist .dh b{font-size:13px;color:var(--gc);filter:brightness(.8)} .dlist .dh em{font-style:normal;color:var(--color-neutral-700)}
+  .dlist input{accent-color:var(--gc)}
+  .dlist .dt{display:block;padding-left:24px}
+  .sx .b .gs{font-size:16px;line-height:1;margin-right:4px;vertical-align:-1px}
+  .sx .b[data-v=male] .gs{color:#2f6fb5} .sx .b[data-v=female] .gs{color:#c8457a}
+  #privgate{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;background:color-mix(in oklab,var(--color-bg) 97%,transparent);backdrop-filter:blur(6px)}
+  #privgate[hidden]{display:none}
+  #privgate .card{max-width:460px;background:var(--color-bg);border:1px solid var(--color-divider);border-radius:var(--radius-md,4px);padding:24px 24px 18px;box-shadow:var(--shadow-sm)}
+  #privgate h2{font-size:22px;letter-spacing:.06em;margin:0 0 10px;color:var(--color-text)}
+  #privgate p{font-size:13px;line-height:1.55;margin:0 0 10px}
+  #privgate ul{font-size:13px;line-height:1.5;margin:0 0 12px;padding-left:20px}
+  #privgate .opts{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px} #privgate .opts .b{flex:1;padding:10px 8px;min-width:150px}
+  #privgate .opts .b.pri{background:var(--color-accent-200)}
+  #privgate .sm{font-size:11.5px;color:var(--color-neutral-700);margin:10px 0 0}
   #sexnote{font-size:12px;line-height:1.45;color:var(--color-neutral-700);margin:6px 0 0}
   /* phones and small tablets: the side panel becomes a drawer opened from a bottom dock, so the 3D view keeps the whole screen */
   #dock{display:none;position:fixed;left:0;right:0;bottom:0;z-index:7;gap:6px;padding:8px 8px calc(8px + env(safe-area-inset-bottom));box-sizing:border-box;background:color-mix(in oklab,var(--color-bg) 96%,transparent);border-top:1px solid var(--color-divider)}
@@ -157,6 +175,20 @@
 </style>
 </head>
 <body>
+<div id="privgate" role="dialog" aria-modal="true" aria-labelledby="pg-t">
+  <div class="card">
+    <h2 id="pg-t">Before you begin</h2>
+    <p>This atlas shows the whole body, including the external genitalia and the breast. Choose whether to show these regions.</p>
+    <p style="margin-bottom:4px"><b>Treated as private parts:</b></p>
+    <ul>
+      <li>The external genitalia (penis and scrotum, or vulva) and the buttocks.</li>
+      <li>The female breast, including nipple and areola. The male chest is not treated as private.</li>
+    </ul>
+    <p class="sm" style="margin-top:0">Hidden regions are covered by a neutral swimwear shape. The internal organs, such as the uterus, ovaries and prostate, stay available.</p>
+    <div class="opts"><button class="b pri" id="pg-hide" type="button">Hide private parts</button><button class="b" id="pg-show" type="button">Show everything</button></div>
+    <p class="sm">You can change this later under Body.</p>
+  </div>
+</div>
 <three-d-stage name="human-anatomy" data-comment-anchor="bb154c8264-three-d-stage"></three-d-stage>
 <div id="tweaks" role="dialog" aria-label="Tweaks">
   <div class="hd"><b>Tweaks</b><button class="b" id="twx" aria-label="Close tweaks" style="padding:3px 8px">×</button></div>
@@ -174,20 +206,21 @@
   <div class="sec">
     <h2>Anatomical directions</h2>
     <label class="chk" style="display:flex;gap:8px;align-items:center;font-size:13px;cursor:pointer"><input type="checkbox" id="dirshow"> Show direction arrows on the body</label>
-    <ul class="plist" id="dirlist" style="display:none;columns:1;margin-top:8px">
-      <li><b>Superior / Cranial</b> <span>toward the head.</span> <b>Inferior / Caudal</b> <span>toward the feet.</span></li>
-      <li><b>Anterior / Ventral</b> <span>toward the front.</span> <b>Posterior / Dorsal</b> <span>toward the back.</span></li>
-      <li><b>Medial</b> <span>toward the midline.</span> <b>Lateral</b> <span>away from the midline.</span></li>
-      <li><b>Proximal</b> <span>nearer the limb's attachment.</span> <b>Distal</b> <span>farther from it.</span></li>
-      <li><b>Superficial</b> <span>toward the surface.</span> <b>Deep</b> <span>away from the surface.</span></li>
-      <li><b>Afferent</b> <span>carried toward a centre, such as sensory nerves to the CNS.</span> <b>Efferent</b> <span>carried away from it, such as motor nerves.</span></li>
+    <ul class="dlist" id="dirlist" style="display:none">
+      <li style="--gc:#2f6fb5"><label class="dh"><input type="checkbox" data-g="transverse" checked><i class="dsw"></i><span><b>Transverse plane</b> <em>splits top from bottom</em></span></label><span class="dt"><b>Superior / Cranial</b> toward the head.</span><span class="dt"><b>Inferior / Caudal</b> toward the feet.</span></li>
+      <li style="--gc:#2e9d5f"><label class="dh"><input type="checkbox" data-g="coronal" checked><i class="dsw"></i><span><b>Coronal plane</b> <em>splits front from back</em></span></label><span class="dt"><b>Anterior / Ventral</b> toward the front.</span><span class="dt"><b>Posterior / Dorsal</b> toward the back.</span></li>
+      <li style="--gc:#d9822b"><label class="dh"><input type="checkbox" data-g="sagittal" checked><i class="dsw"></i><span><b>Sagittal plane</b> <em>splits right from left</em></span></label><span class="dt"><b>Medial</b> toward the midline.</span><span class="dt"><b>Lateral</b> away from the midline.</span></li>
+      <li style="--gc:#8a5cc2"><label class="dh"><input type="checkbox" data-g="limb" checked><i class="dsw"></i><span><b>Limbs</b></span></label><span class="dt"><b>Proximal</b> nearer the limb's attachment.</span><span class="dt"><b>Distal</b> farther from it.</span></li>
+      <li style="--gc:#1f9ba8"><label class="dh"><input type="checkbox" data-g="depth" checked><i class="dsw"></i><span><b>Depth</b></span></label><span class="dt"><b>Superficial</b> toward the surface.</span><span class="dt"><b>Deep</b> away from the surface.</span></li>
+      <li style="--gc:#c8457a"><label class="dh"><input type="checkbox" data-g="neural" checked><i class="dsw"></i><span><b>Nerve signals</b></span></label><span class="dt"><b>Afferent</b> toward a centre, such as sensory nerves to the CNS.</span><span class="dt"><b>Efferent</b> away from it, such as motor nerves.</span></li>
     </ul>
   </div>
 
   <div class="sec">
     <h2>Body</h2>
-    <div class="sx" id="p-sex" role="group" aria-label="Sex of the body"><button class="b on" data-v="male" aria-pressed="true">Male</button><button class="b" data-v="female" aria-pressed="false">Female</button></div>
+    <div class="sx" id="p-sex" role="group" aria-label="Sex of the body"><button class="b on" data-v="male" aria-pressed="true"><span class="gs" aria-hidden="true">&#9794;</span>Male</button><button class="b" data-v="female" aria-pressed="false"><span class="gs" aria-hidden="true">&#9792;</span>Female</button></div>
     <p id="sexnote" style="display:none"></p>
+    <label class="chk" style="display:flex;gap:8px;align-items:center;font-size:13px;cursor:pointer;margin-top:8px"><input type="checkbox" id="privhide"> Hide private parts</label>
     <h2 style="margin-top:12px">Skin tone</h2>
     <div class="tones" id="p-tone" role="group" aria-label="Skin tone"><button class="t on" data-v="plate" title="Plate (atlas)" aria-label="Plate (atlas)" style="background:#e7ddd2"></button><button class="t" data-v="3b2219" title="#3B2219" aria-label="Skin tone 1, darkest" style="background:#3b2219"></button><button class="t" data-v="8d5524" title="#8D5524" aria-label="Skin tone 2" style="background:#8d5524"></button><button class="t" data-v="c68642" title="#C68642" aria-label="Skin tone 3" style="background:#c68642"></button><button class="t" data-v="e0ac69" title="#E0AC69" aria-label="Skin tone 4" style="background:#e0ac69"></button><button class="t" data-v="f1c27d" title="#F1C27D" aria-label="Skin tone 5" style="background:#f1c27d"></button><button class="t" data-v="ffdbac" title="#FFDBAC" aria-label="Skin tone 6, lightest" style="background:#ffdbac"></button></div>
   </div>
@@ -365,5 +398,6 @@
 <script type="module" src="dock.js"></script>
 <script type="module" src="snapshot.js"></script>
 <script type="module" src="pins.js"></script>
+<script type="module" src="privacy.js"></script>
 </body>
 </html>
