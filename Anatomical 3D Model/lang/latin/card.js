@@ -91,7 +91,7 @@
       '#sborigin summary{cursor:pointer;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--color-accent-700,#6b5a3a);font-weight:600}' +
       '#sborigin .ot{margin:8px 0 2px;font-weight:600}#sborigin .ow{font-style:italic}#sborigin .oa{opacity:.6}' +
       '#sborigin ul{list-style:none;margin:0;padding:0}#sborigin li{display:flex;flex-wrap:wrap;gap:2px 8px;padding:2px 0}' +
-      '#sborigin .ol{font-style:italic;font-size:13.5px}#sborigin .om{flex:1 1 auto}#sborigin .oo{opacity:.65;font-size:11.5px}' +
+      '#lylist .la{display:block;font-style:italic;font-weight:400;font-size:.9em;opacity:.75}#sborigin .ol{font-style:italic;font-size:13.5px}#sborigin .om{flex:1 1 auto}#sborigin .oo{opacity:.65;font-size:11.5px}' +
       '#sborigin:lang(zh-Hant),#sborigin[lang="zh-Hant"]{font-family:"Noto Sans HK","PingFang HK","Microsoft JhengHei","Noto Sans TC",sans-serif}';
     document.head.appendChild(s);
   }
@@ -126,8 +126,26 @@
     namer = window.__latinCompose.create({ names, structures, directions });
     D = { roots: roots.roots, origins };
     els = [].concat(prefixes.prefixes.map(e => ['prefix', e]), roots.roots.map(e => ['root', e]), suffixes.suffixes.map(e => ['suffix', e]));
-    window.__latin = { decompose, rootsFor, build, latinName: n => namer && namer.latinName(n) };
-    let tries = 0; const go = () => { if (!mount() && ++tries < 40) setTimeout(go, 500); };
+    // Shared lookup for the page (search.js uses it). Cached, because search asks for every label on each keystroke.
+    const cache = new Map();
+    const latinName = n => { if (!namer || !n) return null; if (!cache.has(n)) cache.set(n, namer.latinName(n)); return cache.get(n); };
+    // The Latin language pack already puts the Latin name beside every name, so the page adds none of its own then.
+    const packShowsLatin = () => !!(window.__zh && window.__zh.pack === 'la');
+    window.__latin = { decompose, rootsFor, build, latinName, extra: () => !packShowsLatin() };
+    // Layers list: add the Latin name after each layer name. The list is built by layers.js, so decorate whatever is there and anything added later.
+    const layers = () => {
+      const list = document.getElementById('lylist'); if (!list) return false;
+      const paint = () => {
+        if (packShowsLatin()) return;
+        list.querySelectorAll('.lyt b').forEach(b => {
+          if (b.querySelector('.la')) return; const t = b.firstChild && b.firstChild.nodeType === 3 ? b.firstChild.nodeValue.trim() : '', l = latinName(t); if (!l) return;
+          const x = document.createElement('span'); x.className = 'la'; x.lang = 'la'; x.textContent = l; b.appendChild(x);
+        });
+      };
+      new MutationObserver(paint).observe(list, { childList: true }); paint(); return true;
+    };
+    let tries = 0, mounted = false, listed = false;
+    const go = () => { if (!mounted) mounted = mount(); if (!listed) listed = layers(); if (!(mounted && listed) && ++tries < 40) setTimeout(go, 500); };
     if (document.readyState === 'complete') go(); else window.addEventListener('load', go);
   }).catch(() => { });
 })();

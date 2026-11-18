@@ -32,6 +32,9 @@ Each entry has `source`: `textbook` (the medical word-building textbook: Appendi
 ## Behaviour
 
 - The card starts with the Latin name, then the word origin.
+- The Body layers list shows each layer's Latin name under its name (Skin, Cutis).
+- Search finds parts by Latin name (hepar, arteria carotis, costa V) and shows the Latin name in each result. `search.js` reads `window.__latin`, which `card.js` defines.
+- With the Latin language pack (`la`) selected, the layers and search results already show Latin beside each name, so the add-on adds none of its own there. Latin typed in search still works.
 - Traditional Chinese glosses show when the zh-Hant pack is on. Other packs show English.
 - The card is skipped by the pack's interface translator (`data-zh` on the card), so glosses are not translated twice.
 

@@ -11,7 +11,7 @@
   "provides": {
     "names": "Latin name (Terminologia Anatomica style) beside the English name, built from lang/latin/data: full names, 1,000+ structures with gender, 60 direction words, sides in Latin (sinister, dextra), Roman numerals for ribs and vertebrae",
     "interface": "not translated: buttons and headings stay English",
-    "search": "not yet: search takes English names only"
+    "search": "Latin names are searchable through the lang/latin add-on (search.js reads window.__latin); Chinese-style typed search does not apply"
   },
   "requires": "3D Anatomy Model page with lang/loader.js, and the lang/latin folder (compose.js and data/)",
   "license": "MIT"
