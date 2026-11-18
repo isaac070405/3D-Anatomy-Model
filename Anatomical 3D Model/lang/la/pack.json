@@ -1,0 +1,18 @@
+{
+  "id": "la",
+  "name": "Latin",
+  "nativeName": "Latina",
+  "version": "0.1.0",
+  "entry": "index.js",
+  "files": [
+    "index.js",
+    "names.js"
+  ],
+  "provides": {
+    "names": "Latin name (Terminologia Anatomica style) beside the English name, built from lang/latin/data: full names, 1,000+ structures with gender, 60 direction words, sides in Latin (sinister, dextra), Roman numerals for ribs and vertebrae",
+    "interface": "not translated: buttons and headings stay English",
+    "search": "not yet: search takes English names only"
+  },
+  "requires": "3D Anatomy Model page with lang/loader.js, and the lang/latin folder (compose.js and data/)",
+  "license": "MIT"
+}

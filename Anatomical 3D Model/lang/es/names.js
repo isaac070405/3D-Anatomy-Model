@@ -1449,7 +1449,7 @@ Bones and cartilage|Huesos y cartílago
       { id: 'en', label: 'English' },
       { id: 'zh-Hans', label: 'Simplified Chinese', native: '简体中文' },
       { id: 'es', label: 'Spanish', native: 'Español' },
-      { id: 'la', label: 'Latin', planning: true },
+      { id: 'la', label: 'Latin', native: 'Latina' },
     ];
     // LANGS-END
     const box = document.createElement('div'); box.id = 'langsw';
