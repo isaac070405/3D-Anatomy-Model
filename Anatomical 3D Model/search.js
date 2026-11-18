@@ -1,4 +1,4 @@
-// Part search with everyday names, Latin names, clinical abbreviations and typo tolerance.
+// Part search with everyday names, Latin names (from lang/latin when loaded), clinical abbreviations and typo tolerance.
 // Replaces the plain substring list in #qres. Results pin the part through window.__setPin.
 
 // Each row: [what people type], [words to look for in part names]. Matching is on lower-case text.
@@ -129,7 +129,15 @@ function init() {
     // names a typed phrase stands for: an alias row matches when the whole phrase, or its first 3+ letters, fits one of its keys
     const targets = [];
     for (const a of aliasKeys) { const k = a.keys.find(k => k === q || (q.length >= 3 && k.startsWith(q))); if (k) targets.push({ tg: a.tg, key: k }); }
+    const lat = window.__latin; // Latin names from lang/latin, when the add-on is loaded; typing "hepar" or "arteria carotis" finds the part
     for (const r of rows) {
+      const la = lat && lat.latinName(r.label), ln = la ? norm(la) : '';
+      if (ln) {
+        if (ln === q) add(r, 100, la);
+        else if (ln.startsWith(q)) add(r, 90, la);
+        else if (ln.split(' ').some(w => w.startsWith(q))) add(r, 80, la);
+        else if (ln.includes(q)) add(r, 70, la);
+      }
       if (r.low === q) add(r, 100);
       else if (r.low.startsWith(q)) add(r, 90);
       else if (r.words.some(w => w.startsWith(q))) add(r, 80);
@@ -155,6 +163,9 @@ function init() {
     hits.forEach(h => {
       const b = document.createElement('button'); b.className = 'res'; b.innerHTML = '<span></span><small></small>';
       b.firstChild.textContent = h.r.label; if (window.__zh) window.__zh.set(b.firstChild, h.r.label); b.lastChild.textContent = T.SYSNAME[h.r.sys] + (h.note && !CJK.test(raw) ? ' · ' + h.note : h.score < 60 ? ' · close match' : '');
+      // every result also shows its Latin name, unless it was just shown as the match note or the Latin language pack already shows it
+      const la = window.__latin && window.__latin.extra() && window.__latin.latinName(h.r.label);
+      if (la && h.note !== la) { const i = document.createElement('i'); i.lang = 'la'; i.textContent = ' · ' + la; b.lastChild.appendChild(i); }
       b.onclick = () => window.__setPin(h.r.label); box.appendChild(b);
     });
   }
