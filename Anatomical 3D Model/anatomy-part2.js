@@ -214,7 +214,8 @@ for (const s of [-1, 1]) {
   rt(n('testicular_vein_cord'), cs(0.5, 1, 8, V(-s * 0.0022, 0, 0.0012)), 0.0016, mat.vein, lb('Testicular vein'), 8);
   tube('circulatory', n('testicular_artery_abdominal'), [[s * 0.055, 0.86, 0.066], [s * 0.061, 0.872, 0.045], [s * 0.057, 0.9, 0.012], [s * 0.049, 0.95, -0.022], [s * 0.035, 1.0, -0.03], [0.015 + s * 0.0045, 1.035, -0.024]], 0.0008, mat.artery, { label: lb('Testicular artery') });
   tube('circulatory', n('testicular_vein_abdominal'), [[s * 0.056, 0.859, 0.064], [s * 0.064, 0.871, 0.044], [s * 0.06, 0.9, 0.01], [s * 0.052, 0.95, -0.021], ...(s < 0 ? [[-0.03, 0.99, -0.026], [-0.022, 1.02, -0.022]] : [[0.036, 1.0, -0.028], [0.036, 1.046, -0.026]])], 0.0014, mat.vein, { label: lb('Testicular vein') });
-  tube('circulatory', n('inferior_epigastric_artery'), [[s * 0.066, 0.856, 0.056], [s * 0.05, 0.868, 0.074], [s * 0.045, 0.92, 0.09], [s * 0.04, 0.98, 0.096]], 0.0012, mat.artery, { label: lb('Inferior epigastric artery') });
+  const eiA = model.getObjectByName(n('external_iliac_artery')), eiP = eiA && eiA.geometry.parameters.path.getPoints(60).reduce((b, q) => q.distanceTo(V(s * 0.066, 0.856, 0.056)) < b.distanceTo(V(s * 0.066, 0.856, 0.056)) ? q : b); // origin sits on the external iliac artery
+  tube('circulatory', n('inferior_epigastric_artery'), [...(eiP ? [eiP.toArray()] : []), [s * 0.066, 0.856, 0.056], [s * 0.05, 0.868, 0.074], [s * 0.045, 0.92, 0.09], [s * 0.04, 0.98, 0.096]], 0.0012, mat.artery, { label: lb('Inferior epigastric artery') });
   // seminal vesicle: coiled blind sac slanting down and in on the back of the bladder
   const A = V(s * 0.03, 0.84, 0.006), B = V(s * 0.012, 0.824, 0.024), d = B.clone().sub(A), L = d.length(); d.normalize();
   const e1 = new THREE.Vector3().crossVectors(d, Y).normalize(), e2 = new THREE.Vector3().crossVectors(d, e1).normalize(), sv = [];

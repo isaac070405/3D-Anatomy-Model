@@ -154,7 +154,7 @@ for (const s of SIDES) {
   if (th && lg) {
     const flip = a => s < 0 ? 180 - a : a; // angles are written for the left leg; the right leg mirrors them
     const gs = [[0.83, 135], [0.76, 145], [0.66, 155], [0.56, 168], [0.48, 178]].map(([y, a]) => onProfile(th, y, rad(flip(a)), 0.004)).concat([[0.4, 183], [0.3, 182], [0.2, 180], [0.13, 176]].map(([y, a]) => onProfile(lg, y, rad(flip(a)), 0.004)), [[s * 0.082, 0.072, 0.012]]);
-    const jn = cen(fv, 0.82); if (jn) gs.unshift([jn[0] + s * 0.004, 0.815, jn[2] + 0.008]);
+    const jn = cen(fv, 0.82); if (jn) gs.unshift([jn[0] + s * 0.002, 0.82, jn[2] + 0.004]);
     tube('circulatory', 'great_saphenous_vein_' + sd(s), gs, 0.0028, mat.vein, { label: 'Great saphenous vein' + tag(s) });
     const ss = [[0.14, 262], [0.2, 266], [0.28, 268], [0.36, 270], [0.43, 270]].map(([y, a]) => onProfile(lg, y, rad(a), 0.004)); ss.unshift([s * 0.116, 0.078, -0.034]); ss.push([s * 0.103, 0.425, -0.046]);
     tube('circulatory', 'small_saphenous_vein_' + sd(s), ss, 0.0024, mat.vein, { label: 'Small saphenous vein' + tag(s) });
@@ -167,7 +167,7 @@ for (const s of SIDES) {
   t.position.set(s * 0.015, 1.318, 0.068); t.scale.set(0.014, 0.034, 0.0075); t.rotation.z = -s * 0.12;
 }
 {
-  const zf = y => zc(y) + rBody(y) + 0.0035, pts = [[-0.003, 1.075], [-0.003, 1.17], [0.0, 1.27], [0.008, 1.35]].map(([x, y]) => [x, y, zf(y)]).concat([[0.02, 1.405, -0.03], [0.034, 1.424, -0.012], [0.043, 1.426, 0.0]]);
+  const zf = y => zc(y) + rBody(y) + 0.0035, pts = [[-0.003, 1.075], [-0.003, 1.17], [0.0, 1.27], [0.008, 1.35]].map(([x, y]) => [x, y, zf(y)]).concat([[0.02, 1.405, -0.03], [0.034, 1.424, -0.012], [0.038, 1.423, 0.004], [0.036, 1.422, 0.008]]); // ends on the left jugular trunk
   tube('circulatory', 'thoracic_duct', pts, 0.0017, LYM, { label: 'Thoracic duct' });
   const c = reg('circulatory', 'cisterna_chyli', new THREE.Mesh(new THREE.SphereGeometry(1, 16, 12), LYM), { label: 'Cisterna chyli' }); c.position.set(-0.003, 1.07, zf(1.07)); c.scale.set(0.004, 0.012, 0.004);
 }
