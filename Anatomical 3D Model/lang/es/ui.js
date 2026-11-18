@@ -374,6 +374,7 @@ Not available in Explode anatomy mode.|No disponible en el modo de anatomía des
 Special senses|Sentidos especiales
 Endocrine|Endocrino
 three.js failed to load.|No se pudo cargar three.js.
+View|Vista
 `;
   const map = new Map();
   TEXT.split('\n').forEach(l => { const i = l.indexOf('|'); if (i > 0) map.set(l.slice(0, i).trim(), l.slice(i + 1).trim()); });

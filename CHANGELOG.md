@@ -4,6 +4,7 @@ All notable changes to this project are listed here, newest first. Dates are in 
 
 ## Unreleased
 
+- Turn the language switch into a dropdown at the top right: a button showing the current language opens the list, and Escape or a click outside closes it. Give the view buttons a "View" subtitle like the Body section, with no box around them. The pressed view button is highlighted.
 - Swap two controls. The view buttons and the two checkboxes (zoom on click, white snapshot background) move into the left panel under the skin tone section. The language switch moves to the top right of the page.
 - Show Latin names in the Body layers list and in search. Search now finds parts by Latin name (hepar, arteria carotis, costa V) and each result shows its Latin name. The Latin language pack already shows Latin beside names, so nothing is added twice.
 
