@@ -4,9 +4,9 @@
   "name": "Latin and Greek word origins",
   "version": "0.1.0",
   "entry": "index.js",
-  "files": ["index.js", "data/roots.json", "data/prefixes.json", "data/suffixes.json", "data/grammar.json", "data/origins.json", "data/names.txt", "README.md"],
+  "files": ["index.js", "compose.js", "card.js", "data/roots.json", "data/prefixes.json", "data/suffixes.json", "data/grammar.json", "data/origins.json", "data/names.txt", "data/structures.txt", "data/directions.txt", "README.md"],
   "provides": {
-    "latinNames": "Latin name (Terminologia Anatomica style) for the 1,357 English structure labels the zh-Hant pack lists, plus rules for sides (sin., dext.), numbers and qualifiers",
+    "latinNames": "Latin name (Terminologia Anatomica style) for every structure label the zh-Hant pack lists, and for new phrases built from a direction list (60 words) and a structure list (1,000+ nouns with gender), with Roman numerals for ribs and vertebrae",
     "origins": "Word-origin card in the selection sidebar: roots, prefixes and suffixes with Greek or Latin source, and a plain meaning (hepatic = liver related)",
     "grammar": "data/grammar.json holds declensions, plural forms, abbreviations and diminutives for later use; the page does not show it yet",
     "languages": "English glosses, and Traditional Chinese (繁體中文) when the zh-Hant pack is on"

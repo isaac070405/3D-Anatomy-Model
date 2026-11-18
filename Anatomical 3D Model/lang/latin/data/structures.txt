@@ -1,0 +1,997 @@
+# Structures: one "English name|Latin name|gender" per line (m masculine, f feminine, n neuter). Gender lets a direction word agree with the noun: Right + Kidney = Ren dexter.
+# Entries are single noun phrases. The page tries names.txt first, then this list, then builds a name from directions.txt words plus one structure from this list.
+Abdominal aorta|Aorta abdominalis|f
+Abductor pollicis longus|Musculus abductor pollicis longus|m
+Accessory pancreatic duct|Ductus pancreaticus accessorius|m
+Acromial branch|Ramus acromialis|m
+Acromioclavicular joint|Articulatio acromioclavicularis|f
+Adductor brevis|Musculus adductor brevis|m
+Adductor longus|Musculus adductor longus|m
+Adductor magnus|Musculus adductor magnus|m
+Adenohypophysis|Adenohypophysis|f
+Alveolar bone|Pars alveolaris mandibulae et maxillae|f
+Alveolar duct|Ductulus alveolaris|m
+Alveolar macrophage|Macrophagus alveolaris|m
+Alveolar mucosa|Tunica mucosa alveolaris|f
+Alveolar sac|Sacculus alveolaris|m
+Alveolus|Alveolus pulmonis|m
+Ampulla of ductus deferens|Ampulla ductus deferentis|f
+Amygdala|Corpus amygdaloideum|n
+Anal canal|Canalis analis|m
+Anal pecten|Pecten analis|m
+Anal verge|Margo analis|m
+Anal verge and perianal skin|Margo analis et cutis perianalis|m
+Angular incisure|Incisura angularis|f
+Angular vein|Vena angularis|f
+Ankle cartilage|Cartilago articularis tali|f
+Anocutaneous line|Linea anocutanea|f
+Ansa cervicalis|Ansa cervicalis|f
+Anterior cerebral artery|Arteria cerebri anterior|f
+Anterior circumflex humeral artery|Arteria circumflexa humeri anterior|f
+Anterior commissure|Commissura anterior|f
+Anterior communicating artery|Arteria communicans anterior|f
+Anterior cruciate ligament|Ligamentum cruciatum anterius|n
+Anterior division|Divisio anterior|f
+Anterior fibromuscular stroma|Stroma fibromusculare anterius|n
+Anterior interosseous artery|Arteria interossea anterior|f
+Anterior interosseous nerve|Nervus interosseus antebrachii anterior|m
+Anterior longitudinal ligament|Ligamentum longitudinale anterius|n
+Anterior papillary muscle|Musculus papillaris anterior|m
+Anterior semicircular canal|Canalis semicircularis anterior|m
+Aortic arch|Arcus aortae|m
+Aortic hiatus|Hiatus aorticus|m
+Aortic valve|Valva aortae|f
+Aortic vestibule|Vestibulum aortae|n
+Apical foramen|Foramen apicis dentis|n
+Appendicular artery|Arteria appendicularis|f
+Arcuate artery|Arteria arcuata|f
+Areola|Areola mammae|f
+Arm|Brachium|n
+Arms and hands|Membrum superius et manus|n
+Artery|Arteria|f
+Articular tubercle|Tuberculum articulare|n
+Aryepiglottic fold|Plica aryepiglottica|f
+Arytenoid cartilage|Cartilago arytenoidea|f
+Ascending aorta|Aorta ascendens|f
+Ascending colon|Colon ascendens|n
+Ascending pharyngeal artery|Arteria pharyngea ascendens|f
+Asterion|Asterion|n
+Atrium|Atrium|n
+Auricle|Auricula|f
+Auriculotemporal nerve|Nervus auriculotemporalis|m
+Axial skeleton|Skeleton axiale|n
+Axillary artery|Arteria axillaris|f
+Axillary nerve|Nervus axillaris|m
+Axillary tail of breast|Processus axillaris mammae|m
+Axillary vein|Vena axillaris|f
+Azygos vein|Vena azygos|f
+Basement membrane|Membrana basalis|f
+Basilar artery|Arteria basilaris|f
+Basilic vein|Vena basilica|f
+Biceps brachii|Musculus biceps brachii|m
+Bicipital aponeurosis|Aponeurosis musculi bicipitis brachii|f
+Bladder|Vesica|f
+Body|Corpus|n
+Bone|Os|n
+Brachial artery|Arteria brachialis|f
+Brachial plexus|Plexus brachialis|m
+Brachial plexus and arm|Plexus brachialis et brachium|m
+Brachialis|Musculus brachialis|m
+Brachiocephalic trunk|Truncus brachiocephalicus|m
+Brachioradialis|Musculus brachioradialis|m
+Brachium of inferior colliculus|Brachium colliculi inferioris|n
+Brainstem and cerebellum|Truncus encephali et cerebellum|m
+Branch|Ramus|m
+Breast|Mamma|f
+Breast adipose tissue|Corpus adiposum mammae|n
+Breast lobe and lobule|Lobus et lobulus mammae|m
+Breast lymphatic vessel|Vas lymphaticum mammae|n
+Bregma|Bregma|n
+Bronchial cartilage|Cartilago bronchialis|f
+Bronchomediastinal trunk|Truncus bronchomediastinalis|m
+Bronchus|Bronchus|m
+Buccal artery|Arteria buccalis|f
+Buccal nerve|Nervus buccalis|m
+Buccinator|Musculus buccinator|m
+Bulb of penis|Bulbus penis|m
+Bulbospongiosus|Musculus bulbospongiosus|m
+Bulbourethral duct|Ductus glandulae bulbourethralis|m
+Bulbourethral gland|Glandula bulbourethralis|f
+Bundle branch|Crus fasciculi atrioventricularis|n
+Calcaneus|Calcaneus|m
+Canal|Canalis|m
+Canine|Dens caninus|m
+Capillary endothelium|Endothelium capillare|n
+Capitate|Os capitatum|n
+Capsule|Capsula|f
+Carbon dioxide diffuses|Dioxidum carbonii diffundit|n
+Cardiac notch|Incisura cardiaca|f
+Carina|Carina tracheae|f
+Carotid body|Glomus caroticum|n
+Carotid canal|Canalis caroticus|m
+Carotid sheath|Vagina carotica|f
+Carotid sinus|Sinus caroticus|m
+Cartilage|Cartilago|f
+Cauda equina|Cauda equina|f
+Caudate nucleus|Nucleus caudatus|m
+Caval opening|Foramen venae cavae|n
+Cavernous sinus|Sinus cavernosus|m
+Cecum|Caecum|n
+Celiac trunk|Truncus coeliacus|m
+Cementoenamel junction|Junctio cementoenamelica|f
+Cementum|Cementum|n
+Central canal|Canalis centralis|m
+Central incisor|Dens incisivus medialis|m
+Central tendon|Centrum tendineum|n
+Cephalic vein|Vena cephalica|f
+Cerebellum|Cerebellum|n
+Cerebral aqueduct|Aqueductus mesencephali|m
+Cerebral cortex|Cortex cerebri|m
+Cerebral peduncle|Pedunculus cerebri|m
+Cerebral white matter|Substantia alba cerebri|f
+Cerebrum|Cerebrum|n
+Cervical canal|Canalis cervicis uteri|m
+Cervix|Cervix uteri|f
+Choana|Choana|f
+Choroid|Choroidea|f
+Choroid plexus|Plexus choroideus|m
+Ciliary ganglion|Ganglion ciliare|n
+Ciliated epithelium|Epithelium ciliatum|n
+Circulatory|Systema cardiovasculare|n
+Circumflex artery|Ramus circumflexus arteriae coronariae sinistrae|m
+Circumflex scapular artery|Arteria circumflexa scapulae|f
+Cisterna chyli|Cisterna chyli|f
+Clavicle|Clavicula|f
+Clitoris|Clitoris|f
+Coccyx|Os coccygis|n
+Cochlea|Cochlea|f
+Colic artery|Arteria colica|f
+Common bile duct|Ductus choledochus|m
+Common carotid artery|Arteria carotis communis|f
+Common facial vein|Vena facialis communis|f
+Common fibular nerve|Nervus fibularis communis|m
+Common hepatic duct|Ductus hepaticus communis|m
+Common iliac artery|Arteria iliaca communis|f
+Common iliac vein|Vena iliaca communis|f
+Common interosseous artery|Arteria interossea communis|f
+Common palmar digital artery|Arteria digitalis palmaris communis|f
+Common tendinous ring|Anulus tendineus communis|m
+Conus arteriosus|Conus arteriosus|m
+Coracobrachialis|Musculus coracobrachialis|m
+Cord|Funiculus|m
+Cornea|Cornea|f
+Corniculate cartilage|Cartilago corniculata|f
+Corona glandis|Corona glandis|f
+Coronal suture|Sutura coronalis|f
+Coronary sinus|Sinus coronarius|m
+Corpus callosum|Corpus callosum|n
+Corpus cavernosum|Corpus cavernosum penis|n
+Corpus luteum|Corpus luteum|n
+Corpus spongiosum|Corpus spongiosum penis|n
+Costal cartilage|Cartilago costalis|f
+Cremaster muscle|Musculus cremaster|m
+Crest|Crista|f
+Cribriform plate of ethmoid|Lamina cribrosa ossis ethmoidalis|f
+Cricoid cartilage|Cartilago cricoidea|f
+Cricothyroid|Musculus cricothyroideus|m
+Cricothyroid ligament|Ligamentum cricothyroideum|n
+Crista galli|Crista galli|f
+Crista terminalis|Crista terminalis|f
+Crus of penis|Crus penis|n
+Cuboid|Os cuboideum|n
+Cystic duct|Ductus cysticus|m
+Dartos fascia|Tunica dartos|f
+Deep artery of arm|Arteria profunda brachii|f
+Deep artery of penis|Arteria profunda penis|f
+Deep branch of radial nerve|Ramus profundus nervi radialis|m
+Deep dorsal vein of penis|Vena dorsalis profunda penis|f
+Deep facial vein|Vena faciei profunda|f
+Deep fibular nerve|Nervus fibularis profundus|m
+Deep inguinal ring|Anulus inguinalis profundus|m
+Deep lingual vein|Vena profunda linguae|f
+Deep palmar arch|Arcus palmaris profundus|m
+Deep palmar branch of ulnar artery|Ramus palmaris profundus arteriae ulnaris|m
+Deltoid|Musculus deltoideus|m
+Deltoid branch|Ramus deltoideus|m
+Dentin|Dentinum|n
+Depressor anguli oris|Musculus depressor anguli oris|m
+Descending colon|Colon descendens|n
+Detrusor muscle|Musculus detrusor vesicae|m
+Diaphragm|Diaphragma|n
+Digastric|Musculus digastricus|m
+Digestive|Systema digestorium|n
+Dorsal artery of penis|Arteria dorsalis penis|f
+Dorsal branch of ulnar nerve|Ramus dorsalis nervi ulnaris|m
+Dorsal carpal network|Rete carpale dorsale|n
+Dorsal digital artery|Arteria digitalis dorsalis|f
+Dorsal metacarpal artery|Arteria metacarpalis dorsalis|f
+Dorsal nerve of penis|Nervus dorsalis penis|m
+Dorsal root ganglion|Ganglion spinale|n
+Dorsal scapular artery|Arteria scapularis dorsalis|f
+Dorsal scapular nerve|Nervus dorsalis scapulae|m
+Dorsal venous network of hand|Rete venosum dorsale manus|n
+Duct|Ductus|m
+Ductus deferens|Ductus deferens|m
+Ductus deferens and seminal vesicles|Ductus deferens et glandulae vesiculosae|m
+Duodenal mucosa|Tunica mucosa duodeni|f
+Duodenum|Duodenum|n
+Dura mater|Dura mater|f
+Ear|Auris|f
+Ejaculatory duct|Ductus ejaculatorius|m
+Ejaculatory duct opening|Ostium ductus ejaculatorii|n
+Elbow joint|Articulatio cubiti|f
+Enamel|Enamelum|n
+Endocrine|Systema endocrinum|n
+Endometrium|Endometrium|n
+Epicardial fat|Tela adiposa epicardialis|f
+Epididymis and spermatic cord|Epididymis et funiculus spermaticus|f
+Epiglottic vallecula|Vallecula epiglottica|f
+Epiglottis|Epiglottis|f
+Erector spinae|Musculus erector spinae|m
+Esophageal hiatus|Hiatus oesophageus|m
+Ethmoid bulla|Bulla ethmoidalis|f
+Extensor carpi radialis brevis|Musculus extensor carpi radialis brevis|m
+Extensor carpi radialis longus|Musculus extensor carpi radialis longus|m
+Extensor digitorum brevis|Musculus extensor digitorum brevis|m
+Extensor digitorum longus|Musculus extensor digitorum longus|m
+Extensor hallucis longus|Musculus extensor hallucis longus|m
+External acoustic meatus|Meatus acusticus externus|m
+External anal sphincter|Musculus sphincter ani externus|m
+External carotid artery|Arteria carotis externa|f
+External iliac artery|Arteria iliaca externa|f
+External iliac vein|Vena iliaca externa|f
+External intercostal|Musculus intercostalis externus|m
+External jugular vein|Vena jugularis externa|f
+External oblique|Musculus obliquus externus abdominis|m
+External occipital crest|Crista occipitalis externa|f
+External occipital protuberance|Protuberantia occipitalis externa|f
+External spermatic fascia|Fascia spermatica externa|f
+External urethral orifice|Ostium urethrae externum|n
+External urethral sphincter|Musculus sphincter urethrae externus|m
+Eye|Oculus|m
+Eye and ear|Oculus et auris|m
+Facial artery|Arteria facialis|f
+Facial vein|Vena facialis|f
+Fallopian tube|Tuba uterina|f
+Fascia|Fascia|f
+Femoral artery|Arteria femoralis|f
+Femoral nerve|Nervus femoralis|m
+Femoral vein|Vena femoralis|f
+Femur|Femur|n
+Fibrous pericardium|Pericardium fibrosum|n
+Fibula|Fibula|f
+Fibularis brevis|Musculus fibularis brevis|m
+Fibularis longus|Musculus fibularis longus|m
+Fibularis tertius|Musculus fibularis tertius|m
+Filum terminale|Filum terminale|n
+Finger phalanx|Phalanx digiti manus|f
+First molar|Dens molaris primus|m
+First premolar|Dens premolaris primus|m
+Flexor carpi radialis|Musculus flexor carpi radialis|m
+Flexor carpi ulnaris|Musculus flexor carpi ulnaris|m
+Flexor digitorum longus|Musculus flexor digitorum longus|m
+Flexor digitorum profundus|Musculus flexor digitorum profundus|m
+Flexor digitorum superficialis|Musculus flexor digitorum superficialis|m
+Flexor hallucis longus|Musculus flexor hallucis longus|m
+Flexor pollicis longus|Musculus flexor pollicis longus|m
+Flexor retinaculum|Retinaculum flexorum|n
+Floor of the mouth|Pavimentum oris|n
+Fold|Plica|f
+Foramen|Foramen|n
+Foramen cecum|Foramen caecum linguae|n
+Foramen lacerum|Foramen lacerum|n
+Foramen magnum|Foramen magnum|n
+Foramen ovale|Foramen ovale|n
+Foramen spinosum|Foramen spinosum|n
+Forearm and hand|Antebrachium et manus|n
+Fornix|Fornix|m
+Fossa|Fossa|f
+Fossa ovalis|Fossa ovalis|f
+Frontal bone|Os frontale|n
+Frontal nerve|Nervus frontalis|m
+Frontal sinus|Sinus frontalis|m
+Gallbladder|Vesica biliaris|f
+Ganglion|Ganglion|n
+Gastrocnemius|Musculus gastrocnemius|m
+Gastrosplenic ligament|Ligamentum gastrosplenicum|n
+Gemellus inferior|Musculus gemellus inferior|m
+Gemellus superior|Musculus gemellus superior|m
+Genioglossus|Musculus genioglossus|m
+Geniohyoid|Musculus geniohyoideus|m
+Gingiva|Gingiva|f
+Glabella|Glabella|f
+Gland|Glandula|f
+Glans penis|Glans penis|f
+Glenoid cavity|Cavitas glenoidalis|f
+Glenoid labrum|Labrum glenoidale|n
+Globus pallidus|Globus pallidus|m
+Gluteus maximus|Musculus gluteus maximus|m
+Gluteus medius|Musculus gluteus medius|m
+Gluteus minimus|Musculus gluteus minimus|m
+Gracilis|Musculus gracilis|m
+Great auricular nerve|Nervus auricularis magnus|m
+Great cardiac vein|Vena cardiaca magna|f
+Great saphenous vein|Vena saphena magna|f
+Greater alar cartilage|Cartilago alaris major|f
+Greater curvature|Curvatura major|f
+Greater omentum|Omentum majus|n
+Greater palatine foramen|Foramen palatinum majus|n
+Gyrus|Gyrus|m
+Hamate|Os hamatum|n
+Hard palate|Palatum durum|n
+Hard palate mucosa|Tunica mucosa palati duri|f
+Head|Caput|n
+Head and face|Caput et facies|n
+Heart|Cor|n
+Hepatic artery|Arteria hepatica|f
+Hilar lymph node|Nodus lymphoideus hilaris|m
+Hip and thigh|Coxa et femur|f
+Hippocampus|Hippocampus|m
+Humerus|Humerus|m
+Hyoglossus|Musculus hyoglossus|m
+Hyoid|Os hyoideum|n
+Hyoid bone|Os hyoideum|n
+Hypoglossal canal|Canalis nervi hypoglossi|m
+Hypothalamus|Hypothalamus|m
+Ileocecal valve|Valva ileocaecalis|f
+Ileocolic artery|Arteria ileocolica|f
+Ileum|Ileum|n
+Ileum mucosa|Tunica mucosa ilei|f
+Iliacus|Musculus iliacus|m
+Iliococcygeus|Musculus iliococcygeus|m
+Iliotibial tract|Tractus iliotibialis|m
+Incisive fossa|Fossa incisiva|f
+Incisive papilla|Papilla incisiva|f
+Incus|Incus|m
+Inferior alveolar artery|Arteria alveolaris inferior|f
+Inferior alveolar nerve|Nervus alveolaris inferior|m
+Inferior alveolar vein|Vena alveolaris inferior|f
+Inferior colliculus|Colliculus inferior|m
+Inferior epigastric artery|Arteria epigastrica inferior|f
+Inferior glenohumeral ligament|Ligamentum glenohumerale inferius|n
+Inferior lateral cutaneous nerve of arm|Nervus cutaneus brachii lateralis inferior|m
+Inferior lobar bronchus|Bronchus lobaris inferior|m
+Inferior lobar bronchus and segmental bronchi|Bronchus lobaris inferior et bronchi segmentales|m
+Inferior longitudinal muscle of the tongue|Musculus longitudinalis inferior linguae|m
+Inferior mesenteric artery|Arteria mesenterica inferior|f
+Inferior nasal concha|Concha nasalis inferior|f
+Inferior nuchal line|Linea nuchalis inferior|f
+Inferior oblique|Musculus obliquus inferior|m
+Inferior ophthalmic vein|Vena ophthalmica inferior|f
+Inferior pharyngeal constrictor|Musculus constrictor pharyngis inferior|m
+Inferior pulmonary vein|Vena pulmonalis inferior|f
+Inferior rectus|Musculus rectus inferior|m
+Inferior subscapular nerve|Nervus subscapularis inferior|m
+Inferior thyroid artery|Arteria thyroidea inferior|f
+Inferior thyroid vein|Vena thyroidea inferior|f
+Inferior transverse ligament of scapula|Ligamentum transversum scapulae inferius|n
+Inferior ulnar collateral artery|Arteria collateralis ulnaris inferior|f
+Inferior vena cava|Vena cava inferior|f
+Infra-orbital foramen|Foramen infraorbitale|n
+Infraorbital artery|Arteria infraorbitalis|f
+Infraorbital nerve|Nervus infraorbitalis|m
+Infraspinatus|Musculus infraspinatus|m
+Infundibulum|Infundibulum|n
+Inguinal ligament|Ligamentum inguinale|n
+Interatrial septum|Septum interatriale|n
+Intercostal nerve|Nervus intercostalis|m
+Intercostobrachial nerve|Nervus intercostobrachialis|m
+Interlobar artery|Arteria interlobaris|f
+Interlobar vein|Vena interlobaris|f
+Intermediate cuneiform|Os cuneiforme intermedium|n
+Internal anal sphincter|Musculus sphincter ani internus|m
+Internal capsule|Capsula interna|f
+Internal carotid artery|Arteria carotis interna|f
+Internal iliac artery|Arteria iliaca interna|f
+Internal iliac vein|Vena iliaca interna|f
+Internal intercostal|Musculus intercostalis internus|m
+Internal jugular vein|Vena jugularis interna|f
+Internal oblique|Musculus obliquus internus abdominis|m
+Internal spermatic fascia|Fascia spermatica interna|f
+Internal urethral orifice|Ostium urethrae internum|n
+Internal urethral sphincter|Musculus sphincter urethrae internus|m
+Internodal pathways|Tractus internodales|m
+Interosseous recurrent artery|Arteria interossea recurrens|f
+Interthalamic adhesion|Adhaesio interthalamica|f
+Interventricular foramen|Foramen interventriculare|n
+Interventricular septum|Septum interventriculare|n
+Intervertebral disc|Discus intervertebralis|m
+Intestinal trunk|Truncus intestinalis|m
+Investing fascia|Fascia investiens|f
+Iris|Iris|f
+Ischiocavernosus|Musculus ischiocavernosus|m
+Isthmus of thyroid gland|Isthmus glandulae thyroideae|m
+Jejunum|Jejunum|n
+Jejunum and ileum|Jejunum et ileum|n
+Jugular foramen|Foramen jugulare|n
+Jugular trunk|Truncus jugularis|m
+Kidney|Ren|m
+Knee cartilage|Cartilago articularis genus|f
+Labial and buccal mucosa|Tunica mucosa labialis et buccalis|f
+Labial frenulum|Frenulum labii|n
+Lacrimal gland|Glandula lacrimalis|f
+Lacrimal nerve|Nervus lacrimalis|m
+Lactiferous ducts|Ductus lactiferi|m
+Lambda|Lambda|n
+Lambdoid suture|Sutura lambdoidea|f
+Large intestine|Intestinum crassum|n
+Laryngeal ventricle|Ventriculus laryngis|m
+Larynx|Larynx|f
+Lateral arcuate ligament|Ligamentum arcuatum laterale|n
+Lateral collateral ligament|Ligamentum collaterale fibulare|n
+Lateral cord|Fasciculus lateralis|m
+Lateral cricoarytenoid|Musculus cricoarytenoideus lateralis|m
+Lateral cuneiform|Os cuneiforme laterale|n
+Lateral geniculate body|Corpus geniculatum laterale|n
+Lateral glossoepiglottic fold|Plica glossoepiglottica lateralis|f
+Lateral incisor|Dens incisivus lateralis|m
+Lateral meniscus|Meniscus lateralis|m
+Lateral nasal cartilage|Cartilago nasi lateralis|f
+Lateral pectoral nerve|Nervus pectoralis lateralis|m
+Lateral pterygoid|Musculus pterygoideus lateralis|m
+Lateral rectus|Musculus rectus lateralis|m
+Lateral semicircular canal|Canalis semicircularis lateralis|m
+Lateral sural cutaneous nerve|Nervus cutaneus surae lateralis|m
+Lateral thoracic artery|Arteria thoracica lateralis|f
+Lateral ventricle|Ventriculus lateralis|m
+Latissimus dorsi|Musculus latissimus dorsi|m
+Left anterior descending artery|Ramus interventricularis anterior arteriae coronariae sinistrae|m
+Left atrium|Atrium sinistrum|n
+Left auricle|Auricula sinistra|f
+Left brachiocephalic vein|Vena brachiocephalica sinistra|f
+Left coronary artery|Arteria coronaria sinistra|f
+Left crus|Crus sinistrum|n
+Left gastric artery|Arteria gastrica sinistra|f
+Left gastro-omental artery|Arteria gastroomentalis sinistra|f
+Left inferior lobe|Lobus inferior sinister|m
+Left superior lobe|Lobus superior sinister|m
+Left ventricle|Ventriculus sinister|m
+Leg|Crus|n
+Leg and foot|Crus et pes|n
+Legs and feet|Membrum inferius et pes|n
+Lens|Lens|f
+Lesser curvature|Curvatura minor|f
+Lesser occipital nerve|Nervus occipitalis minor|m
+Lesser omentum|Omentum minus|n
+Levator palpebrae superioris|Musculus levator palpebrae superioris|m
+Levator scapulae|Musculus levator scapulae|m
+Levator veli palatini|Musculus levator veli palatini|m
+Ligament|Ligamentum|n
+Ligamentum arteriosum|Ligamentum arteriosum|n
+Ligamentum flavum|Ligamentum flavum|n
+Linea alba|Linea alba|f
+Lingual artery|Arteria lingualis|f
+Lingual frenulum|Frenulum linguae|n
+Lingual nerve|Nervus lingualis|m
+Lingual septum|Septum linguae|n
+Lingual tonsil|Tonsilla lingualis|f
+Lingual vein|Vena lingualis|f
+Lingula|Lingula pulmonis sinistri|f
+Lingular bronchus|Bronchus lingularis|m
+Lingular bronchus and segmental bronchi|Bronchus lingularis et bronchi segmentales|m
+Liver|Hepar|n
+Lobe|Lobus|m
+Lobule|Lobulus|m
+Long thoracic nerve|Nervus thoracicus longus|m
+Longus capitis|Musculus longus capitis|m
+Longus colli|Musculus longus colli|m
+Lower lip|Labium inferius|n
+Lower oesophageal sphincter|Sphincter oesophagi inferior|m
+Lower trunk|Truncus inferior|m
+Lumbar trunk|Truncus lumbalis|m
+Lumbosacral plexus|Plexus lumbosacralis|m
+Lunate|Os lunatum|n
+Lung|Pulmo|m
+Lymphatic|Systema lymphoideum|n
+Magnified tooth|Dens auctus|m
+Main bronchus|Bronchus principalis|m
+Major calyx|Calix renalis major|m
+Major duodenal papilla|Papilla duodeni major|f
+Male urethra|Urethra masculina|f
+Malleus|Malleus|m
+Mammillary body|Corpus mammillare|n
+Mandible|Mandibula|f
+Mandibular fossa|Fossa mandibularis|f
+Masseter|Musculus masseter|m
+Masseteric artery|Arteria masseterica|f
+Masseteric nerve|Nervus massetericus|m
+Mastoid notch|Incisura mastoidea|f
+Mastoid process|Processus mastoideus|m
+Maxilla|Maxilla|f
+Maxillary artery|Arteria maxillaris|f
+Maxillary sinus|Sinus maxillaris|m
+Maxillary vein|Vena maxillaris|f
+Medial arcuate ligament|Ligamentum arcuatum mediale|n
+Medial collateral ligament|Ligamentum collaterale tibiale|n
+Medial cord|Fasciculus medialis|m
+Medial cuneiform|Os cuneiforme mediale|n
+Medial cutaneous nerve of arm|Nervus cutaneus brachii medialis|m
+Medial cutaneous nerve of forearm|Nervus cutaneus antebrachii medialis|m
+Medial meniscus|Meniscus medialis|m
+Medial pectoral nerve|Nervus pectoralis medialis|m
+Medial pterygoid|Musculus pterygoideus medialis|m
+Medial rectus|Musculus rectus medialis|m
+Medial sural cutaneous nerve|Nervus cutaneus surae medialis|m
+Median antebrachial vein|Vena mediana antebrachii|f
+Median arcuate ligament|Ligamentum arcuatum medianum|n
+Median cubital vein|Vena mediana cubiti|f
+Median glossoepiglottic fold|Plica glossoepiglottica mediana|f
+Median nerve|Nervus medianus|m
+Median palatine raphe|Raphe palati|f
+Median raphe|Raphe scroti|f
+Median sulcus of the tongue|Sulcus medianus linguae|m
+Mediastinum testis|Mediastinum testis|n
+Medulla oblongata|Medulla oblongata|f
+Membrane|Membrana|f
+Mental foramen|Foramen mentale|n
+Mental nerve|Nervus mentalis|m
+Mesenteric fat|Tela adiposa mesenterii|f
+Metacarpal|Os metacarpi|n
+Metacarpal I|Os metacarpi I|n
+Metacarpal II|Os metacarpi II|n
+Metacarpal III|Os metacarpi III|n
+Metacarpal IV|Os metacarpi IV|n
+Metacarpal V|Os metacarpi V|n
+Metatarsal|Os metatarsi|n
+Metatarsal I|Os metatarsi I|n
+Metatarsal II|Os metatarsi II|n
+Metatarsal III|Os metatarsi III|n
+Metatarsal IV|Os metatarsi IV|n
+Metatarsal V|Os metatarsi V|n
+Midbrain|Mesencephalon|n
+Middle cardiac vein|Vena cardiaca media|f
+Middle cerebral artery|Arteria cerebri media|f
+Middle colic artery|Arteria colica media|f
+Middle collateral artery|Arteria collateralis media|f
+Middle glenohumeral ligament|Ligamentum glenohumerale medium|n
+Middle lobar bronchus|Bronchus lobaris medius|m
+Middle lobar bronchus and segmental bronchi|Bronchus lobaris medius et bronchi segmentales|m
+Middle meningeal artery|Arteria meningea media|f
+Middle nasal concha|Concha nasalis media|f
+Middle pharyngeal constrictor|Musculus constrictor pharyngis medius|m
+Middle thyroid vein|Vena thyroidea media|f
+Middle trunk|Truncus medius|m
+Minor calyx|Calix renalis minor|m
+Minor duodenal papilla|Papilla duodeni minor|f
+Muscle|Musculus|m
+Muscular|Systema musculare|n
+Muscular process of the arytenoid|Processus muscularis cartilaginis arytenoideae|m
+Musculocutaneous nerve|Nervus musculocutaneus|m
+Musculus uvulae|Musculus uvulae|m
+Mylohyoid|Musculus mylohyoideus|m
+Mylohyoid nerve|Nervus mylohyoideus|m
+Myocardium|Myocardium|n
+Myometrium|Myometrium|n
+Nasal bone|Os nasale|n
+Navicular|Os naviculare|n
+Navicular fossa|Fossa navicularis urethrae|f
+Neck|Collum|n
+Neck of glans|Collum glandis|n
+Nerve|Nervus|m
+Nerve to subclavius|Nervus subclavius|m
+Nervous|Systema nervosum|n
+Neurohypophysis|Neurohypophysis|f
+Nipple|Papilla mammaria|f
+Node|Nodus|m
+Nose and paranasal sinuses|Nasus et sinus paranasales|m
+Nuchal ligament|Ligamentum nuchae|n
+Nucleus|Nucleus|m
+Oblique arytenoid|Musculus arytenoideus obliquus|m
+Obliquus capitis inferior|Musculus obliquus capitis inferior|m
+Obturator internus|Musculus obturatorius internus|m
+Occipital artery|Arteria occipitalis|f
+Occipital bone|Os occipitale|n
+Occipital condyle|Condylus occipitalis|m
+Occipitomastoid suture|Sutura occipitomastoidea|f
+Omohyoid|Musculus omohyoideus|m
+Opening of the nasolacrimal duct|Apertura ductus nasolacrimalis|f
+Optic chiasm|Chiasma opticum|n
+Optic tract|Tractus opticus|m
+Oral cavity|Cavitas oris propria|f
+Orbicularis oculi|Musculus orbicularis oculi|m
+Orbicularis oris|Musculus orbicularis oris|m
+Orbit|Orbita|f
+Ovarian follicle|Folliculus ovaricus|m
+Ovary|Ovarium|n
+Oxygen diffuses|Oxygenium diffundit|n
+Palatine aponeurosis|Aponeurosis palatina|f
+Palatine tonsil|Tonsilla palatina|f
+Palatoglossal arch|Arcus palatoglossus|m
+Palatoglossus|Musculus palatoglossus|m
+Palatopharyngeal arch|Arcus palatopharyngeus|m
+Palatopharyngeus|Musculus palatopharyngeus|m
+Palmar aponeurosis|Aponeurosis palmaris|f
+Palmar branch of median nerve|Ramus palmaris nervi mediani|m
+Palmar branch of ulnar nerve|Ramus palmaris nervi ulnaris|m
+Palmaris longus|Musculus palmaris longus|m
+Pampiniform venous plexus|Plexus pampiniformis|m
+Pancreas|Pancreas|n
+Pancreatic duct|Ductus pancreaticus|m
+Papilla|Papilla|f
+Papillary muscle|Musculus papillaris|m
+Parietal bone|Os parietale|n
+Parietal foramen|Foramen parietale|n
+Parotid duct|Ductus parotideus|m
+Parotid gland|Glandula parotidea|f
+Parotid papilla|Papilla parotidea|f
+Patella|Patella|f
+Patellar ligament|Ligamentum patellae|n
+Pectinate line|Linea pectinata|f
+Pectineus|Musculus pectineus|m
+Pectoralis major|Musculus pectoralis major|m
+Pectoralis minor|Musculus pectoralis minor|m
+Pelvis|Pelvis|f
+Pelvis and lower limb|Cingulum membri inferioris et membrum inferius liberum|n
+Penile skin|Cutis penis|f
+Penis|Penis|m
+Perimetrium|Perimetrium|n
+Perineal membrane|Membrana perinei|f
+Perineum|Perineum|n
+Pes anserinus|Pes anserinus|m
+Pharyngeal bursa|Bursa pharyngealis|f
+Pharyngeal opening of the auditory tube|Ostium pharyngeum tubae auditivae|n
+Pharyngeal recess|Recessus pharyngeus|m
+Pharyngeal tonsil|Tonsilla pharyngealis|f
+Pharyngeal tubercle|Tuberculum pharyngeum|n
+Pharynx|Pharynx|m
+Pharynx and oesophagus|Pharynx et oesophagus|m
+Phrenic nerve|Nervus phrenicus|m
+Phrenicocolic ligament|Ligamentum phrenicocolicum|n
+Pineal gland|Glandula pinealis|f
+Piriformis|Musculus piriformis|m
+Pisiform|Os pisiforme|n
+Plantaris|Musculus plantaris|m
+Platysma|Platysma|n
+Pleura|Pleura|f
+Plexus|Plexus|m
+Plica fimbriata|Plica fimbriata|f
+Pons|Pons|m
+Popliteal artery|Arteria poplitea|f
+Popliteal vein|Vena poplitea|f
+Popliteus|Musculus popliteus|m
+Portal vein|Vena portae hepatis|f
+Posterior auricular artery|Arteria auricularis posterior|f
+Posterior cerebral artery|Arteria cerebri posterior|f
+Posterior circumflex humeral artery|Arteria circumflexa humeri posterior|f
+Posterior communicating artery|Arteria communicans posterior|f
+Posterior cord|Fasciculus posterior|m
+Posterior cricoarytenoid|Musculus cricoarytenoideus posterior|m
+Posterior cruciate ligament|Ligamentum cruciatum posterius|n
+Posterior cutaneous nerve of arm|Nervus cutaneus brachii posterior|m
+Posterior cutaneous nerve of forearm|Nervus cutaneus antebrachii posterior|m
+Posterior division|Divisio posterior|f
+Posterior interosseous artery|Arteria interossea posterior|f
+Posterior longitudinal ligament|Ligamentum longitudinale posterius|n
+Posterior papillary muscle|Musculus papillaris posterior|m
+Posterior semicircular canal|Canalis semicircularis posterior|m
+Posterior superior alveolar artery|Arteria alveolaris superior posterior|f
+Pretracheal fascia|Fascia pretrachealis|f
+Prevertebral fascia|Fascia prevertebralis|f
+Princeps pollicis artery|Arteria princeps pollicis|f
+Procerus|Musculus procerus|m
+Process|Processus|m
+Pronator quadratus|Musculus pronator quadratus|m
+Pronator teres|Musculus pronator teres|m
+Proper palmar digital artery|Arteria digitalis palmaris propria|f
+Prostate|Prostata|f
+Prostatic utricle|Utriculus prostaticus|m
+Psoas major|Musculus psoas major|m
+Pterion|Pterion|n
+Pterygoid hamulus|Hamulus pterygoideus|m
+Pterygoid plexus|Plexus pterygoideus|m
+Pterygoid process|Processus pterygoideus|m
+Pterygomandibular raphe|Raphe pterygomandibularis|f
+Pterygopalatine ganglion|Ganglion pterygopalatinum|n
+Pubic symphysis|Symphysis pubica|f
+Pubococcygeus|Musculus pubococcygeus|m
+Puborectalis|Musculus puborectalis|m
+Pulmonary arteriole|Arteriola pulmonalis|f
+Pulmonary artery|Arteria pulmonalis|f
+Pulmonary capillary network|Rete capillare pulmonale|n
+Pulmonary ligament|Ligamentum pulmonale|n
+Pulmonary trunk|Truncus pulmonalis|m
+Pulmonary valve|Valva trunci pulmonalis|f
+Pulmonary venule|Venula pulmonalis|f
+Pulp artery|Arteria pulpae|f
+Pulp chamber|Cavitas coronae|f
+Pulp nerve|Nervus pulpae|m
+Pulp vein|Vena pulpae|f
+Pulvinar|Pulvinar|n
+Pupil|Pupilla|f
+Putamen|Putamen|n
+Pyloric sphincter|Musculus sphincter pylori|m
+Pyramid|Pyramis medullae oblongatae|f
+Pyramidal lobe|Lobus pyramidalis|m
+Quadratus femoris|Musculus quadratus femoris|m
+Quadratus lumborum|Musculus quadratus lumborum|m
+Quadriceps tendon|Tendo musculi quadricipitis femoris|m
+Radial artery|Arteria radialis|f
+Radial collateral artery|Arteria collateralis radialis|f
+Radial nerve|Nervus radialis|m
+Radial recurrent artery|Arteria recurrens radialis|f
+Radialis indicis artery|Arteria radialis indicis|f
+Radius|Radius|m
+Radius and ulna|Radius et ulna|m
+Rectal mucosa|Tunica mucosa recti|f
+Rectum|Rectum|n
+Rectum and anal canal|Rectum et canalis analis|n
+Rectus abdominis|Musculus rectus abdominis|m
+Rectus capitis anterior|Musculus rectus capitis anterior|m
+Rectus capitis lateralis|Musculus rectus capitis lateralis|m
+Rectus capitis posterior major|Musculus rectus capitis posterior major|m
+Rectus femoris|Musculus rectus femoris|m
+Recurrent laryngeal nerve|Nervus laryngeus recurrens|m
+Red blood cell|Erythrocytus|m
+Released oocyte|Oocytus ovulatus|m
+Renal artery|Arteria renalis|f
+Renal capsule|Capsula fibrosa renis|f
+Renal cortex|Cortex renalis|m
+Renal papilla|Papilla renalis|f
+Renal pelvis|Pelvis renalis|f
+Renal sinus fat|Tela adiposa sinus renalis|f
+Renal vein|Vena renalis|f
+Reproductive|Systema genitale|n
+Respiratory|Systema respiratorium|n
+Respiratory bronchiole|Bronchiolus respiratorius|m
+Rete testis|Rete testis|n
+Retina|Retina|f
+Retromammary space and pectoral fascia|Spatium retromammarium et fascia pectoralis|n
+Retromandibular vein|Vena retromandibularis|f
+Retromolar trigone|Trigonum retromolare|n
+Rhomboid major|Musculus rhomboideus major|m
+Rhomboid minor|Musculus rhomboideus minor|m
+Rib|Costa|f
+Right atrium|Atrium dextrum|n
+Right auricle|Auricula dextra|f
+Right brachiocephalic vein|Vena brachiocephalica dextra|f
+Right coronary artery|Arteria coronaria dextra|f
+Right crus|Crus dextrum|n
+Right gastric artery|Arteria gastrica dextra|f
+Right gastro-omental artery|Arteria gastroomentalis dextra|f
+Right inferior lobe|Lobus inferior dexter|m
+Right lymphatic duct|Ductus lymphaticus dexter|m
+Right middle lobe|Lobus medius dexter|m
+Right superior lobe|Lobus superior dexter|m
+Right ventricle|Ventriculus dexter|m
+Root|Radix|f
+Root canal|Canalis radicis dentis|m
+Root of mesentery|Radix mesenterii|f
+Sacrum|Os sacrum|n
+Sacrum and coccyx|Os sacrum et os coccygis|n
+Sagittal suture|Sutura sagittalis|f
+Salpingopharyngeal fold|Plica salpingopharyngea|f
+Salpingopharyngeus|Musculus salpingopharyngeus|m
+Saphenous nerve|Nervus saphenus|m
+Sartorius|Musculus sartorius|m
+Scalenus anterior|Musculus scalenus anterior|m
+Scalenus medius|Musculus scalenus medius|m
+Scalenus posterior|Musculus scalenus posterior|m
+Scaphoid|Os scaphoideum|n
+Scapula|Scapula|f
+Sciatic nerve|Nervus ischiadicus|m
+Scrotum|Scrotum|n
+Scrotum and testis|Scrotum et testis|n
+Second molar|Dens molaris secundus|m
+Second premolar|Dens premolaris secundus|m
+Segmental artery|Arteria segmenti renalis|f
+Semilunar fold|Plica semilunaris|f
+Semimembranosus|Musculus semimembranosus|m
+Seminal colliculus|Colliculus seminalis|m
+Seminal vesicle|Glandula vesiculosa|f
+Semispinalis capitis|Musculus semispinalis capitis|m
+Semitendinosus|Musculus semitendinosus|m
+Septal cartilage|Cartilago septi nasi|f
+Septum|Septum|n
+Septum pectiniforme|Septum penis|n
+Septum pellucidum|Septum pellucidum|n
+Serratus anterior|Musculus serratus anterior|m
+Shoulder and upper limb|Cingulum membri superioris et membrum superius liberum|n
+Sigmoid colon|Colon sigmoideum|n
+Sigmoid sinus|Sinus sigmoideus|m
+Sinus|Sinus|m
+Skeletal|Systema skeletale|n
+Skin|Cutis|f
+Skull|Cranium|n
+Skull base|Basis cranii|f
+Small saphenous vein|Vena saphena parva|f
+Smooth muscle|Textus muscularis levis|m
+Soft palate|Palatum molle|n
+Soleus|Musculus soleus|m
+Spermatic cord|Funiculus spermaticus|m
+Sphenoid bone|Os sphenoidale|n
+Sphenoid sinus|Sinus sphenoidalis|m
+Sphenopalatine artery|Arteria sphenopalatina|f
+Sphenosquamous suture|Sutura sphenosquamosa|f
+Spinal cord|Medulla spinalis|f
+Spinal cord and spinal nerves|Medulla spinalis et nervi spinales|f
+Spinal nerve|Nervus spinalis|m
+Spleen|Splen|m
+Splenic artery|Arteria splenica|f
+Splenic vein|Vena splenica|f
+Splenius capitis|Musculus splenius capitis|m
+Splenius cervicis|Musculus splenius cervicis|m
+Squamous suture|Sutura squamosa|f
+Stapes|Stapes|m
+Sternoclavicular joint|Articulatio sternoclavicularis|f
+Sternocleidomastoid|Musculus sternocleidomastoideus|m
+Sternohyoid|Musculus sternohyoideus|m
+Sternothyroid|Musculus sternothyroideus|m
+Sternum|Sternum|n
+Stomach|Gaster|f
+Straight sinus|Sinus rectus|m
+Styloglossus|Musculus styloglossus|m
+Stylohyoid|Musculus stylohyoideus|m
+Styloid process|Processus styloideus|m
+Stylomastoid foramen|Foramen stylomastoideum|n
+Subclavian artery|Arteria subclavia|f
+Subclavian trunk|Truncus subclavius|m
+Subclavian vein|Vena subclavia|f
+Subclavius|Musculus subclavius|m
+Subcutaneous fat|Tela subcutanea|f
+Sublingual caruncle|Caruncula sublingualis|f
+Sublingual fold|Plica sublingualis|f
+Sublingual gland|Glandula sublingualis|f
+Submandibular duct|Ductus submandibularis|m
+Submandibular gland|Glandula submandibularis|f
+Subscapular artery|Arteria subscapularis|f
+Subscapularis|Musculus subscapularis|m
+Subthalamic nucleus|Nucleus subthalamicus|m
+Sulcus|Sulcus|m
+Sulcus terminalis|Sulcus terminalis|m
+Superciliary arch|Arcus superciliaris|m
+Superficial branch of radial nerve|Ramus superficialis nervi radialis|m
+Superficial fibular nerve|Nervus fibularis superficialis|m
+Superficial inguinal ring|Anulus inguinalis superficialis|m
+Superficial palmar arch|Arcus palmaris superficialis|m
+Superficial palmar branch of radial artery|Ramus palmaris superficialis arteriae radialis|m
+Superficial temporal artery|Arteria temporalis superficialis|f
+Superficial temporal vein|Vena temporalis superficialis|f
+Superior colliculus|Colliculus superior|m
+Superior glenohumeral ligament|Ligamentum glenohumerale superius|n
+Superior laryngeal artery|Arteria laryngea superior|f
+Superior laryngeal nerve|Nervus laryngeus superior|m
+Superior lobar bronchus|Bronchus lobaris superior|m
+Superior lobar bronchus and segmental bronchi|Bronchus lobaris superior et bronchi segmentales|m
+Superior longitudinal muscle of the tongue|Musculus longitudinalis superior linguae|m
+Superior mesenteric artery|Arteria mesenterica superior|f
+Superior mesenteric vein|Vena mesenterica superior|f
+Superior nasal concha|Concha nasalis superior|f
+Superior nuchal line|Linea nuchalis superior|f
+Superior oblique|Musculus obliquus superior|m
+Superior ophthalmic vein|Vena ophthalmica superior|f
+Superior pharyngeal constrictor|Musculus constrictor pharyngis superior|m
+Superior pulmonary vein|Vena pulmonalis superior|f
+Superior rectal artery|Arteria rectalis superior|f
+Superior rectus|Musculus rectus superior|m
+Superior sagittal sinus|Sinus sagittalis superior|m
+Superior subscapular nerve|Nervus subscapularis superior|m
+Superior thoracic artery|Arteria thoracica superior|f
+Superior thyroid artery|Arteria thyroidea superior|f
+Superior thyroid vein|Vena thyroidea superior|f
+Superior transverse ligament of scapula|Ligamentum transversum scapulae superius|n
+Superior ulnar collateral artery|Arteria collateralis ulnaris superior|f
+Superior vena cava|Vena cava superior|f
+Supinator|Musculus supinator|m
+Supraorbital vein|Vena supraorbitalis|f
+Suprarenal gland|Glandula suprarenalis|f
+Suprascapular artery|Arteria suprascapularis|f
+Suprascapular nerve|Nervus suprascapularis|m
+Supraspinatus|Musculus supraspinatus|m
+Supratonsillar fossa|Fossa supratonsillaris|f
+Supratrochlear vein|Vena supratrochlearis|f
+Sural communicating nerve|Ramus communicans fibularis|m
+Sural nerve|Nervus suralis|m
+Surfactant layer|Stratum surfactantis|n
+Sympathetic ganglion|Ganglion sympathicum|n
+Sympathetic trunk|Truncus sympathicus|m
+Taenia libera|Taenia libera|f
+Taenia mesocolica|Taenia mesocolica|f
+Taenia omentalis|Taenia omentalis|f
+Talus|Talus|m
+Temporal bone|Os temporale|n
+Temporalis|Musculus temporalis|m
+Tendon|Tendo|m
+Tensor fasciae latae|Musculus tensor fasciae latae|m
+Tensor veli palatini|Musculus tensor veli palatini|m
+Teres major|Musculus teres major|m
+Teres minor|Musculus teres minor|m
+Terminal bronchiole|Bronchiolus terminalis|m
+Testicular artery|Arteria testicularis|f
+Testicular vein|Vena testicularis|f
+Testis|Testis|m
+Thalamus|Thalamus|m
+Third molar|Dens molaris tertius|m
+Thoracic duct|Ductus thoracicus|m
+Thoracoacromial artery|Arteria thoracoacromialis|f
+Thoracodorsal artery|Arteria thoracodorsalis|f
+Thoracodorsal nerve|Nervus thoracodorsalis|m
+Thoracolumbar fascia|Fascia thoracolumbalis|f
+Thymus|Thymus|m
+Thyroarytenoid|Musculus thyroarytenoideus|m
+Thyrocervical trunk|Truncus thyrocervicalis|m
+Thyrohyoid|Musculus thyrohyoideus|m
+Thyrohyoid ligament|Ligamentum thyrohyoideum|n
+Thyroid cartilage|Cartilago thyroidea|f
+Tibia|Tibia|f
+Tibia and fibula|Tibia et fibula|f
+Tibial nerve|Nervus tibialis|m
+Tibialis anterior|Musculus tibialis anterior|m
+Tibialis posterior|Musculus tibialis posterior|m
+Toe phalanx|Phalanx digiti pedis|f
+Tongue|Lingua|f
+Tonsil|Tonsilla|f
+Tonsillar capsule and fossa|Capsula tonsillae et fossa tonsillaris|f
+Tooth|Dens|m
+Torso|Truncus|m
+Torus tubarius|Torus tubarius|m
+Trachea|Trachea|f
+Trachea and bronchi|Trachea et bronchi|f
+Tracheal cartilage ring|Cartilago trachealis|f
+Trachealis muscle|Musculus trachealis|m
+Transversalis fascia|Fascia transversalis|f
+Transverse arytenoid|Musculus arytenoideus transversus|m
+Transverse cervical artery|Arteria transversa colli|f
+Transverse cervical nerve|Nervus transversus colli|m
+Transverse colon|Colon transversum|n
+Transverse muscle of the tongue|Musculus transversus linguae|m
+Transverse sinus|Sinus transversus|m
+Transversus abdominis|Musculus transversus abdominis|m
+Transversus thoracis|Musculus transversus thoracis|m
+Trapezium|Os trapezium|n
+Trapezius|Musculus trapezius|m
+Trapezoid|Os trapezoideum|n
+Triangular fold|Plica triangularis|f
+Triceps brachii|Musculus triceps brachii|m
+Trigone|Trigonum vesicae|n
+Triquetrum|Os triquetrum|n
+Trochlea|Trochlea|f
+Trunk|Truncus|m
+Tubal tonsil|Tonsilla tubaria|f
+Tubercle|Tuberculum|n
+Tunica albuginea|Tunica albuginea testis|f
+Tympanic cavity|Cavitas tympanica|f
+Tympanic membrane|Membrana tympanica|f
+Type I pneumocyte|Pneumocytus typus I|m
+Type II pneumocyte|Pneumocytus typus II|m
+Ulna|Ulna|f
+Ulnar artery|Arteria ulnaris|f
+Ulnar nerve|Nervus ulnaris|m
+Ulnar recurrent artery|Arteria recurrens ulnaris|f
+Uncinate process|Processus uncinatus pancreatis|m
+Upper lip|Labium superius|n
+Upper trunk|Truncus superior|m
+Ureteric orifice|Ostium ureteris|n
+Urethra|Urethra|f
+Urethral crest|Crista urethralis|f
+Urinary|Systema urinarium|n
+Urinary bladder|Vesica urinaria|f
+Uvula|Uvula palatina|f
+Vagina|Vagina|f
+Vaginal opening|Ostium vaginae|n
+Valve|Valva|f
+Vastus intermedius|Musculus vastus intermedius|m
+Vastus lateralis|Musculus vastus lateralis|m
+Vastus medialis|Musculus vastus medialis|m
+Vein|Vena|f
+Ventricle|Ventriculus|m
+Ventricular system|Systema ventriculare|n
+Vermiform appendix|Appendix vermiformis|f
+Vertebra|Vertebra|f
+Vertebral artery|Arteria vertebralis|f
+Vertical muscle of the tongue|Musculus verticalis linguae|m
+Vessel|Vas|n
+Vestibular fold|Plica vestibularis|f
+Vestibule|Vestibulum|n
+Vitreous body|Corpus vitreum|n
+Vocal fold|Plica vocalis|f
+Vocal process of the arytenoid|Processus vocalis cartilaginis arytenoideae|m
+Vocalis|Musculus vocalis|m
+Vomer|Vomer|m
+Xiphoid process|Processus xiphoideus|m
+Z-line|Linea Z|f
+Zygomatic arch|Arcus zygomaticus|m
+Zygomatic bone|Os zygomaticum|n
+Zygomatic nerve|Nervus zygomaticus|m
+Zygomatic process of frontal bone|Processus zygomaticus ossis frontalis|m
+Zygomaticofacial foramen|Foramen zygomaticofaciale|n
+Zygomaticus major|Musculus zygomaticus major|m
