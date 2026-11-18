@@ -22,6 +22,12 @@ Hide private parts|隱藏私密部位
 Before you begin|開始之前
 Show everything|顯示全部
 You can change this later under Body.|之後可在「身體」區段更改。
+Blue|藍色
+vein, carries deoxygenated blood.|靜脈，攜帶缺氧血。
+Red|紅色
+artery, carries oxygenated blood.|動脈，攜帶含氧血。
+Purple|紫色
+special case: pulmonary artery and vein, and the umbilical vessels. Their oxygen content is the reverse of the usual rule.|特殊情況：肺動脈和肺靜脈，以及臍帶血管。其含氧情況與一般規則相反。
 Afferent|傳入（向心）
 All digestive|全部消化系統
 Anatomical directions|解剖學方位
