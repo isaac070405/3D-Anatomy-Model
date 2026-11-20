@@ -2032,7 +2032,9 @@ cv.addEventListener('pointerleave', () => { tip.style.display = 'none'; });
   const COL = { transverse: 0x2f6fb5, coronal: 0x2e9d5f, sagittal: 0xd9822b, limb: 0x8a5cc2, depth: 0x1f9ba8, neural: 0xc8457a };
   const GR = {}; for (const k in COL) { GR[k] = new THREE.Group(); GR[k].name = 'dir_' + k; DG.add(GR[k]); }
   const hex = c => '#' + c.toString(16).padStart(6, '0');
-  const label = (g, c, txt, pos) => { const cv = document.createElement('canvas'), x = cv.getContext('2d'), f = '600 44px "Barlow Condensed", sans-serif'; x.font = f;
+  // with a Chinese pack on, the language pack translates the text before it is drawn onto the label
+  const T = s => { try { return (document.body.classList.contains('zh-on') && window.__zhUi && window.__zhUi.tr(s)) || s; } catch (e) { return s; } };
+  const label = (g, c, txt, pos) => { txt = T(txt); const cv = document.createElement('canvas'), x = cv.getContext('2d'), f = '600 44px "Barlow Condensed", "Noto Sans HK", "PingFang HK", "Microsoft JhengHei", "Noto Sans SC", sans-serif'; x.font = f;
     const w = Math.ceil(x.measureText(txt).width) + 46, hh = 64; cv.width = w; cv.height = hh; x.font = f;
     x.fillStyle = 'rgba(250,250,251,0.96)'; x.fillRect(0, 0, w, hh); x.fillStyle = hex(c); x.fillRect(0, 0, 18, hh);
     x.strokeStyle = hex(c); x.lineWidth = 3; x.strokeRect(1.5, 1.5, w - 3, hh - 3);
