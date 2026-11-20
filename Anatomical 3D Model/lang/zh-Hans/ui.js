@@ -9,6 +9,30 @@
 4. Thoracic and abdominal cavity|4. 胸腔和腹腔
 5. Upper limb|5. 上肢
 6. Lower limb|6. 下肢
+Transverse plane|横切面（水平面）
+Coronal plane|冠状面（额状面）
+Sagittal plane|矢状面
+Limbs|四肢
+Depth|深度
+Nerve signals|神经信号
+splits top from bottom|将身体分为上下
+splits front from back|将身体分为前后
+splits right from left|将身体分为左右
+Hide private parts|隐藏隐私部位
+Before you begin|开始之前
+Show everything|显示全部
+You can change this later under Body.|之后可在“身体”部分更改。
+This atlas shows the whole body, including the external genitalia and the breast. Choose whether to show these regions.|本图谱显示整个身体，包括外生殖器和乳房。请选择是否显示这些部位。
+Treated as private parts:|视为隐私部位：
+The external genitalia (penis and scrotum, or vulva) and the buttocks.|外生殖器（阴茎和阴囊，或外阴）以及臀部。
+The female breast, including nipple and areola. The male chest is not treated as private.|女性乳房，包括乳头和乳晕。男性胸部不视为隐私部位。
+Hidden regions are covered by a neutral swimwear shape. The internal organs, such as the uterus, ovaries and prostate, stay available.|被隐藏的部位会以中性的泳装形状遮盖。子宫、卵巢和前列腺等内部器官仍可查看。
+Blue|蓝色
+vein, carries deoxygenated blood.|静脉，携带缺氧血。
+Red|红色
+artery, carries oxygenated blood.|动脉，携带含氧血。
+Purple|紫色
+special case: pulmonary artery and vein, and the umbilical vessels. Their oxygen content is the reverse of the usual rule.|特殊情况：肺动脉和肺静脉，以及脐带血管。其含氧情况与一般规则相反。
 Afferent|传入（向心）
 All digestive|全部消化系统
 Anatomical directions|解剖学方位
