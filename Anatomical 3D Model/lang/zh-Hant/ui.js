@@ -28,6 +28,14 @@ Red|紅色
 artery, carries oxygenated blood.|動脈，攜帶含氧血。
 Purple|紫色
 special case: pulmonary artery and vein, and the umbilical vessels. Their oxygen content is the reverse of the usual rule.|特殊情況：肺動脈和肺靜脈，以及臍帶血管。其含氧情況與一般規則相反。
+Distal|遠端
+Proximal|近端
+Afferent (toward CNS)|傳入（朝向中樞神經系統）
+Efferent (away from CNS)|傳出（離開中樞神經系統）
+Median (sagittal) plane|正中（矢狀）面
+toward a centre, such as sensory nerves to the CNS.|朝向中樞，例如感覺神經傳向中樞神經系統。
+away from it, such as motor nerves.|離開中樞，例如運動神經。
+Vessel colour key|血管顏色說明
 Afferent|傳入（向心）
 All digestive|全部消化系統
 Anatomical directions|解剖學方位
