@@ -28,6 +28,11 @@ Red|紅色
 artery, carries oxygenated blood.|動脈，攜帶含氧血。
 Purple|紫色
 special case: pulmonary artery and vein, and the umbilical vessels. Their oxygen content is the reverse of the usual rule.|特殊情況：肺動脈和肺靜脈，以及臍帶血管。其含氧情況與一般規則相反。
+This atlas shows the whole body, including the external genitalia and the breast. Choose whether to show these regions.|本圖譜顯示整個身體，包括外生殖器和乳房。請選擇是否顯示這些部位。
+Treated as private parts:|視為私密部位：
+The external genitalia (penis and scrotum, or vulva) and the buttocks.|外生殖器（陰莖和陰囊，或外陰）以及臀部。
+The female breast, including nipple and areola. The male chest is not treated as private.|女性乳房，包括乳頭和乳暈。男性胸部不視為私密部位。
+Hidden regions are covered by a neutral swimwear shape. The internal organs, such as the uterus, ovaries and prostate, stay available.|被隱藏的部位會以中性的泳裝形狀遮蓋。子宮、卵巢和前列腺等內部器官仍可查看。
 Afferent|傳入（向心）
 All digestive|全部消化系統
 Anatomical directions|解剖學方位
