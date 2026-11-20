@@ -397,10 +397,11 @@
 <div id="loadbar" role="progressbar" aria-label="Loading model" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="lt"><span id="loadmsg">Loading…</span><span id="loadpct">0%</span></div><div class="tr"><div class="fl" id="loadfl"></div></div></div>
 <script>
 (function(){var b=document.getElementById('loadbar'),f=document.getElementById('loadfl'),m=document.getElementById('loadmsg'),n=document.getElementById('loadpct'),cur=0,fin=false;
-// Labels follow the language pack: zh-Hant (the default pack) shows Traditional Chinese, other packs keep English.
+// Labels follow the language pack: zh-Hant (the default pack) shows Traditional Chinese, zh-Hans Simplified Chinese, other packs keep English.
 var lang='zh-Hant';try{var sv=localStorage.getItem('anatomy-lang');if(sv)lang=sv}catch(e){}
 var ZH={'Loading…':'載入中…','Loading 3D engine':'正在載入 3D 引擎','Building anatomy':'正在建構解剖模型','Loading brain':'正在載入大腦','Loading male body':'正在載入男性身體','Loading female body':'正在載入女性身體','Starting tools':'正在啟動工具','Finishing':'即將完成','Ready':'載入完成','Loading model':'正在載入模型'};
-function tr(t){return lang==='zh-Hant'&&ZH[t]?ZH[t]:t}
+var CN={'Loading…':'加载中…','Loading 3D engine':'正在加载 3D 引擎','Building anatomy':'正在构建解剖模型','Loading brain':'正在加载大脑','Loading male body':'正在加载男性身体','Loading female body':'正在加载女性身体','Starting tools':'正在启动工具','Finishing':'即将完成','Ready':'加载完成','Loading model':'正在加载模型'};
+function tr(t){var d=lang==='zh-Hant'?ZH:lang==='zh-Hans'?CN:null;return d&&d[t]?d[t]:t}
 function set(p,t){if(fin)return;p=Math.max(cur,Math.min(99,Math.round(p)));cur=p;f.style.width=p+'%';n.textContent=p+'%';b.setAttribute('aria-valuenow',p);if(t)m.textContent=tr(t)}
 function done(){if(fin)return;fin=true;f.style.width='100%';n.textContent='100%';m.textContent=tr('Ready');b.setAttribute('aria-valuenow',100);setTimeout(function(){b.classList.add('done')},400);setTimeout(function(){b.remove()},1200)}
 function fail(t){if(fin)return;fin=true;f.style.background='#b3261e';m.textContent=t}
@@ -413,7 +414,7 @@ function watch(){var mods=['anatomy-part1.js','anatomy-part2.js','layers.js','ex
 // Re-importing a module already on the page returns its own evaluation promise, so this resolves once each script (top-level await included) has finished.
 mods.forEach(function(u){import('./'+u).catch(function(){}).then(function(){left--;if(window.__anat&&window.__anat.ready)set(95+4*(mods.length-left)/mods.length,left?'Starting tools':'Finishing')})});
 var pl=new Promise(function(r){if(document.readyState==='complete')r();else addEventListener('load',r)});
-var bad=0;Promise.all([Promise.all(mods.map(function(u){return import('./'+u).catch(function(){bad++})})),pl,document.fonts?document.fonts.ready:0]).then(function(){bad?fail(lang==='zh-Hant'?'載入失敗：'+mods.length+' 個腳本中有 '+bad+' 個未能啟動。請檢查網絡連線後重新載入頁面。':'Load failed: '+bad+' of '+mods.length+' scripts did not start. Check your connection and reload.'):done()});
+var bad=0;Promise.all([Promise.all(mods.map(function(u){return import('./'+u).catch(function(){bad++})})),pl,document.fonts?document.fonts.ready:0]).then(function(){bad?fail(lang==='zh-Hans'?'加载失败：'+mods.length+' 个脚本中有 '+bad+' 个未能启动。请检查网络连接后重新加载页面。':lang==='zh-Hant'?'載入失敗：'+mods.length+' 個腳本中有 '+bad+' 個未能啟動。請檢查網絡連線後重新載入頁面。':'Load failed: '+bad+' of '+mods.length+' scripts did not start. Check your connection and reload.'):done()});
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',watch);else watch();
 setTimeout(done,60000);})();
