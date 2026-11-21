@@ -20,6 +20,11 @@ splits front from back|将身体分为前后
 splits right from left|将身体分为左右
 Hide private parts|隐藏私密部位
 Before you begin|开始之前
+This atlas shows the whole body, including the external genitalia and the breast. Choose whether to show these regions.|本图谱显示整个身体，包括外生殖器和乳房。请选择是否显示这些部位。
+Treated as private parts:|视为私密部位：
+The external genitalia (penis and scrotum, or vulva) and the buttocks.|外生殖器（阴茎和阴囊，或外阴）以及臀部。
+The female breast, including nipple and areola. The male chest is not treated as private.|女性乳房，包括乳头和乳晕。男性胸部不视为私密部位。
+Hidden regions are covered by a neutral swimwear shape. The internal organs, such as the uterus, ovaries and prostate, stay available.|被隐藏的部位会以中性的泳装形状遮盖。子宫、卵巢和前列腺等内部器官仍可查看。
 Show everything|显示全部
 You can change this later under Body.|之后可在「身体」区段更改。
 Blue|蓝色
