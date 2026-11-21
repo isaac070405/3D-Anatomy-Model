@@ -18,15 +18,10 @@ Nerve signals|神经信号
 splits top from bottom|将身体分为上下
 splits front from back|将身体分为前后
 splits right from left|将身体分为左右
-Hide private parts|隐藏隐私部位
+Hide private parts|隐藏私密部位
 Before you begin|开始之前
 Show everything|显示全部
-You can change this later under Body.|之后可在“身体”部分更改。
-This atlas shows the whole body, including the external genitalia and the breast. Choose whether to show these regions.|本图谱显示整个身体，包括外生殖器和乳房。请选择是否显示这些部位。
-Treated as private parts:|视为隐私部位：
-The external genitalia (penis and scrotum, or vulva) and the buttocks.|外生殖器（阴茎和阴囊，或外阴）以及臀部。
-The female breast, including nipple and areola. The male chest is not treated as private.|女性乳房，包括乳头和乳晕。男性胸部不视为隐私部位。
-Hidden regions are covered by a neutral swimwear shape. The internal organs, such as the uterus, ovaries and prostate, stay available.|被隐藏的部位会以中性的泳装形状遮盖。子宫、卵巢和前列腺等内部器官仍可查看。
+You can change this later under Body.|之后可在「身体」区段更改。
 Blue|蓝色
 vein, carries deoxygenated blood.|静脉，携带缺氧血。
 Red|红色
@@ -137,7 +132,7 @@ Liver, gallbladder, bile duct|肝脏、胆囊、胆管
 Lower extremity|下肢
 Lung|肺
 Lung opacity|肺部不透明度
-Lungs and diaphragm|肺与横膈膜
+Lungs and diaphragm|肺与膈
 Lymph nodes|淋巴结
 Lymphatic system|淋巴系统
 Lymphatic vessels|淋巴管
@@ -175,7 +170,7 @@ Parietal|顶叶
 Peel body layers from skin to bone|由皮肤至骨骼逐层剥离身体
 Peel layers|剥离层次
 Peel layers from skin to bone|由皮肤至骨骼逐层剥离
-Peyer's patches|培氏斑
+Peyer's patches|派尔斑
 Plate (atlas)|图谱色板
 Plate II · Systems of the body|图版二 · 人体系统
 Posterior|后侧
@@ -187,7 +182,7 @@ Renal|肾脏
 Rendering|显示方式
 Reproductive organs|生殖器官
 Reproductive pelvis from the side|生殖系统骨盆侧面
-Reset|重设
+Reset|重置
 Right|右
 Right lateral view|右侧视图
 Sagittal|矢状面
@@ -301,27 +296,27 @@ Cranial sutures, acromioclavicular joint, intervertebral discs, and skeletal, la
 Supraspinatus, subscapularis, gluteus minimus, adductor magnus, tibialis posterior, thenar muscles, puborectalis.|棘上肌、肩胛下肌、臀小肌、大收肌、胫骨后肌、大鱼际肌、耻骨直肠肌。
 Dura mater, pericardium, pleura, omenta and mesenteries, serosae, renal and prostate capsules, testicular tunics.|硬脑膜、心包、胸膜、网膜及肠系膜、浆膜、肾及前列腺被膜、睾丸鞘膜。
 Heart chambers and valves, larynx, liver, gallbladder, stomach, transverse colon, caecum, bladder, testis, penis.|心腔及瓣膜、喉、肝脏、胆囊、胃、横结肠、盲肠、膀胱、睾丸、阴茎。
-The body surface, shown as a translucent shell so the systems beneath stay visible. Adjust it with the opacity slider.|身体表面以半透明外壳显示，使下方的系统仍然可见。可用不透明度滑杆调整。
+The body surface, shown as a translucent shell so the systems beneath stay visible. Adjust it with the opacity slider.|身体表面以半透明外壳显示，使下方的系统仍然可见。可用不透明度滑块调整。
 Triceps brachii, gluteus medius, vastus lateralis and medialis, adductor longus, soleus, flexor digitorum superficialis.|肱三头肌、臀中肌、股外侧肌及股内侧肌、长收肌、比目鱼肌、指浅屈肌。
-Diaphragm, supinator, pronator quadratus, sphincters, trachealis, detrusor, and the wall muscle of stomach and oesophagus.|横膈膜、旋后肌、旋前方肌、括约肌、气管肌、逼尿肌，以及胃和食管的壁肌。
+Diaphragm, supinator, pronator quadratus, sphincters, trachealis, detrusor, and the wall muscle of stomach and oesophagus.|膈、旋后肌、旋前方肌、括约肌、气管肌、逼尿肌，以及胃和食管的壁肌。
 Left and right are the figure's own. Drag to turn, scroll to zoom. Downloads include the systems currently shown, minus removed parts.|左右以人体本身为准。拖曳以转动，卷动以缩放。下载内容包括目前显示的系统，但不含已移除的部分。
 Every structure moves away from the midline in proportion to its distance from it, and from front to back as well. Skin and fat stay in place.|每个结构会按其与中线的距离成比例地远离中线，并同时由前向后分开。皮肤及脂肪保持原位。
 The reproductive panel supports male and female anatomy. Use the Sex control to switch model variants and view the available reproductive structures.|生殖系统面板支持男性和女性解剖。使用「性别」控制切换模型版本，查看可用的生殖结构。
 The female body mesh is not loaded, so the generic body surface is shown with the female reproductive and breast structures. Peel the skin layer to see them.|未加载女性身体网格，因此以通用身体表面配合女性生殖及乳房结构显示。剥离皮肤层即可看到它们。
 Supports the body, protects organs and anchors muscle. Bone is shown in ivory and cartilage (discs, costal cartilage, joint surfaces) in blue-grey. Hover any bone to name it.|支撑身体、保护器官并为肌肉提供附着点。骨骼以象牙色显示，软骨（椎间盘、肋软骨、关节面）以蓝灰色显示。将指针移到任何骨骼上即可显示名称。
-Space resets the view, H hides the selected part, U undoes, X toggles X-ray, 1 2 3 set the cut to transverse, coronal or sagittal. Double-click a surface to leave a note on it.|空白键重设视角，H 隐藏所选部位，U 复原，X 切换 X 光，1、2、3 分别将切割设为横切面、冠状面或矢状面。双击表面可在其上留下注记。
+Space resets the view, H hides the selected part, U undoes, X toggles X-ray, 1 2 3 set the cut to transverse, coronal or sagittal. Double-click a surface to leave a note on it.|空白键重置视角，H 隐藏所选部位，U 复原，X 切换 X 光，1、2、3 分别将切割设为横切面、冠状面或矢状面。双击表面可在其上留下注记。
 A simplified model in anatomical position. Search for a part, peel the layers from skin to bone, explode the body into systems, click a structure to isolate it, and cut through the body with the slice view.|以解剖学姿势呈现的简化模型。可搜索部位、由皮肤至骨骼逐层剥离、将身体按系统分解、点击结构以单独显示，并用切面视图剖开身体。
 Skeletal muscle produces movement and holds posture, attaching to bone through tendons (white) and aponeuroses. Superficial muscles are the lighter red, deeper layers darker. The arm, forearm, hand, hip, thigh and leg follow anatomical atlas plates.|骨骼肌产生动作并维持姿势，通过肌腱（白色）和腱膜附着于骨骼。浅层肌肉为较浅的红色，深层则较深。上臂、前臂、手、髋、大腿及小腿依据解剖图谱的图版绘制。
 The hypodermis: fat and loose connective tissue between the dermis and the deep fascia over muscle. Its depth is set by region, from about 1 mm over the front of the shin and the scalp to 3 cm over the abdomen, buttocks and thighs, with more over the hips, thighs and breasts in the female body. The skin above it is about 2.5 mm thick, up to 6 mm on the back.|皮下组织：位于真皮与肌肉表面深筋膜之间的脂肪和疏松结缔组织。厚度因部位而异，由小腿前面和头皮约 1 毫米，至腹部、臀部和大腿约 3 厘米；女性身体的髋部、大腿和乳房处更厚。其上的皮肤约厚 2.5 毫米，背部可达 6 毫米。
 The thyroid gland wraps the front of the trachea below the larynx: two lobes joined by an isthmus over the second to fourth tracheal rings, often with a pyramidal lobe rising toward the hyoid. Four parathyroid glands sit on the back of the lobes. Blood comes from the superior thyroid artery (external carotid) and the inferior thyroid artery (thyrocervical trunk).|甲状腺包绕喉下方气管的前面：两个侧叶由峡部连接，峡部位于第二至第四气管环之上，常有一个锥状叶向舌骨上升。四个副甲状腺位于侧叶后面。血液来自甲状腺上动脉（颈外动脉）及甲状腺下动脉（甲状颈干）。
 Senses, integrates and responds. The central nervous system is the brain and spinal cord; cranial and spinal nerves form the peripheral system. The cerebral cortex is coloured by lobe: frontal (green), parietal (yellow), temporal (blue), occipital (pink), limbic (tan) and insula (purple). Use the view buttons for lateral, medial and inferior views of the brain, or the whole spine.|负责感知、整合及作出反应。中枢神经系统包括脑和脊髓；脑神经及脊神经组成周围神经系统。大脑皮质按脑叶着色：额叶（绿）、顶叶（黄）、颞叶（蓝）、枕叶（粉红）、边缘叶（浅褐）及脑岛（紫）。可使用视角按钮查看脑的外侧、内侧和下面观，或整条脊柱。
 The heart pumps blood through a closed circuit. Deoxygenated blood (blue) returns through the venae cavae to the right heart and goes to the lungs through the pulmonary trunk (purple). Oxygenated blood (red) returns through the pulmonary veins to the left heart and leaves through the aorta. Use Heart cutaway to open the four chambers and see the valves, chordae and papillary muscles.|心脏推动血液在封闭的循环中流动。缺氧血（蓝色）经腔静脉回流至右心，再经肺动脉干（紫色）送往肺部。含氧血（红色）经肺静脉回流至左心，再经主动脉离开。使用「心脏剖开」可打开四个心腔，查看瓣膜、腱索和乳头肌。
-Air passes the larynx, the trachea (C-shaped cartilage rings with a muscular back wall) and the bronchial tree to the alveoli, where gas exchange happens across the thin alveolar wall into the capillaries. The right lung has three lobes and the left two, with a cardiac notch. The diaphragm drives breathing, and a magnified alveolar unit can be shown beside the figure (Heart, lungs and diaphragm panel).|空气经过喉、气管（C 形软骨环，后壁为肌肉）和支气管树到达肺泡，并在肺泡薄壁处与毛细血管进行气体交换。右肺有三叶，左肺有两叶，并有心切迹。横膈膜驱动呼吸，人体旁可显示放大的肺泡单位（心、肺和横膈膜面板）。
+Air passes the larynx, the trachea (C-shaped cartilage rings with a muscular back wall) and the bronchial tree to the alveoli, where gas exchange happens across the thin alveolar wall into the capillaries. The right lung has three lobes and the left two, with a cardiac notch. The diaphragm drives breathing, and a magnified alveolar unit can be shown beside the figure (Heart, lungs and diaphragm panel).|空气经过喉、气管（C 形软骨环，后壁为肌肉）和支气管树到达肺泡，并在肺泡薄壁处与毛细血管进行气体交换。右肺有三叶，左肺有两叶，并有心切迹。膈驱动呼吸，人体旁可显示放大的肺泡单位（心、肺和膈面板）。
 The eyeball sits in the orbit, moved by four recti and two obliques that arise around the optic canal; the levator palpebrae superioris lifts the upper lid and the lacrimal gland lies above and lateral. The ear runs from the auricle and external acoustic meatus to the tympanic membrane, the three ossicles in the tympanic cavity, and the cochlea and semicircular canals in the petrous temporal bone. The pharyngotympanic tube links the middle ear to the nasopharynx.|眼球位于眼眶内，由四条直肌和两条斜肌转动，这些肌肉起自视神经管周围；提上睑肌提起上眼睑，泪腺位于其上方及外侧。耳由耳廓和外耳道延伸至鼓膜、鼓室内的三块听小骨，以及颞骨岩部内的耳蜗和半规管。咽鼓管连接中耳与鼻咽。
-Female reproductive organs include the ovaries, fallopian tubes, uterus, cervix and vagina, with the vulva externally. Move the menstrual cycle slider (day 1 to 28) to see the lining thicken, a follicle mature, ovulation and the corpus luteum. The breast model has 16 radial lobes, each with a lactiferous duct, a lobule and acini, set in fat and fibrous tissue held by the suspensory ligaments of Cooper, with the nipple-areola complex, axillary tail, lymph nodes, vessels and nerves.|女性生殖器官包括卵巢、输卵管、子宫、子宫颈和阴道，外部为外阴。移动月经周期滑杆（第 1 至 28 天），可看到内膜增厚、滤泡成熟、排卵及黄体。乳房模型有 16 个放射状乳腺叶，每叶有一条输乳管、一个小叶和腺泡，位于脂肪和纤维组织中，由库珀悬韧带固定，并包括乳头乳晕复合体、腋尾、淋巴结、血管及神经。
-Lymph drains the fluid that leaks from capillaries back to the blood. Lymph nodes (lime) filter it along collecting vessels (pale green) that join into trunks: the jugular, subclavian and bronchomediastinal trunks on each side, and the lumbar and intestinal trunks below. The right lymphatic duct drains the right head, neck, arm and chest into the right venous angle. The thoracic duct, which starts at the cisterna chyli, drains everything else into the left venous angle. The tonsils, spleen, thymus, Peyer's patches and appendix are lymphoid tissue held in other systems and shown together in the lymphatic views.|淋巴将从毛细血管渗出的液体引流回血液。淋巴结（青绿色）沿收集管（淡绿色）过滤淋巴液，收集管汇合成淋巴干：每侧的颈干、锁骨下干和支气管纵隔干，以及下方的腰干和肠干。右淋巴导管将右侧头、颈、手臂和胸部的淋巴引流至右静脉角。胸导管起自乳糜池，将其余部分引流至左静脉角。扁桃体、脾脏、胸腺、培氏斑和阑尾属于其他系统内的淋巴组织，在淋巴视图中一并显示。
+Female reproductive organs include the ovaries, fallopian tubes, uterus, cervix and vagina, with the vulva externally. Move the menstrual cycle slider (day 1 to 28) to see the lining thicken, a follicle mature, ovulation and the corpus luteum. The breast model has 16 radial lobes, each with a lactiferous duct, a lobule and acini, set in fat and fibrous tissue held by the suspensory ligaments of Cooper, with the nipple-areola complex, axillary tail, lymph nodes, vessels and nerves.|女性生殖器官包括卵巢、输卵管、子宫、子宫颈和阴道，外部为外阴。移动月经周期滑块（第 1 至 28 天），可看到内膜增厚、卵泡成熟、排卵及黄体。乳房模型有 16 个放射状乳腺叶，每叶有一条输乳管、一个小叶和腺泡，位于脂肪和纤维组织中，由库珀悬韧带固定，并包括乳头乳晕复合体、腋尾、淋巴结、血管及神经。
+Lymph drains the fluid that leaks from capillaries back to the blood. Lymph nodes (lime) filter it along collecting vessels (pale green) that join into trunks: the jugular, subclavian and bronchomediastinal trunks on each side, and the lumbar and intestinal trunks below. The right lymphatic duct drains the right head, neck, arm and chest into the right venous angle. The thoracic duct, which starts at the cisterna chyli, drains everything else into the left venous angle. The tonsils, spleen, thymus, Peyer's patches and appendix are lymphoid tissue held in other systems and shown together in the lymphatic views.|淋巴将从毛细血管渗出的液体引流回血液。淋巴结（青绿色）沿收集管（淡绿色）过滤淋巴液，收集管汇合成淋巴干：每侧的颈干、锁骨下干和支气管纵隔干，以及下方的腰干和肠干。右淋巴导管将右侧头、颈、手臂和胸部的淋巴引流至右静脉角。胸导管起自乳糜池，将其余部分引流至左静脉角。扁桃体、脾脏、胸腺、派尔斑和阑尾属于其他系统内的淋巴组织，在淋巴视图中一并显示。
 The kidneys filter blood and form urine, which drains from the renal papillae into the minor and major calyces and the renal pelvis, then down the ureters to the bladder. The renal cortex is shown translucent so the medullary pyramids and collecting system are visible inside. At the hilum the renal vein lies in front, the artery in the middle and the pelvis behind. Each ureter narrows at the pelviureteric junction, at the pelvic brim and where it passes obliquely through the bladder wall. The trigone, between the two ureteric orifices and the internal urethral orifice, is the smooth area of the otherwise folded bladder lining.|肾脏过滤血液并形成尿液，尿液由肾乳头流入小肾盏、大肾盏和肾盂，再经输尿管流向膀胱。肾皮质以半透明显示，因此可看到内部的髓质锥体和集合系统。在肾门处，肾静脉在前，肾动脉居中，肾盂在后。每条输尿管在肾盂输尿管交界处、骨盆缘，以及斜行穿过膀胱壁处变窄。膀胱三角位于两个输尿管口与尿道内口之间，是膀胱内壁其余皱褶部分中平滑的区域。
-Breaks down food, absorbs nutrients and water, and eliminates waste. The mouth holds 32 permanent teeth and a tongue with papillae in front of the V-shaped sulcus terminalis and the lingual tonsil behind it. The lips and cheeks line a vestibule outside the teeth, the hard and soft palate roof the mouth, and a palatine tonsil lies in each tonsillar fossa between the faucial arches, with the pharyngeal, tubal and lingual tonsils completing Waldeyer's ring. The parotid, submandibular and sublingual glands empty into the mouth through their ducts. The oesophagus narrows at four points and changes from striated to smooth muscle down its length. The J-shaped stomach has a fundus above the cardia, an angular incisure on the lesser curvature and a thick-walled pyloric canal; its translucent wall shows three muscle layers over red, folded mucosa. The duodenum curves around the pancreatic head. The jejunum (upper left, wider, redder, tall folds, long vasa recta) gives way to the ileum (lower right, narrower, fatty mesentery, Peyer’s patches). The colon carries haustra, three taeniae and fatty appendices; the rectum follows the sacrum and bends at the puborectalis sling into the anal canal.|分解食物、吸收营养和水分，并排出废物。口腔有 32 颗恒牙，以及舌：舌乳头位于 V 形界沟前方，舌扁桃体位于界沟后方。唇和颊在牙齿外侧围成口腔前庭，硬腭和软腭构成口腔顶部；每个扁桃体窝内有一个腭扁桃体，位于咽门弓之间，咽扁桃体、咽鼓管扁桃体和舌扁桃体共同组成华氏环（咽淋巴环）。腮腺、颌下腺和舌下腺经各自的导管通入口腔。食管有四处狭窄，肌肉由上而下由横纹肌转为平滑肌。J 形的胃在贲门上方有胃底，小弯有角切迹，幽门管壁较厚；半透明的胃壁显示红色皱褶黏膜之上的三层肌肉。十二指肠环绕胰头弯曲。空肠（左上方，较宽、较红、皱襞高、直血管长）移行为回肠（右下方，较窄、肠系膜多脂肪、有培氏斑）。结肠有结肠袋、三条结肠带和肠脂垂；直肠沿骶骨下行，并在耻骨直肠肌吊带处弯向肛管。
+Breaks down food, absorbs nutrients and water, and eliminates waste. The mouth holds 32 permanent teeth and a tongue with papillae in front of the V-shaped sulcus terminalis and the lingual tonsil behind it. The lips and cheeks line a vestibule outside the teeth, the hard and soft palate roof the mouth, and a palatine tonsil lies in each tonsillar fossa between the faucial arches, with the pharyngeal, tubal and lingual tonsils completing Waldeyer's ring. The parotid, submandibular and sublingual glands empty into the mouth through their ducts. The oesophagus narrows at four points and changes from striated to smooth muscle down its length. The J-shaped stomach has a fundus above the cardia, an angular incisure on the lesser curvature and a thick-walled pyloric canal; its translucent wall shows three muscle layers over red, folded mucosa. The duodenum curves around the pancreatic head. The jejunum (upper left, wider, redder, tall folds, long vasa recta) gives way to the ileum (lower right, narrower, fatty mesentery, Peyer’s patches). The colon carries haustra, three taeniae and fatty appendices; the rectum follows the sacrum and bends at the puborectalis sling into the anal canal.|分解食物、吸收营养和水分，并排出废物。口腔有 32 颗恒牙，以及舌：舌乳头位于 V 形界沟前方，舌扁桃体位于界沟后方。唇和颊在牙齿外侧围成口腔前庭，硬腭和软腭构成口腔顶部；每个扁桃体窝内有一个腭扁桃体，位于咽门弓之间，咽扁桃体、咽鼓管扁桃体和舌扁桃体共同组成华氏环（咽淋巴环）。腮腺、颌下腺和舌下腺经各自的导管通入口腔。食管有四处狭窄，肌肉由上而下由横纹肌转为平滑肌。J 形的胃在贲门上方有胃底，小弯有角切迹，幽门管壁较厚；半透明的胃壁显示红色皱褶黏膜之上的三层肌肉。十二指肠环绕胰头弯曲。空肠（左上方，较宽、较红、皱襞高、直血管长）移行为回肠（右下方，较窄、肠系膜多脂肪、有派尔斑）。结肠有结肠袋、三条结肠带和肠脂垂；直肠沿骶骨下行，并在耻骨直肠肌吊带处弯向肛管。
 Appendix and caecum|阑尾及盲肠
 Bronchial tree|支气管树
 Cervical lymph nodes|颈部淋巴结
@@ -353,10 +348,10 @@ Teeth|牙齿
 Thyroid and parathyroid glands|甲状腺及副甲状腺
 Trachea|气管
 Whole ear (right)|右耳（整体）
-Follicular phase|滤泡期
+Follicular phase|卵泡期
 Ovulation|排卵
 Luteal phase|黄体期
-FSH matures a follicle that secretes estrogen, and the uterine lining thickens.|促卵泡激素（FSH）使分泌雌激素的滤泡成熟，子宫内膜增厚。
+FSH matures a follicle that secretes estrogen, and the uterine lining thickens.|促卵泡激素（FSH）使分泌雌激素的卵泡成熟，子宫内膜增厚。
 A surge in luteinizing hormone (LH) releases the mature egg into the fallopian tube.|黄体生成素（LH）激增，使成熟卵子排入输卵管。
 The corpus luteum secretes progesterone. If fertilization does not happen, the lining sheds at the end of the cycle.|黄体分泌黄体酮。若没有受精，内膜会在周期末脱落。
 Female body surface is shown with dedicated female reproductive and breast structures.|女性身体表面连同专用的女性生殖及乳房结构一并显示。
@@ -365,7 +360,7 @@ Save this view as a high-resolution PNG|将此视图保存为高分辨率 PNG
 Expand|展开
 Expand cross-section|展开剖面
 Make smaller|缩小
-Camera reset to the opening view|镜头已重设至起始视角
+Camera reset to the opening view|镜头已重置至起始视角
 Nothing selected to hide|没有可隐藏的已选结构
 Nothing to undo|没有可复原的操作
 Search a part, e.g. femur|搜索部位，例如 femur 或 股骨
@@ -393,7 +388,7 @@ Organs & airway|器官与气道
 Lymphatics|淋巴系统
 Project documents|项目文档
 No match. Try a common name, a Latin name or fewer letters.|找不到符合项目。请试用常用名称、拉丁名称或较少字母。
-Showing: single alveolar unit (magnified). Press the button again or Reset to leave it.|正在显示：单一肺泡单位（放大）。再按一次按钮或按「重设」即可离开。
+Showing: single alveolar unit (magnified). Press the button again or Reset to leave it.|正在显示：单一肺泡单位（放大）。再按一次按钮或按「重置」即可离开。
 close match|相近结果
 Type a note|输入注记
 Note|注记
@@ -420,7 +415,7 @@ View|视角
     [/^Parts · (\d+)$/, (m) => '部位 · ' + m[1]],
     [/^(\d+) removed · last: (.+)$/, (m) => '已移除 ' + m[1] + ' 项 · 最后：' + name(m[2])],
     [/^Outermost visible: (.+)$/, (m) => '最外层可见：' + name(m[1])],
-    [/^Showing: (.+)\. Choose Reset to bring everything back\.$/, (m) => '正在显示：' + name(m[1]) + '。按「重设」可还原全部。'],
+    [/^Showing: (.+)\. Choose Reset to bring everything back\.$/, (m) => '正在显示：' + name(m[1]) + '。按「重置」可还原全部。'],
     [/^(.+): no structures found for this view\.$/, (m) => name(m[1]) + '：此视图找不到任何结构。'],
     [/^(.+) has no structures in this model yet$/, (m) => '此模型尚未有' + name(m[1]) + '的结构'],
     [/^Undone\. (.+)$/, (m) => '已复原。' + tr(m[1])],
