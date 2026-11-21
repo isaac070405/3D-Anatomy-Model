@@ -21,6 +21,26 @@ FIXES = [
     ('附著', '附着'),  # attaches
     ('解像度', '分辨率'),
     ('食道', '食管'),  # oesophagus
+    ('远程', '远端'),  # Distal (OpenCC reads 遠端 as the network term 远程)
+    ('滑杆', '滑块'),  # UI slider
+    ('重设', '重置'),  # UI reset
+    ('红血球', '红细胞'),
+    ('微血管', '毛细血管'),
+    ('第一型肺泡', 'I型肺泡'),
+    ('第二型肺泡', 'II型肺泡'),
+    ('一型肺泡', 'I型肺泡'),
+    ('二型肺泡', 'II型肺泡'),
+    ('副睾', '附睾'),  # epididymis
+    ('滤泡', '卵泡'),  # ovarian follicle (no thyroid follicle term in the pack)
+    ('牙周韧带', '牙周膜'),
+    ('横膈膜', '膈'),  # diaphragm
+    ('中脑导水管', '中脑水管'),
+    ('海马体', '海马'),
+    ('食指', '示指'),  # index finger, anatomical term
+    ('无名指', '环指'),  # ring finger, anatomical term
+    ('拇长伸肌', '姆长伸肌'),  # extensor hallucis longus (the pack has no extensor pollicis longus)
+    ('拇长屈肌（足）', '姆长屈肌'),  # flexor hallucis longus
+    ('培氏斑', '派尔斑'),  # Peyer's patch
 ]
 
 def convert(text):

@@ -432,7 +432,7 @@ Superficial palmar arch|掌淺弓
 Deep palmar arch|掌深弓
 Deep palmar branch of ulnar artery|尺動脈掌深支
 Princeps pollicis artery|拇主要動脈
-Radialis indicis artery|示指橈側動脈
+Radialis indicis artery|食指橈側動脈
 Common palmar digital artery|指掌側總動脈
 Proper palmar digital artery|指掌側固有動脈
 Dorsal metacarpal artery|掌背動脈
@@ -1282,7 +1282,7 @@ Urethral opening (female)|尿道口（女性）
 Breast adipose tissue|乳房脂肪組織
 Lactiferous ducts|輸乳管
 Breast lobe and lobule|乳腺葉及小葉
-Acini (milk-producing alveoli)|腺泡（分泌乳汁的肺泡）
+Acini (milk-producing alveoli)|腺泡（分泌乳汁）
 Fibrous connective tissue (breast, right)|纖維結締組織（右乳）
 Fibrous connective tissue (breast, left)|纖維結締組織（左乳）
 Retromammary space and pectoral fascia|乳房後間隙及胸筋膜

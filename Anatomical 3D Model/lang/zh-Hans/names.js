@@ -270,7 +270,7 @@ Plantaris|跖肌
 Calcaneal (Achilles) tendon|跟腱（阿基里斯腱）
 Tibialis anterior|胫骨前肌
 Extensor digitorum longus|趾长伸肌
-Extensor hallucis longus|拇长伸肌
+Extensor hallucis longus|姆长伸肌
 Fibularis longus|腓骨长肌
 Fibularis brevis|腓骨短肌
 Fibularis tertius|第三腓骨肌
@@ -278,7 +278,7 @@ Extensor digitorum brevis|趾短伸肌
 Popliteus|腘肌
 Tibialis posterior|胫骨后肌
 Flexor digitorum longus|趾长屈肌
-Flexor hallucis longus|拇长屈肌（足）
+Flexor hallucis longus|姆长屈肌
 Deep fasciae|深筋膜
 Fascia lata (thigh)|阔筋膜（大腿）
 Crural fascia (leg)|小腿筋膜
@@ -521,7 +521,7 @@ Pulmonary veins, intrapulmonary|肺内肺静脉
 Alveoli|肺泡
 Hilar lymph node|肺门淋巴结
 Pulmonary ligament|肺韧带
-Diaphragm|横膈膜
+Diaphragm|膈
 Central tendon|中心腱
 Right crus|右膈脚
 Left crus|左膈脚
@@ -544,16 +544,16 @@ Alveolus|肺泡
 Pore of Kohn|肺泡孔（科恩孔）
 Pulmonary arteriole|肺小动脉
 Pulmonary venule|肺小静脉
-Pulmonary capillary network|肺微血管网
+Pulmonary capillary network|肺毛细血管网
 Elastic fibres|弹性纤维
 Surfactant layer|表面活性物质层
-Type I pneumocyte|第一型肺泡细胞
-Type II pneumocyte|第二型肺泡细胞
+Type I pneumocyte|I型肺泡细胞
+Type II pneumocyte|II型肺泡细胞
 Lamellar bodies|板层小体
 Basement membrane|基底膜
-Capillary endothelium|微血管内皮
+Capillary endothelium|毛细血管内皮
 Alveolar macrophage|肺泡巨噬细胞
-Red blood cell|红血球
+Red blood cell|红细胞
 Oxygen diffuses|氧气扩散
 Carbon dioxide diffuses|二氧化碳扩散
 Lips and vestibule|唇及口腔前庭
@@ -686,7 +686,7 @@ Jejunum|空肠
 Jejunum mucosa (plicae circulares)|空肠黏膜（环状襞）
 Ileum|回肠
 Ileum mucosa|回肠黏膜
-Peyer's patch|培氏斑（集合淋巴小结）
+Peyer's patch|派尔斑（集合淋巴小结）
 Ileocecal valve|回盲瓣
 Root of mesentery|肠系膜根
 Jejunal arteries (simple arcades, long vasa recta)|空肠动脉（单层动脉弓，长直血管）
@@ -724,7 +724,7 @@ Dentinal tubules|牙本质小管
 Pulp chamber|牙髓腔
 Root canal|根管
 Cementum|牙骨质
-Periodontal ligament|牙周韧带
+Periodontal ligament|牙周膜
 Alveolar bone|牙槽骨
 Cementoenamel junction|牙骨质釉质交界
 Apical foramen|根尖孔
@@ -782,10 +782,10 @@ Mediastinum testis|睾丸纵隔
 Seminiferous tubules|曲细精管
 Rete testis|睾丸网
 Efferent ductules|输出小管
-Epididymis and spermatic cord|副睾及精索
-Epididymis, head|副睾头
-Epididymis, body|副睾体
-Epididymis, tail|副睾尾
+Epididymis and spermatic cord|附睾及精索
+Epididymis, head|附睾头
+Epididymis, body|附睾体
+Epididymis, tail|附睾尾
 Spermatic cord|精索
 Testicular artery|睾丸动脉
 Pampiniform venous plexus|蔓状静脉丛
@@ -922,13 +922,13 @@ Caudate nucleus|尾状核
 Putamen|壳核
 Globus pallidus|苍白球
 Amygdala|杏仁核
-Hippocampus|海马体
+Hippocampus|海马
 Internal capsule|内囊
 Ventricular system|脑室系统
 Lateral ventricle|侧脑室
 3rd ventricle|第三脑室
 Interventricular foramen|室间孔
-Cerebral aqueduct|中脑导水管
+Cerebral aqueduct|中脑水管
 4th ventricle|第四脑室
 Choroid plexus|脉络丛
 Central canal|中央管
@@ -1128,8 +1128,8 @@ proximal|近节
 middle|中节
 distal|远节
 thumb|拇指
-index|食指
-ring|无名指
+index|示指
+ring|环指
 little|小指
 great toe|大趾
 second toe|第二趾
@@ -1270,9 +1270,9 @@ Vaginal opening|阴道口
 Ovary|卵巢
 Fallopian tube|输卵管
 Fimbriae|输卵管伞
-Ovarian follicle|卵巢滤泡
+Ovarian follicle|卵巢卵泡
 Ovarian vessels|卵巢血管
-Dominant (Graafian) follicle|优势（格拉夫）滤泡
+Dominant (Graafian) follicle|优势（格拉夫）卵泡
 Corpus luteum|黄体
 Released oocyte|排出的卵母细胞
 Labia majora|大阴唇
@@ -1282,7 +1282,7 @@ Urethral opening (female)|尿道口（女性）
 Breast adipose tissue|乳房脂肪组织
 Lactiferous ducts|输乳管
 Breast lobe and lobule|乳腺叶及小叶
-Acini (milk-producing alveoli)|腺泡（分泌乳汁的肺泡）
+Acini (milk-producing alveoli)|腺泡（分泌乳汁）
 Fibrous connective tissue (breast, right)|纤维结缔组织（右乳）
 Fibrous connective tissue (breast, left)|纤维结缔组织（左乳）
 Retromammary space and pectoral fascia|乳房后间隙及胸筋膜
@@ -1314,10 +1314,10 @@ Dorsal root ganglion Co1|背根神经节 Co1
 root|神经根
 medial root|内侧根
 digital branch to thumb|拇指指支
-digital branch to index finger|食指指支
+digital branch to index finger|示指指支
 digital branch to middle finger|中指指支
-digital branch to ring finger (lateral half)|无名指指支（外侧半）
-digital branch to ring finger (medial half)|无名指指支（内侧半）
+digital branch to ring finger (lateral half)|环指指支（外侧半）
+digital branch to ring finger (medial half)|环指指支（内侧半）
 digital branch to little finger|小指指支
 L4–L5 roots|L4–L5 神经根
 S1–S3 roots|S1–S3 神经根
