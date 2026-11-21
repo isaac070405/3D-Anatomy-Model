@@ -1447,6 +1447,7 @@ Bones and cartilage|骨骼及软骨
       { id: 'zh-Hant', label: 'Traditional Chinese', native: '繁體中文' },
       { id: 'en', label: 'English' },
       { id: 'zh-Hans', label: 'Simplified Chinese', native: '简体中文' },
+      { id: 'zh-Yue', label: 'Cantonese', native: '廣東話' },
       { id: 'es', label: 'Spanish', native: 'Español' },
       { id: 'la', label: 'Latin', native: 'Latina' },
     ];
