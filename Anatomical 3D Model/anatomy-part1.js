@@ -1,3 +1,4 @@
+import { RESCALE } from './anatomy-rescale.js';
 
 const stage = document.querySelector('three-d-stage');
 window.__load && window.__load.set(3, 'Loading 3D engine');
@@ -164,13 +165,15 @@ seg(SK, 'coccyx', [0, 0.855, -0.066], [0, 0.825, -0.05], 0.007, 0.003, mat.bone)
 
 // thoracic cage: 12 rib pairs with head, neck, tubercle, angle; costal cartilage; sternum
 const RW = [0.07, 0.098, 0.122, 0.139, 0.148, 0.155, 0.155, 0.148, 0.136, 0.122, 0.1, 0.08];
-const RD = [0.058, 0.072, 0.083, 0.09, 0.093, 0.095, 0.095, 0.093, 0.088, 0.081, 0.063, 0.045];
+// The rib arcs deepen backwards only (RESCALE.ribcage.back x the per-rib weight): the centre moves back by half the extra depth, so the front, where the sternum sits, stays put.
+const RBK = RESCALE.ribcage.weight.map(w => RESCALE.ribcage.back * w), ZC = RBK.map(b => -0.002 - b / 2);
+const RD = [0.058, 0.072, 0.083, 0.09, 0.093, 0.095, 0.095, 0.093, 0.088, 0.081, 0.063, 0.045].map((d, i) => d + RBK[i] / 2);
 const RDR = [0.03, 0.04, 0.05, 0.06, 0.07, 0.085, 0.095, 0.1, 0.1, 0.095, 0.07, 0.04];
 const RA1 = [2.2, 2.35, 2.35, 2.35, 2.35, 2.35, 2.35, 2.35, 2.35, 2.3, 1.7, 1.3];
 const YS = [1.352, 1.322, 1.3, 1.278, 1.256, 1.234, 1.214];
 const PM = [[0.034, 1.19, 0.09], [0.052, 1.168, 0.087], [0.07, 1.148, 0.082]];
 for (let n = 1; n <= 12; n++) for (const s of [-1, 1]) {
-  const sd = s < 0 ? 'right' : 'left', v = VD['T' + n], W = RW[n - 1], D = RD[n - 1], DR = RDR[n - 1], A1 = RA1[n - 1], zcen = -0.002;
+  const sd = s < 0 ? 'right' : 'left', v = VD['T' + n], W = RW[n - 1], D = RD[n - 1], DR = RDR[n - 1], A1 = RA1[n - 1], zcen = ZC[n - 1];
   const pts = [[s * v.r * 0.95, v.y + 0.003, v.zb - 0.002], [s * (v.r * 0.95 + 0.012), v.y, v.zb - 0.014], [s * (v.cR + v.tpLen - 0.003), v.y - 0.004, v.zcan - v.tpBack + 0.006]];
   [0.55, 0.95, 1.35, 1.75, 2.1].filter(a => a < A1 - 0.12).concat([A1]).forEach(a => pts.push([s * W * Math.sin(a), v.y - DR * Math.pow(a / A1, 1.3), zcen - D * Math.cos(a)]));
   const rr = n === 1 ? 0.0058 : 0.0046, o = { label: `Rib ${n} (${sd})` };
@@ -637,7 +640,7 @@ box(MS, 'linea_alba', [0.006, 0.42, 0.004], [0, 1.05, 0.094], mm.ten, { label: '
   fan('Transversus abdominis', [[125, 1.12], [125, 1.02], [125, 0.93]], [[30, 1.15], [30, 1.03], [30, 0.9]], { h: -.002, t: .004, mt: DP, nu: 20 });
   fan('Rectus abdominis', [P3(.006, .838, .075), P3(.03, .842, .072)], [P3(.012, 1.235, .1), P3(.045, 1.24, .1), P3(.075, 1.22, .092)], { h: 0, t: .009, mt: SU, nu: 10, nv: 24, taper: 0 });
   // intercostals between consecutive ribs
-  const ribP = (n, a, k) => { const v = VD['T' + n], A1 = RA1[n - 1]; a = Math.min(a, A1); return V(RW[n - 1] * Math.sin(a) + Math.sin(a) * k, v.y - RDR[n - 1] * Math.pow(a / A1, 1.3), -0.002 - RD[n - 1] * Math.cos(a) - Math.cos(a) * k); };
+  const ribP = (n, a, k) => { const v = VD['T' + n], A1 = RA1[n - 1]; a = Math.min(a, A1); return V(RW[n - 1] * Math.sin(a) + Math.sin(a) * k, v.y - RDR[n - 1] * Math.pow(a / A1, 1.3), ZC[n - 1] - RD[n - 1] * Math.cos(a) - Math.cos(a) * k); };
   for (let n = 1; n <= 11; n++) for (const [lab, a0, k, mt, cut] of [['External intercostal', 0.5, 0.0025, mm.mid, 0.12], ['Internal intercostal', 1.0, -0.0025, DP, 0]]) {
     const a1 = Math.min(RA1[n - 1], RA1[n]) - cut; if (a1 <= a0) continue; const rows = [];
     for (let i = 0; i <= 16; i++) { const a = a0 + (a1 - a0) * i / 16, row = []; for (let j = 0; j <= 3; j++) { const f = 0.15 + 0.7 * j / 3; row.push(ribP(n, a, k).lerp(ribP(n + 1, a, k), f)); } rows.push(row); }
@@ -950,20 +953,22 @@ const cylG = (a, b, r1, r2) => { const d = b.clone().sub(a), len = d.length(), g
 const merge = list => { let nv = 0; const pos = [], nor = [], idx = []; list.forEach(g => { const p = g.attributes.position.array, n = g.attributes.normal.array, ix = g.index.array; for (let i = 0; i < p.length; i++) { pos.push(p[i]); nor.push(n[i]); } for (let i = 0; i < ix.length; i++) idx.push(ix[i] + nv); nv += p.length / 3; g.dispose(); }); const o = new THREE.BufferGeometry(); o.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); o.setAttribute('normal', new THREE.Float32BufferAttribute(nor, 3)); o.setIndex(idx); return o; };
 const airM = M('bronchial_tree', 0xd9d4cf, 0.5), nodeM = M('hilar_lymph_node', 0x2a2a2a, 0.6), alvM = M('alveoli', 0xe8b0ae, 0.6, { transparent: true, opacity: 0.9 });
 // inner rib-cage envelope at each height: half-width and depth from the rib arcs, used to keep the lungs inside the ribs
-const cageL = []; for (let n = 1; n <= 12; n++) cageL.push([VD['T' + n].y - RDR[n - 1] * Math.pow(Math.min(1, 1.5708 / RA1[n - 1]), 1.3), RW[n - 1], RD[n - 1]]);
+const cageL = []; for (let n = 1; n <= 12; n++) cageL.push([VD['T' + n].y - RDR[n - 1] * Math.pow(Math.min(1, 1.5708 / RA1[n - 1]), 1.3), RW[n - 1], RD[n - 1], ZC[n - 1]]);
 cageL.sort((a, b) => b[0] - a[0]);
 const cageAt = y => {
-  if (y >= cageL[0][0]) { const k = Math.min(1, (y - cageL[0][0]) / 0.05); return [cageL[0][1] * (1 - 0.3 * k), cageL[0][2] * (1 - 0.25 * k)]; }
-  for (let i = 1; i < cageL.length; i++) if (y >= cageL[i][0]) { const k = (y - cageL[i][0]) / (cageL[i - 1][0] - cageL[i][0]); return [cageL[i][1] + (cageL[i - 1][1] - cageL[i][1]) * k, cageL[i][2] + (cageL[i - 1][2] - cageL[i][2]) * k]; }
-  return [cageL[11][1], cageL[11][2]];
+  if (y >= cageL[0][0]) { const k = Math.min(1, (y - cageL[0][0]) / 0.05); return [cageL[0][1] * (1 - 0.3 * k), cageL[0][2] * (1 - 0.25 * k), cageL[0][3]]; }
+  for (let i = 1; i < cageL.length; i++) if (y >= cageL[i][0]) { const k = (y - cageL[i][0]) / (cageL[i - 1][0] - cageL[i][0]); return [cageL[i][1] + (cageL[i - 1][1] - cageL[i][1]) * k, cageL[i][2] + (cageL[i - 1][2] - cageL[i][2]) * k, cageL[i][3] + (cageL[i - 1][3] - cageL[i][3]) * k]; }
+  return [cageL[11][1], cageL[11][2], cageL[11][3]];
 };
-const inCage = (x, y, z) => { const [cw, cd] = cageAt(y), ex = x / (cw - 0.011), ez = (z + 0.002) / (cd - 0.01), rr = Math.hypot(ex, ez); return rr > 1 ? [x / rr, (z + 0.002) / rr - 0.002] : [x, z]; };
+const inCage = (x, y, z) => { const [cw, cd, zc] = cageAt(y), ex = x / (cw - 0.011), ez = (z - zc) / (cd - 0.01), rr = Math.hypot(ex, ez); return rr > 1 ? [x / rr, (z - zc) / rr + zc] : [x, z]; };
 for (const s of [-1, 1]) {
-  const sd = s < 0 ? 'right' : 'left', cx = s * 0.092, cy = 1.27, cz = -0.012, rx = 0.056, ry = 0.118, rz = 0.088;
+  const sd = s < 0 ? 'right' : 'left', cx = s * 0.092, cy = 1.27 + RESCALE.lung.dy, cz = -0.012, rx = 0.056 * RESCALE.lung.k[0], ry = 0.118 * RESCALE.lung.k[1], rz = 0.088 * RESCALE.lung.k[2];
   // lung surface
   const g = new THREE.SphereGeometry(1, 80, 60), pa = g.attributes.position, n = pa.count, U = new Float32Array(n * 3), HC = s > 0 ? [0.035, 1.22, 0.04, 0.045, 0.075, 0.06, 0.03] : [-0.03, 1.26, 0.04, 0.035, 0.06, 0.05, 0.012];
   for (let i = 0; i < n; i++) {
-    const ux = pa.getX(i), uy = pa.getY(i), uz = pa.getZ(i); U[i * 3] = ux; U[i * 3 + 1] = uy; U[i * 3 + 2] = uz;
+    const ux0 = pa.getX(i), uy = pa.getY(i), uz0 = pa.getZ(i); U[i * 3] = ux0; U[i * 3 + 1] = uy; U[i * 3 + 2] = uz0;
+    // fuller lung: a superellipsoid profile (exponent LN, 2 = ellipsoid) keeps the width up toward the apex and the base
+    const rh = Math.hypot(ux0, uz0), fl = rh > 1e-6 ? Math.pow(Math.max(0, 1 - Math.pow(Math.abs(uy), RESCALE.lung.n)), 1 / RESCALE.lung.n) / rh : 1, ux = ux0 * fl, uz = uz0 * fl;
     const top = sstep(0.5, 1, uy); let px = ux * rx * (1 - 0.35 * top), py = uy * ry, pz = uz * rz * (1 - 0.3 * top);
     py += 0.03 * sstep(-0.5, -1, uy) * (1 - Math.min(1, Math.hypot(ux, uz)));
     let med = -s * px; if (med > 0.02) med = 0.02 + (med - 0.02) * 0.25; px = -s * med;
@@ -987,7 +992,7 @@ for (const s of [-1, 1]) {
   { const pg = g.clone(), pp = pg.attributes.position; for (let i = 0; i < pp.count; i++) pp.setXYZ(i, pp.getX(i) + na.getX(i) * 0.003, pp.getY(i) + na.getY(i) * 0.003, pp.getZ(i) + na.getZ(i) * 0.003);
     reg(RS, 'pleura_' + sd, new THREE.Mesh(pg, M('pleura', 0xbfd4e4, 0.4, { transparent: true, opacity: 0.08, depthWrite: false, side: THREE.DoubleSide })), { label: 'Pleura (parietal, ' + sd + ')' }); }
   // bronchial tree
-  const H = V(s * 0.05, 1.283, -0.012), inside = p => { const [cw, cd] = cageAt(p.y); return ((p.x - cx) / (rx * 0.86)) ** 2 + ((p.y - cy) / (ry * 0.9)) ** 2 + ((p.z - cz) / (rz * 0.86)) ** 2 < 1 && Math.hypot(p.x / (cw - 0.02), (p.z + 0.002) / (cd - 0.018)) < 1; };
+  const H = V(s * 0.05, 1.283, -0.012), inside = p => { const [cw, cd, zc] = cageAt(p.y); return ((p.x - cx) / (rx * 0.86)) ** 2 + ((p.y - cy) / (ry * 0.9)) ** 2 + ((p.z - cz) / (rz * 0.86)) ** 2 < 1 && Math.hypot(p.x / (cw - 0.02), (p.z - zc) / (cd - 0.018)) < 1; };
   const lists = { sup: [], mid: [], inf: [] }, aL = [], vL = [], terms = [];
   const grow = (key, st, dir, len, r, depth, id) => {
     let L = len, en = st.clone().addScaledVector(dir, L); while (!inside(en) && L > 0.004) { L *= 0.7; en = st.clone().addScaledVector(dir, L); }
@@ -1202,7 +1207,7 @@ const SS = (u, th, k = 1) => { const f = stoF(u), r = sR(u) * k * (1 - 0.38 * ga
 sph(DG, 'liver_right_lobe', 0.075, [-0.07, 1.075, 0.025], dm.liver, { scale: [1.15, 0.62, 0.8], rot: [0, 0, 0.12], label: 'Liver' });
 sph(DG, 'liver_left_lobe', 0.05, [0.02, 1.097, 0.045], dm.liver, { scale: [1.5, 0.5, 0.7], rot: [0, 0, -0.15], label: 'Liver' });
 sph(DG, 'liver_caudate_lobe', 0.02, [-0.015, 1.07, -0.02], dm.liver, { label: 'Liver' });
-sph(DG, 'gallbladder', 0.013, [-0.052, 1.028, 0.066], dm.gall, { scale: [0.8, 1.6, 0.8], rot: [0, 0, 0.2] });
+sph(DG, 'gallbladder', 0.013, [-0.0561 + 0.0208 * RESCALE.gallbladder.k[1] * 0.1987, 1.0484 - 0.0208 * RESCALE.gallbladder.k[1] * 0.9801, 0.066], dm.gall, { scale: [0.8 * RESCALE.gallbladder.k[0], 1.6 * RESCALE.gallbladder.k[1], 0.8 * RESCALE.gallbladder.k[2]], rot: [0, 0, 0.2] });
 const Dp = [[-0.012, 1.03, 0.047], [-0.03, 1.04, 0.036], [-0.046, 1.032, 0.016], [-0.052, 1.005, 0.002], [-0.05, 0.978, -0.004], [-0.03, 0.966, 0.004], [-0.005, 0.965, 0.005], [0.016, 0.969, 0.0], [0.03, 0.985, -0.008], [0.036, 1.004, -0.012]];
 const Dc = new THREE.CatmullRomCurve3(Dp.map(p => V(...p))), Dl = Dc.getLength(), DCt = V(-0.03, 1.0, 0.01);
 const papilla = (u, k, up = 0) => { const p = Dc.getPointAt(u), d = DCt.clone().sub(p).setY(0).normalize().add(V(0, up, -0.35)).normalize(); return p.addScaledVector(d, 0.0135 * k); };
@@ -1210,12 +1215,12 @@ const MAJ = papilla(0.34, 0.78), MIN = papilla(0.27, 0.8, 0.2).add(V(0, 0, 0.005
 tube(DG, 'cystic_duct', [[-0.05, 1.047, 0.06], [-0.047, 1.052, 0.05], [-0.044, 1.055, 0.04]], 0.0022, dm.bile, { label: 'Cystic duct' });
 tube(DG, 'common_hepatic_duct', [[-0.038, 1.068, 0.03], [-0.041, 1.062, 0.035], [-0.044, 1.055, 0.04]], 0.0026, dm.bile, { label: 'Common hepatic duct' });
 tube(DG, 'common_bile_duct', [[-0.044, 1.055, 0.04], [-0.04, 1.048, 0.022], [-0.04, 1.026, 0.006], MAJ.clone().add(V(0.004, 0.006, -0.004)).toArray(), MAJ.toArray()], 0.0028, dm.bile, { label: 'Common bile duct' });
-varTube('pancreas', [[-0.028, 0.996, 0.002], [-0.026, 1.008, 0.0], [-0.012, 1.018, -0.012], [0.01, 1.03, -0.028], [0.05, 1.05, -0.04], [0.095, 1.07, -0.045]], u => 0.0135 * (1 - 0.45 * ss(0.2, 0.6, u)), dm.pancreas, { label: 'Pancreas (head, neck, body, tail)' });
-varTube('uncinate_process', [[-0.03, 0.992, 0.0], [-0.02, 0.986, -0.004], [-0.008, 0.986, -0.008]], u => 0.0065 * (1 - 0.4 * u), dm.pancreas, { label: 'Uncinate process (pancreas)' });
+varTube('pancreas', [[-0.028, 0.996, 0.002], [-0.026, 1.008, 0.0], [-0.012, 1.018, -0.012], [0.01, 1.03, -0.028], [0.05, 1.05, -0.04], [0.095, 1.07, -0.045]], u => RESCALE.pancreas.radius * 0.0135 * (1 - 0.45 * ss(0.2, 0.6, u)), dm.pancreas, { label: 'Pancreas (head, neck, body, tail)' });
+varTube('uncinate_process', [[-0.03, 0.992, 0.0], [-0.02, 0.986, -0.004], [-0.008, 0.986, -0.008]], u => RESCALE.pancreas.radius * 0.0065 * (1 - 0.4 * u), dm.pancreas, { label: 'Uncinate process (pancreas)' });
 const pdm = M('pancreatic_duct', 0xf3e3b8, 0.5);
 tube(DG, 'pancreatic_duct', [[0.09, 1.068, -0.045], [0.05, 1.049, -0.04], [0.01, 1.029, -0.028], [-0.012, 1.016, -0.012], [-0.03, 1.004, -0.003], MAJ.toArray()], 0.0018, pdm, { label: 'Pancreatic duct (of Wirsung)' });
 tube(DG, 'accessory_pancreatic_duct', [[-0.012, 1.016, -0.012], [-0.028, 1.018, 0.002], MIN.toArray()], 0.0011, pdm, { label: 'Accessory pancreatic duct (of Santorini)' });
-sph(DG, 'spleen', 0.04, [0.123, 1.075, -0.04], dm.spleen, { scale: [0.45, 1, 0.65], rot: [0, 0, 0.2] });
+sph(DG, 'spleen', 0.04, [0.128, 1.06, -0.046], dm.spleen, { scale: [0.45 * RESCALE.spleen.k[0], RESCALE.spleen.k[1], 0.65 * RESCALE.spleen.k[2]], rot: [0, 0, 0.2] });
 
 // ── duodenum: C-loop around the pancreatic head ──
 {

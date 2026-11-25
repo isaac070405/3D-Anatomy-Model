@@ -1,0 +1,31 @@
+organ,sex,n_sources,n_estimates,ref_min_mL,ref_median_mL,ref_max_mL,icrp_reference_mL,spread_ratio,sources_disagree_gt20pct
+Liver,male,5,5,1194.7,1472.6,1774.1,1698.1,1.48,True
+Liver,female,3,3,1024.0,1215.1,1320.8,1320.8,1.29,True
+Spleen,male,4,4,98.1,125.55,210.4,,2.14,True
+Spleen,female,3,3,95.4,109.5,161.7,,1.69,True
+Kidney (each),male,6,6,123.8,142.1,181.4,147.6,1.47,True
+Kidney (each),female,4,4,106.7,114.0,131.0,131.0,1.23,True
+Heart (wall tissue),male,4,4,296.2,312.3,315.2,314.3,1.06,False
+Heart (wall tissue),female,3,3,233.3,238.1,272.8,238.1,1.17,False
+Heart (chamber cavities),male,1,1,481.1,481.1,481.1,481.1,1.0,False
+Heart (chamber cavities),female,1,1,349.1,349.1,349.1,349.1,1.0,False
+"Lung (both, inflated volume)",male,2,2,6120.0,6160.0,6200.0,,1.01,False
+"Lung (both, inflated volume)",female,3,3,4664.6,4700.0,4710.0,,1.01,False
+Brain,male,4,4,1284.6,1320.2,1394.2,1394.2,1.09,False
+Brain,female,4,4,1120.2,1168.75,1250.0,1250.0,1.12,False
+Pancreas,male,5,5,63.7,77.9,86.2,,1.35,True
+Pancreas,female,3,3,52.3,67.7,72.8,,1.39,True
+Thyroid,male,3,3,14.5,19.0,20.2,19.0,1.39,True
+Thyroid,female,3,3,12.1,15.3,16.2,16.2,1.34,True
+Adrenals (both),male,3,3,6.7,8.5,13.3,13.3,1.99,True
+Adrenals (both),female,3,3,4.2,8.5,12.4,12.4,2.95,True
+Gallbladder (incl. contents),male,1,1,66.0,66.0,66.0,66.0,1.0,False
+Gallbladder (incl. contents),female,1,1,54.3,54.3,54.3,54.3,1.0,False
+Urinary bladder (wall + contents),male,1,1,240.4,240.4,240.4,240.4,1.0,False
+Urinary bladder (wall + contents),female,1,1,230.8,230.8,230.8,230.8,1.0,False
+Prostate,male,3,3,16.2,25.5,31.3,16.2,1.93,True
+Testis (each),male,2,2,10.4,13.55,16.7,16.7,1.61,True
+Uterus,female,1,1,78.4,78.4,78.4,78.4,1.0,False
+Ovary (each),female,1,1,5.2,5.2,5.2,5.2,1.0,False
+Thymus (both lobes),male,1,1,23.8,23.8,23.8,23.8,1.0,False
+Thymus (both lobes),female,1,1,19.0,19.0,19.0,19.0,1.0,False
