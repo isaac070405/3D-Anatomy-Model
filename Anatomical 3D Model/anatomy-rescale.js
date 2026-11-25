@@ -3,7 +3,7 @@
 // Factors differ per axis where a uniform factor would break a measured length or leave the skull.
 export const RESCALE = {
   // 63 mL to about 125 mL (reference median 125.6 mL). Length x1.06 keeps it under the 130 mm splenomegaly limit; width and thickness carry the volume.
-  spleen: { k: [1.38, 1.06, 1.36], note: 'single ellipsoid, built in anatomy-part1.js' },
+  spleen: { k: [1.3, 1.06, 1.36], note: 'single ellipsoid, built in anatomy-part1.js' },
   // Radius x1.25 on a 159 mm path. Tube volume 52 mL to about 81 mL (reference median 78 mL).
   pancreas: { radius: 1.25 },
   // 9.5 mL to about 25.5 mL (reference median 25.5 mL), uniform x1.39 about the base of the gland.

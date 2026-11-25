@@ -1216,7 +1216,7 @@ varTube('uncinate_process', [[-0.03, 0.992, 0.0], [-0.02, 0.986, -0.004], [-0.00
 const pdm = M('pancreatic_duct', 0xf3e3b8, 0.5);
 tube(DG, 'pancreatic_duct', [[0.09, 1.068, -0.045], [0.05, 1.049, -0.04], [0.01, 1.029, -0.028], [-0.012, 1.016, -0.012], [-0.03, 1.004, -0.003], MAJ.toArray()], 0.0018, pdm, { label: 'Pancreatic duct (of Wirsung)' });
 tube(DG, 'accessory_pancreatic_duct', [[-0.012, 1.016, -0.012], [-0.028, 1.018, 0.002], MIN.toArray()], 0.0011, pdm, { label: 'Accessory pancreatic duct (of Santorini)' });
-sph(DG, 'spleen', 0.04, [0.128, 1.04, -0.046], dm.spleen, { scale: [0.45 * RESCALE.spleen.k[0], RESCALE.spleen.k[1], 0.65 * RESCALE.spleen.k[2]], rot: [0, 0, 0.2] });
+sph(DG, 'spleen', 0.04, [0.128, 1.06, -0.046], dm.spleen, { scale: [0.45 * RESCALE.spleen.k[0], RESCALE.spleen.k[1], 0.65 * RESCALE.spleen.k[2]], rot: [0, 0, 0.2] });
 
 // ── duodenum: C-loop around the pancreatic head ──
 {

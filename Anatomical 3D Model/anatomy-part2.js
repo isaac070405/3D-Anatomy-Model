@@ -299,7 +299,8 @@ for (const s of [-1, 1]) {
 {
   const dia = G.respiratory.getObjectByName('diaphragm');
   const ss = (a, b, x) => { const q = Math.min(1, Math.max(0, (x - a) / (b - a))); return q * q * (3 - 2 * q); }, ga = (x, c, w) => Math.exp(-(((x - c) / w) ** 2));
-  const A = 0.158, Bz = 0.094, z0 = -0.004, rOf = (x, z) => Math.hypot(x / A, (z - z0) / Bz);
+  // the dome ellipse is wider on the left (AL) and deeper behind (BzP) so the spleen, which lies against the left posterior ribs, sits under the dome instead of at its rim
+  const A = 0.158, AL = 0.176, Bz = 0.094, BzP = 0.106, z0 = -0.004, rOf = (x, z) => Math.hypot(x / (x > 0 ? AL : A), (z - z0) / (z < z0 ? BzP : Bz));
   const y0 = (x, z) => { const r = rOf(x, z), rc = Math.min(1, r), Ad = 0.0875 - 0.0075 * Math.tanh(x / 0.02); return 1.05 + 0.065 * (z - z0) / Bz / Math.max(1, r) + Ad * Math.pow(Math.max(0, 1 - rc * rc), 0.9) - 0.012 * ga(x, 0, 0.03) * ga(z, 0.03, 0.05); };
   const X0 = -0.17, Z0 = -0.11, D = 0.004, NX = 86, NZ = 56, N = NX * NZ;
   let top = new Float32Array(N).fill(-9), cap = new Float32Array(N).fill(9);
