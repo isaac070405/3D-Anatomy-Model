@@ -30,6 +30,6 @@ Open http://localhost:8000. There is no build step. three.js 0.184.0 loads from 
 3. State the source for anatomy changes (an atlas plate or textbook page).
 4. Use plain, factual commit messages.
 
-The model is simplified and organs run about 60 to 80% of textbook size, so changes that only match a textbook more closely are welcome but not required.
+The model is simplified and organ sizes vary (see `research/part1-organ-size`), so changes that only match a textbook more closely are welcome but not required.
 
 By contributing you agree your work is released under the MIT License in `LICENSE`. Follow `CODE_OF_CONDUCT.md`.

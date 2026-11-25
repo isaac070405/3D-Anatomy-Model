@@ -9,7 +9,7 @@ An interactive three.js model of the human body that runs in the browser with no
 [![Sponsor isaac070405](https://img.shields.io/badge/Sponsor-isaac070405-ea4aaa?logo=githubsponsors)](https://github.com/sponsors/isaac070405)
 
 > [!NOTE]
-> The model is a simplified teaching model. Shapes, sizes and positions are approximate, and organs run about 60 to 80% of textbook size. It is not for clinical use.
+> The model is a simplified teaching model. Shapes, sizes and positions are approximate, and most solid organs are within about 70 to 120% of reference volumes, while the lungs, bladder and gallbladder are smaller ([research](research/part1-organ-size/README.md)). It is not for clinical use.
 
 ## Features
 

@@ -1,3 +1,4 @@
+import { RESCALE } from './anatomy-rescale.js';
 
 const stage = document.querySelector('three-d-stage');
 window.__load && window.__load.set(3, 'Loading 3D engine');
@@ -1210,12 +1211,12 @@ const MAJ = papilla(0.34, 0.78), MIN = papilla(0.27, 0.8, 0.2).add(V(0, 0, 0.005
 tube(DG, 'cystic_duct', [[-0.05, 1.047, 0.06], [-0.047, 1.052, 0.05], [-0.044, 1.055, 0.04]], 0.0022, dm.bile, { label: 'Cystic duct' });
 tube(DG, 'common_hepatic_duct', [[-0.038, 1.068, 0.03], [-0.041, 1.062, 0.035], [-0.044, 1.055, 0.04]], 0.0026, dm.bile, { label: 'Common hepatic duct' });
 tube(DG, 'common_bile_duct', [[-0.044, 1.055, 0.04], [-0.04, 1.048, 0.022], [-0.04, 1.026, 0.006], MAJ.clone().add(V(0.004, 0.006, -0.004)).toArray(), MAJ.toArray()], 0.0028, dm.bile, { label: 'Common bile duct' });
-varTube('pancreas', [[-0.028, 0.996, 0.002], [-0.026, 1.008, 0.0], [-0.012, 1.018, -0.012], [0.01, 1.03, -0.028], [0.05, 1.05, -0.04], [0.095, 1.07, -0.045]], u => 0.0135 * (1 - 0.45 * ss(0.2, 0.6, u)), dm.pancreas, { label: 'Pancreas (head, neck, body, tail)' });
-varTube('uncinate_process', [[-0.03, 0.992, 0.0], [-0.02, 0.986, -0.004], [-0.008, 0.986, -0.008]], u => 0.0065 * (1 - 0.4 * u), dm.pancreas, { label: 'Uncinate process (pancreas)' });
+varTube('pancreas', [[-0.028, 0.996, 0.002], [-0.026, 1.008, 0.0], [-0.012, 1.018, -0.012], [0.01, 1.03, -0.028], [0.05, 1.05, -0.04], [0.095, 1.07, -0.045]], u => RESCALE.pancreas.radius * 0.0135 * (1 - 0.45 * ss(0.2, 0.6, u)), dm.pancreas, { label: 'Pancreas (head, neck, body, tail)' });
+varTube('uncinate_process', [[-0.03, 0.992, 0.0], [-0.02, 0.986, -0.004], [-0.008, 0.986, -0.008]], u => RESCALE.pancreas.radius * 0.0065 * (1 - 0.4 * u), dm.pancreas, { label: 'Uncinate process (pancreas)' });
 const pdm = M('pancreatic_duct', 0xf3e3b8, 0.5);
 tube(DG, 'pancreatic_duct', [[0.09, 1.068, -0.045], [0.05, 1.049, -0.04], [0.01, 1.029, -0.028], [-0.012, 1.016, -0.012], [-0.03, 1.004, -0.003], MAJ.toArray()], 0.0018, pdm, { label: 'Pancreatic duct (of Wirsung)' });
 tube(DG, 'accessory_pancreatic_duct', [[-0.012, 1.016, -0.012], [-0.028, 1.018, 0.002], MIN.toArray()], 0.0011, pdm, { label: 'Accessory pancreatic duct (of Santorini)' });
-sph(DG, 'spleen', 0.04, [0.123, 1.075, -0.04], dm.spleen, { scale: [0.45, 1, 0.65], rot: [0, 0, 0.2] });
+sph(DG, 'spleen', 0.04, [0.128, 1.04, -0.046], dm.spleen, { scale: [0.45 * RESCALE.spleen.k[0], RESCALE.spleen.k[1], 0.65 * RESCALE.spleen.k[2]], rot: [0, 0, 0.2] });
 
 // ── duodenum: C-loop around the pancreatic head ──
 {

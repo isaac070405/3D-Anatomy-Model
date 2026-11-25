@@ -126,3 +126,24 @@ How licences were established: open-access licence URLs were read from the PubMe
 | S52 | Chudler E. Brain Facts and Figures, University of Washington (https://faculty.washington.edu/chudler/facts.html); The Physics Factbook, Mass of a Human Brain (https://hypertextbook.com/facts/2003/RachelScottRosenbluth.shtml) | Web pages; licence not stated in the search snippet | D |
 
 Full register with excluded sources and reasons: [source_register.csv](data/source_register.csv).
+
+## 7. Applied in the model
+
+The five organs from recommendation 1 were rescaled in code. The factors live in `Anatomical 3D Model/anatomy-rescale.js`. Volumes were re-measured headlessly with `scripts/measure_meshes.mjs` on the final mesh, after the diaphragm tuck pass in `anatomy-part2.js`.
+
+| Organ | Before (mL) | After (mL) | Reference median (mL) | After as % of median | Change |
+|---|---|---|---|---|---|
+| Spleen | 63 | 99 | 125.6 | 79% | Width x1.38, length x1.06, thickness x1.36, moved 5 mm laterally, 6 mm posteriorly and 35 mm down |
+| Pancreas | 36 (report), 52 (tube formula) | about 81 (tube formula) | 77.9 | about 104% | Radius x1.25, path unchanged |
+| Prostate | 9.5 | 25.5 | 25.5 | 100% | Uniform x1.39 about the base of the gland |
+| Uterus | 44.5 | 73.2 | 78.4 | 93% | Width x1.3, length x1.1 (60 to 66 mm), thickness x1.15 about the isthmus; fallopian tube start moved with it |
+| Brain (cerebrum, cerebellum, deep nuclei) | 740 | about 1,058 | 1,320 | 80% | Width x1.3, length x1.1, height unchanged |
+
+Notes:
+
+- The spleen could not reach the reference volume. The diaphragm tuck pass flattens any organ surface above the dome, which removed about 36% of the designed spleen volume. Raising the dome or moving the lung bases is a separate change.
+- The pancreas is an open tube, so its volume cannot be measured from the mesh. The 36 mL in section 3 is a voxel estimate. A tube formula (path length 159 mm, radius 13.5 mm tapering to 7.4 mm) gives 52 mL for the old model. The radius factor was chosen from the tube formula.
+- The brain factors are capped by the skull. The cortex was 104 mm wide and 143 mm long against a skull of 160 by 183 mm (outer). Height was left at 104 mm because the textbook value is 93 mm. A uniform x1.21 would put the frontal and occipital poles through the bone.
+- The brainstem, cranial nerves, circle of Willis and pituitary were not scaled. The hemispheres now sit wider around them.
+- A count of organ surface points inside neighbouring meshes shows no new large overlaps. The spleen gains 16 points (of 463) inside the descending colon and 11 inside the transverse colon. The prostate gains 13 points (of 441) inside the urinary bladder.
+

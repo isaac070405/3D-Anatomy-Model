@@ -1,4 +1,5 @@
 import { stage, THREE, V, model, SYS, G, M, mat, reg, xf, sph, box, Y, seg, tube, SK, zc, skPt, MS, mm, belly, SU, DP, __nextMcount } from './anatomy-part1.js';
+import { RESCALE, reshape, reshapeGroup, mapPoint } from './anatomy-rescale.js';
 import './anatomy-extras.js';
 import './anatomy-alveolus.js';
 import './anatomy-tooth.js';
@@ -260,6 +261,8 @@ for (const s of [-1, 1]) {
   for (let i = 0; i < 6; i++) sph(RP, 'prostatic_ductule_opening_' + i, 0.00022, [(i % 2 ? 1 : -1) * 0.0022, 0.811 - 0.0025 * (i >> 1), 0.0468], rm.dark, { label: 'Prostatic ductule openings' });
   grid('rectoprostatic_fascia', 10, 10, (a, b) => V((b * 2 - 1) * (0.03 - 0.01 * a), 0.846 - 0.049 * a, -0.006 + 0.038 * a + 0.004 * Math.sin(Math.PI * a)), rm.fascia, 'Rectoprostatic fascia (Denonvilliers)').renderOrder = 3;
   grid('perineal_membrane', 10, 12, (a, b) => V((b * 2 - 1) * 0.05 * (1 - a), 0.782 + 0.024 * a, 0.028 + 0.046 * a), rm.memb, 'Perineal membrane').renderOrder = 3;
+  // size correction (research/part1-organ-size): the gland and its zones grow together about the base
+  reshapeGroup(G[RP], /^(prostat|anterior_fibromuscular|urethral_crest|seminal_colliculus)/, RESCALE.prostate.k, RESCALE.prostate.pivot);
 }
 // root and body of the penis, glans, spongy urethra
 {
@@ -699,6 +702,8 @@ for (const s of [-1, 1]) { const sd = SD(s), sc = SC(s); LL.forEach(([name, labe
     window.__mniLoaded = true;
   }
 }
+// size correction (research/part1-organ-size): cerebrum, cerebellum and deep nuclei widen and lengthen together; the brainstem, vessels and nerves stay
+reshapeGroup(G[NS], /^(cortex_|cerebral_white_matter|cerebellum$|thalamus|pulvinar|lateral_geniculate|caudate|putamen|globus|internal_capsule|amygdala|hippocampus|fornix|corpus_callosum|septum_pellucidum|lateral_ventricle|third_ventricle|interthalamic|interventricular_foramen|choroid_plexus|anterior_commissure|hypothalamus|mammillary|subthalamic|pineal)/, RESCALE.brain.k, RESCALE.brain.pivot);
 window.__brain = { cortexMats, classify, lobeCol, C0, B, CL };
 // ───────── HEAD AND NECK DETAIL: eye, ear, nose and sinuses, larynx muscles, thyroid, face vessels and nerves ─────────
 {
@@ -1058,9 +1063,12 @@ const FATG = { male: new THREE.Group(), female: new THREE.Group() }; FATG.male.n
     g.computeVertexNormals();
     F('uterus', new THREE.Mesh(g, FM.wall), 'Uterus (womb)');
   }
+  const UK = RESCALE.uterus.k, UP = RESCALE.uterus.pivot;
   F('endometrium', new THREE.Mesh(hollowEllipsoid(0.013, 0.02, 0.009, 1), FM.endo), 'Endometrium').position.copy(uc).add(V(0, -0.002, 0.001));
   F('myometrium', new THREE.Mesh(hollowEllipsoid(0.016, 0.024, 0.012, 1), FM.wall), 'Myometrium').position.copy(uc);
   F('perimetrium', new THREE.Mesh(hollowEllipsoid(0.019, 0.027, 0.014, 1), FM.wall), 'Perimetrium').position.copy(uc).setZ(uc.z - 0.001);
+  // size correction (research/part1-organ-size): the body of the uterus grows about the isthmus, the cervix stays
+  ['uterus', 'endometrium', 'myometrium', 'perimetrium'].forEach(nm => reshape(G.reproductive.getObjectByName(nm), UK, UP));
   const cervix = new THREE.CylinderGeometry(0.008, 0.006, 0.019, 28, 1);
   cervix.rotateX(Math.PI / 2); cervix.translate(0, 0.807, 0.033);
   F('cervix', new THREE.Mesh(cervix, FM.soft), 'Cervix');
@@ -1075,7 +1083,7 @@ const FATG = { male: new THREE.Group(), female: new THREE.Group() }; FATG.male.n
     ov.scale(0.0095, 0.012, 0.008);
     ov.translate(s * 0.055, 0.842, 0.016);
     F('ovary_' + sd, new THREE.Mesh(ov, FM.soft), 'Ovary (' + sd + ')');
-    tubeF('fallopian_tube_' + sd, [[s * 0.017, 0.858, 0.016], [s * 0.03, 0.86, 0.012], [s * 0.044, 0.852, 0.011], [s * 0.054, 0.844, 0.014]], 0.0022, FM.duct, 'Fallopian tube (' + sd + ')');
+    tubeF('fallopian_tube_' + sd, [mapPoint([s * 0.017, 0.858, 0.016], UK, UP), [s * 0.03, 0.86, 0.012], [s * 0.044, 0.852, 0.011], [s * 0.054, 0.844, 0.014]], 0.0022, FM.duct, 'Fallopian tube (' + sd + ')');
     const fim = new THREE.ConeGeometry(0.0048, 0.007, 14, 1, true);
     fim.rotateZ(-s * Math.PI / 2); fim.translate(s * 0.059, 0.844, 0.015);
     F('fimbriae_' + sd, new THREE.Mesh(fim, FM.duct), 'Fimbriae (' + sd + ')');
