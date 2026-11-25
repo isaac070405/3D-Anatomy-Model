@@ -1,0 +1,80 @@
+organ,sex,source_id,basis,estimate_mL,kind,density_used,density_note
+Liver,male,S02,autopsy mass 1561 g / density,1472.6,mass-derived,1.06,ICRP 89 density seen in a secondary table (liver 1.06 g/mL)
+Liver,male,S09,autopsy mass 1439 g / density,1357.5,mass-derived,1.06,ICRP 89 density seen in a secondary table (liver 1.06 g/mL)
+Liver,male,S13,ICRP reference mass 1800 g / density,1698.1,mass-derived (reference),1.06,ICRP 89 density seen in a secondary table (liver 1.06 g/mL)
+Liver,male,S14,CT median,1194.7,CT volume,,
+Liver,male,S15,CT P50 at young adult (1560.7) to peak (1774.1): peak,1774.1,CT volume,,
+Liver,female,S04,autopsy mass 1288 g / density,1215.1,mass-derived,1.06,ICRP 89 density seen in a secondary table (liver 1.06 g/mL)
+Liver,female,S13,ICRP reference mass 1400 g / density,1320.8,mass-derived (reference),1.06,ICRP 89 density seen in a secondary table (liver 1.06 g/mL)
+Liver,female,S14,CT median,1024.0,CT volume,,
+Spleen,male,S02,autopsy mass 139 g / density,132.4,mass-derived,1.05,assumed 1.05 g/mL generic soft tissue (not sourced in this session)
+Spleen,male,S09,autopsy mass 103 g / density,98.1,mass-derived,1.05,assumed 1.05 g/mL generic soft tissue (not sourced in this session)
+Spleen,male,S14,CT median,118.7,CT volume,,
+Spleen,male,S16,CT median (Chinese),210.4,CT volume,,
+Spleen,female,S04,autopsy mass 115 g / density,109.5,mass-derived,1.05,assumed 1.05 g/mL generic soft tissue (not sourced in this session)
+Spleen,female,S14,CT median,95.4,CT volume,,
+Spleen,female,S16,CT median (Chinese),161.7,CT volume,,
+Kidney (each),male,S02,autopsy mean of R 129 and L 137 g / density,126.7,mass-derived,1.05,assumed 1.05 g/mL generic soft tissue (not sourced in this session)
+Kidney (each),male,S11,autopsy mean of R 160.9 and L 169.5 g / density,157.3,mass-derived,1.05,assumed 1.05 g/mL generic soft tissue (not sourced in this session)
+Kidney (each),male,S09,autopsy both-kidney 260 g / 2 / density,123.8,mass-derived,1.05,assumed 1.05 g/mL generic soft tissue (not sourced in this session)
+Kidney (each),male,S13,ICRP reference both-kidney 310 g / 2 / density,147.6,mass-derived (reference),1.05,assumed 1.05 g/mL generic soft tissue (not sourced in this session)
+Kidney (each),male,S14,CT median mean of R 134.1 and L 139.0,136.6,CT volume,,
+Kidney (each),male,S15,CT P50 peak mean of R 179.4 and L 183.3,181.4,CT volume,,
+Kidney (each),female,S04,autopsy mean of R 108 and L 116 g / density,106.7,mass-derived,1.05,assumed 1.05 g/mL generic soft tissue (not sourced in this session)
+Kidney (each),female,S11,autopsy mean of R 117.9 and L 125.4 g / density,115.9,mass-derived,1.05,assumed 1.05 g/mL generic soft tissue (not sourced in this session)
+Kidney (each),female,S13,ICRP reference both-kidney 275 g / 2 / density,131.0,mass-derived (reference),1.05,assumed 1.05 g/mL generic soft tissue (not sourced in this session)
+Kidney (each),female,S14,CT median mean of R 109.1 and L 115.1,112.1,CT volume,,
+Heart (wall tissue),male,S01,autopsy mass 331 g / density,315.2,mass-derived,1.05,assumed 1.05 g/mL generic soft tissue (not sourced in this session)
+Heart (wall tissue),male,S08,autopsy mass 325.82 g / density,310.3,mass-derived,1.05,assumed 1.05 g/mL generic soft tissue (not sourced in this session)
+Heart (wall tissue),male,S09,autopsy mass 311 g / density,296.2,mass-derived,1.05,assumed 1.05 g/mL generic soft tissue (not sourced in this session)
+Heart (wall tissue),male,S50,ICRP reference tissue mass 330 g / density,314.3,mass-derived (reference),1.05,assumed 1.05 g/mL generic soft tissue (not sourced in this session)
+Heart (wall tissue),female,S03,autopsy mass 245 g / density,233.3,mass-derived,1.05,assumed 1.05 g/mL generic soft tissue (not sourced in this session)
+Heart (wall tissue),female,S08,autopsy mass 286.39 g / density,272.8,mass-derived,1.05,assumed 1.05 g/mL generic soft tissue (not sourced in this session)
+Heart (wall tissue),female,S50,ICRP reference tissue mass 250 g / density,238.1,mass-derived (reference),1.05,assumed 1.05 g/mL generic soft tissue (not sourced in this session)
+Heart (chamber cavities),male,S50,ICRP heart-chamber blood 510 g / 1.06 (blood density assumed),481.1,mass-derived (reference),,
+Heart (chamber cavities),female,S50,ICRP heart-chamber blood 370 g / 1.06 (blood density assumed),349.1,mass-derived (reference),,
+"Lung (both, inflated volume)",male,S26,inspiratory CT mean,6120.0,CT volume,,
+"Lung (both, inflated volume)",male,S25,inspiratory CT mean,6200.0,CT volume,,
+"Lung (both, inflated volume)",female,S26,inspiratory CT mean,4710.0,CT volume,,
+"Lung (both, inflated volume)",female,S25,inspiratory CT mean,4700.0,CT volume,,
+"Lung (both, inflated volume)",female,S27,"inspiratory CT median (mixed sex, 29 M / 36 F; assigned to female group because female-weighted)",4664.6,CT volume,,
+Brain,male,S02,autopsy mass 1407 g / density,1352.9,mass-derived,1.04,ICRP 89 density seen in a secondary table (brain 1.04 g/mL)
+Brain,male,S09,autopsy mass 1339 g / density,1287.5,mass-derived,1.04,ICRP 89 density seen in a secondary table (brain 1.04 g/mL)
+Brain,male,S10,autopsy mass 1336 g / density,1284.6,mass-derived,1.04,ICRP 89 density seen in a secondary table (brain 1.04 g/mL)
+Brain,male,S13,ICRP reference mass 1450 g / density,1394.2,mass-derived (reference),1.04,ICRP 89 density seen in a secondary table (brain 1.04 g/mL)
+Brain,female,S04,autopsy mass 1233 g / density,1185.6,mass-derived,1.04,ICRP 89 density seen in a secondary table (brain 1.04 g/mL)
+Brain,female,S09,autopsy mass 1165 g / density,1120.2,mass-derived,1.04,ICRP 89 density seen in a secondary table (brain 1.04 g/mL)
+Brain,female,S10,autopsy mass 1198 g / density,1151.9,mass-derived,1.04,ICRP 89 density seen in a secondary table (brain 1.04 g/mL)
+Brain,female,S13,ICRP reference mass 1300 g / density,1250.0,mass-derived (reference),1.04,ICRP 89 density seen in a secondary table (brain 1.04 g/mL)
+Pancreas,male,S14,CT median,63.7,CT volume,,
+Pancreas,male,S15,CT P50 at peak (40-49 y),86.2,CT volume,,
+Pancreas,male,S20,CT mean (men),86.1,CT volume,,
+Pancreas,male,S19,CT mean (both sexes),77.9,CT volume,,
+Pancreas,male,S21,"CT mean (both sexes, Chinese)",64.6,CT volume,,
+Pancreas,female,S14,CT median,52.3,CT volume,,
+Pancreas,female,S15,CT P50 at peak (40-49 y),67.7,CT volume,,
+Pancreas,female,S20,CT mean (women),72.8,CT volume,,
+Thyroid,male,S23,ultrasound mean,14.5,ultrasound volume,,
+Thyroid,male,S24,ultrasound upper reference (BSA-based),20.2,ultrasound volume (upper limit),,
+Thyroid,male,S49,ICRP reference mass 20 g / density,19.0,mass-derived (reference),1.051,"ICRP 145 density (thyroid 1.051 g/cm3, snippet)"
+Thyroid,female,S23,ultrasound mean,12.1,ultrasound volume,,
+Thyroid,female,S24,ultrasound upper reference (BSA-based),15.3,ultrasound volume (upper limit),,
+Thyroid,female,S49,ICRP reference mass 17 g / density,16.2,mass-derived (reference),1.051,"ICRP 145 density (thyroid 1.051 g/cm3, snippet)"
+Adrenals (both),male,S14,CT median of total adrenal volume (reported),6.7,CT volume,,
+Adrenals (both),both,S33,CT mean R 4.26 + L 4.23,8.5,CT volume,,
+Adrenals (both),male,S47,ICRP reference mass 14 g / density,13.3,mass-derived (reference),1.05,assumed 1.05 g/mL generic soft tissue (not sourced in this session)
+Adrenals (both),female,S14,CT median of total adrenal volume (reported),4.2,CT volume,,
+Adrenals (both),female,S47,ICRP reference mass 13 g / density,12.4,mass-derived (reference),1.05,assumed 1.05 g/mL generic soft tissue (not sourced in this session)
+Gallbladder (incl. contents),male,S47,ICRP 110 phantom volume,66.0,phantom volume (reference),,
+Gallbladder (incl. contents),female,S47,ICRP 110 phantom volume,54.3,phantom volume (reference),,
+Urinary bladder (wall + contents),male,S47,ICRP 110 phantom: wall 48.1 + contents 192.3 cm3,240.4,phantom volume (reference),,
+Urinary bladder (wall + contents),female,S47,ICRP 110 phantom: wall 38.5 + contents 192.3 cm3,230.8,phantom volume (reference),,
+Prostate,male,S14,CT median,25.5,CT volume,,
+Prostate,male,S30,"MRI median (men, median age 46)",31.3,MRI volume,,
+Prostate,male,S49,ICRP reference mass 17 g / density,16.2,mass-derived (reference),1.05,assumed 1.05 g/mL generic soft tissue (not sourced in this session)
+Testis (each),male,S32,ultrasound mean of R 10.61 and L 10.19,10.4,ultrasound volume,,
+Testis (each),male,S47,ICRP reference 35 g both / 2 / density,16.7,mass-derived (reference),1.05,assumed 1.05 g/mL generic soft tissue (not sourced in this session)
+Uterus,female,S49,ICRP reference mass 80 g / density,78.4,mass-derived (reference),1.021,"ICRP 145 density (uterus 1.021 g/cm3, snippet)"
+Ovary (each),female,S49,ICRP reference mass 11 g both / 2 / density,5.2,mass-derived (reference),1.05,assumed 1.05 g/mL generic soft tissue (not sourced in this session)
+Thymus (both lobes),male,S48,ICRP reference mass 25 g / density,23.8,mass-derived (reference),1.05,assumed 1.05 g/mL generic soft tissue (not sourced in this session)
+Thymus (both lobes),female,S48,ICRP reference mass 20 g / density,19.0,mass-derived (reference),1.05,assumed 1.05 g/mL generic soft tissue (not sourced in this session)
