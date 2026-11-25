@@ -155,14 +155,17 @@ The three organs that depend on filling were set to a resting state. Sources and
 |---|---|---|---|---|---|
 | Gallbladder | Fasting | 18.7 mL (ultrasound, 1,246 men) | 9.3 | 18.4 | 98% |
 | Urinary bladder | First desire to void, outer volume | 188 mL (140 mL urine plus 48 mL wall) | 107.4 | 190.8 | 101% |
-| Lungs (both) | End-expiration (functional residual capacity) | about 3,440 mL (derived) | 1,696 | 2,141 | 62% |
+| Lungs (both) | End-expiration (functional residual capacity) | about 3,440 mL (derived) | 1,696 | 2,346 | 68% |
 
 Notes:
 
 - The bladder lumen (mucosa surface) is now 139 mL against the 140 mL target. The neck stays at the prostatic urethra, so the bladder grows up and outward and the ureters, trigone, detrusor bundles and urachus follow because they are all placed from the bladder ellipsoid.
 - The gallbladder neck stays at the cystic duct. A 42% longer gallbladder ran 107 of 463 surface points into the transverse colon, so width carries most of the growth (width x1.34, length x1.1). It still has 27 points inside the colon, against none before.
-- The lungs are limited by the rib cage. The lung surface is clipped to the inner rib envelope, so raising the ellipsoid factor from x1.3 to x1.7 only moved the volume from 1.9 to 2.2 L. The model rib cage is 168 mm deep (outer, from rib mesh bounds at the level of the lung base) and no adult chest depth was sourced for comparison. The factors in use (width and depth x1.6, height x1.12, centre 12 mm higher) give 2.14 L, with the base still under the diaphragm dome. Reaching 3.4 L needs a deeper rib cage, which is a separate change.
+- The lungs are limited by the rib cage clip and the lung shape. The first change (width and depth x1.6, height x1.12, centre 12 mm higher) gave 2.14 L. Raising the factor to x1.7 only reached 2.2 L, which I first read as a rib cage that is too shallow. That reading was wrong: the ribs already span about 193 mm front to back (sternum to posterior rib), and the lungs reach from z -83 to +78 mm against a sternum inner face at +84 mm. The ellipsoid tapers toward the apex and base, so it leaves the cage empty there.
+- A fuller lung profile (superellipsoid exponent 3.2 in place of 2) added 0.17 L, to 2.31 L. The liver volume did not change.
+- Ribs 6 to 10 were deepened backwards by up to 16 mm (weights 0.25, 0.5, 1, 1, 1), with the front fixed at the sternum, and the lung envelope follows. This added 0.04 L, to 2.35 L. Deepening every rib by the full 16 mm gave 2.56 L (74%) but moved the posterior ribs into the scapulae (37 sampled rib points inside each scapula, none before) and ribs 11 and 12 into the kidneys (urinary overlap 30 to 230 points). Ribs 1 to 5 stay because the scapula lies on them, and ribs 11 and 12 stay because the kidneys lie behind them. With the weights above the scapula overlap is 8 and 7 points (of 7,576 sampled rib points) and the kidney overlap is unchanged.
 - The resting lung reference is derived, not measured. The healthy adult paired CT study (65 adults) took its expiratory scan at full expiration, so it tracks residual volume. FRC was estimated as the male inspiratory CT volume (6,160 mL) divided by 1.79, the ratio of TLC to FRC in six healthy volunteers.
-- The lung surface now has 120 of 2,472 sampled points inside the pericardium (before 72), and 18 inside the left subclavian artery near the apex (before 0).
+- The lung surface now has 153 of 2,472 sampled points inside the pericardium (before 72), 18 inside the left brachiocephalic vein and 9 inside the left subclavian artery near the apex (before 0 for both).
+- Reaching the full 2.56 L (74%) or more needs the scapulae and the arm attachments moved back with the ribs, which was not done.
 - The ICRP bladder content of 192 mL is close to the first-desire figure, so the earlier 45% result was mostly the 107 mL filling in the model.
 
