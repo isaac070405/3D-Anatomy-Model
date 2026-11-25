@@ -960,7 +960,7 @@ const cageAt = y => {
 };
 const inCage = (x, y, z) => { const [cw, cd] = cageAt(y), ex = x / (cw - 0.011), ez = (z + 0.002) / (cd - 0.01), rr = Math.hypot(ex, ez); return rr > 1 ? [x / rr, (z + 0.002) / rr - 0.002] : [x, z]; };
 for (const s of [-1, 1]) {
-  const sd = s < 0 ? 'right' : 'left', cx = s * 0.092, cy = 1.27, cz = -0.012, rx = 0.056, ry = 0.118, rz = 0.088;
+  const sd = s < 0 ? 'right' : 'left', cx = s * 0.092, cy = 1.27 + RESCALE.lung.dy, cz = -0.012, rx = 0.056 * RESCALE.lung.k[0], ry = 0.118 * RESCALE.lung.k[1], rz = 0.088 * RESCALE.lung.k[2];
   // lung surface
   const g = new THREE.SphereGeometry(1, 80, 60), pa = g.attributes.position, n = pa.count, U = new Float32Array(n * 3), HC = s > 0 ? [0.035, 1.22, 0.04, 0.045, 0.075, 0.06, 0.03] : [-0.03, 1.26, 0.04, 0.035, 0.06, 0.05, 0.012];
   for (let i = 0; i < n; i++) {
@@ -1203,7 +1203,7 @@ const SS = (u, th, k = 1) => { const f = stoF(u), r = sR(u) * k * (1 - 0.38 * ga
 sph(DG, 'liver_right_lobe', 0.075, [-0.07, 1.075, 0.025], dm.liver, { scale: [1.15, 0.62, 0.8], rot: [0, 0, 0.12], label: 'Liver' });
 sph(DG, 'liver_left_lobe', 0.05, [0.02, 1.097, 0.045], dm.liver, { scale: [1.5, 0.5, 0.7], rot: [0, 0, -0.15], label: 'Liver' });
 sph(DG, 'liver_caudate_lobe', 0.02, [-0.015, 1.07, -0.02], dm.liver, { label: 'Liver' });
-sph(DG, 'gallbladder', 0.013, [-0.052, 1.028, 0.066], dm.gall, { scale: [0.8, 1.6, 0.8], rot: [0, 0, 0.2] });
+sph(DG, 'gallbladder', 0.013, [-0.0561 + 0.0208 * RESCALE.gallbladder.k[1] * 0.1987, 1.0484 - 0.0208 * RESCALE.gallbladder.k[1] * 0.9801, 0.066], dm.gall, { scale: [0.8 * RESCALE.gallbladder.k[0], 1.6 * RESCALE.gallbladder.k[1], 0.8 * RESCALE.gallbladder.k[2]], rot: [0, 0, 0.2] });
 const Dp = [[-0.012, 1.03, 0.047], [-0.03, 1.04, 0.036], [-0.046, 1.032, 0.016], [-0.052, 1.005, 0.002], [-0.05, 0.978, -0.004], [-0.03, 0.966, 0.004], [-0.005, 0.965, 0.005], [0.016, 0.969, 0.0], [0.03, 0.985, -0.008], [0.036, 1.004, -0.012]];
 const Dc = new THREE.CatmullRomCurve3(Dp.map(p => V(...p))), Dl = Dc.getLength(), DCt = V(-0.03, 1.0, 0.01);
 const papilla = (u, k, up = 0) => { const p = Dc.getPointAt(u), d = DCt.clone().sub(p).setY(0).normalize().add(V(0, up, -0.35)).normalize(); return p.addScaledVector(d, 0.0135 * k); };

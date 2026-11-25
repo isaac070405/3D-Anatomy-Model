@@ -1,6 +1,6 @@
 # Modelling Notes
 
-- Organ sizes vary by organ. Most solid organs are within about 70 to 120% of reference volumes (see research/part1-organ-size), while the lungs, bladder and gallbladder are smaller because their size depends on filling.
+- Organ sizes vary by organ. Most solid organs are within about 70 to 120% of reference volumes (see research/part1-organ-size). The lungs, bladder and gallbladder are drawn at rest: lungs at end-expiration, bladder at first desire to void and gallbladder fasting. The lungs reach about 60% of the resting volume because the rib cage limits them.
 - Vessels that join major trunks (renal, testicular, gut arteries) belong to Circulatory so connections stay intact when systems are hidden.
 - Translucent walls (kidney cortex, stomach, bladder, prostate, scrotum) expose internal structure; subsurface effects are approximated with sheen and clearcoat.
 - Fine surface textures (gastric pits, filiform papillae, skin micro-rugae) are omitted because textures don't survive OBJ export.

@@ -10,6 +10,12 @@ export const RESCALE = {
   prostate: { k: [1.39, 1.39, 1.39], pivot: [0, 0.815, 0.047] },
   // 44.5 mL to about 73 mL (reference median 78 mL). Length 60 to 66 mm stays inside the 50 to 80 mm ultrasound range.
   uterus: { k: [1.3, 1.1, 1.15], pivot: [0, 0.815, 0.02] },
+  // Resting lung (end-tidal, functional residual capacity). The ellipsoid grows and the rib-cage clip in anatomy-part1.js stops it at the inner ribs, so the volume saturates near 2.2 L. The base stays under the diaphragm dome.
+  lung: { k: [1.6, 1.12, 1.6], dy: 0.012 },
+  // Resting bladder: about 140 mL of urine at first desire to void plus the wall, 188 mL outer volume. The neck stays at the prostatic urethra; the bladder grows up and out.
+  bladder: { k: [1.21, 1.3, 1.13] },
+  // Fasting gallbladder, 18.7 mL (men). The neck end stays at the cystic duct. Width carries most of the growth because a longer gallbladder runs into the hepatic flexure of the colon.
+  gallbladder: { k: [1.34, 1.1, 1.34] },
   // 740 mL to about 1,060 mL (reference median 1,320 mL). Width and length are capped by the cranial cavity (skull outer 160 x 183 mm); height is unchanged because it already exceeds the textbook 93 mm.
   brain: { k: [1.3, 1, 1.1], pivot: [0, 1.655, 0] },
 };

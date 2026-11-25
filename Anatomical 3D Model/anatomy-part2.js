@@ -26,7 +26,9 @@ function uTube(name, pts, rf, mt, label, R = 14, sys = UR) {
 }
 const orient = (m, p, dir, axis = Y) => { m.position.copy(p); m.quaternion.setFromUnitVectors(axis, dir.clone().normalize()); return m; };
 // bladder (moderately filled), ellipsoid frame
-const Bc = V(0, 0.85, 0.038), BR = V(0.034, 0.028, 0.027);
+const BR = V(0.034 * RESCALE.bladder.k[0], 0.028 * RESCALE.bladder.k[1], 0.027 * RESCALE.bladder.k[2]);
+// the neck stays where the prostatic urethra starts (y 0.8242, z 0.0485); the centre moves up and back so the bladder grows upward and outward
+const Bc = V(0, 0.8242 + 0.9206 * BR.y, 0.0485 - 0.3902 * BR.z);
 const BW = (n, k = 1) => { const d = V(...n).normalize(); return Bc.clone().add(V(d.x * BR.x * k, d.y * BR.y * k, d.z * BR.z * k)); };
 const UO = s => BW([s * 0.4, -0.6, -0.69], 0.89), IUO = BW([0, -0.92, 0.39], 0.89), NECK = BW([0, -0.92, 0.39], 1.0);
 for (const s of [-1, 1]) {
